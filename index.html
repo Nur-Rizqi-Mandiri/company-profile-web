@@ -31,6 +31,7 @@
     <div id="footer-container"></div>
     <div id="floating-wa-container"></div>
     <div id="popup-promo-container"></div>
+    <div id="popup-gallery-container"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 
@@ -56,7 +57,8 @@
             { id: 'testimonials-container', file: 'assets/page/testimonials.html' },
             { id: 'cta-container', file: 'assets/page/cta.html' },
             { id: 'footer-container', file: 'assets/page/footer.html' },
-            { id: 'floating-wa-container', file: 'assets/page/floating-wa.html' }
+            { id: 'floating-wa-container', file: 'assets/page/floating-wa.html' },
+            { id: 'popup-gallery-container', file: 'assets/page/popup-gallery.html' }
         ];
 
         // Function to load a single HTML file
@@ -95,18 +97,20 @@
                 showSlides(window.slideIndex);
             }
 
-            // Popup Logic
+            // Popup Logic Trigger (Configurable)
             setTimeout(() => {
-                const popup = document.getElementById('promo-popup');
-                // Check if user has already seen the popup in this session
-                const hasSeenPopup = sessionStorage.getItem('hasSeenPopup');
+                const configPopup = typeof ACTIVE_POPUP !== 'undefined' ? ACTIVE_POPUP : 'gallery'; // Default to gallery
+                const hasSeenKey = `hasSeenPopup_${configPopup}`;
+                const hasSeen = sessionStorage.getItem(hasSeenKey);
 
-                if (popup && !hasSeenPopup) {
-                    popup.style.display = 'flex';
-                    // Trigger reflow
-                    popup.offsetHeight;
-                    popup.classList.add('show');
-                    sessionStorage.setItem('hasSeenPopup', 'true');
+                if (!hasSeen) {
+                    if (configPopup === 'promo' && typeof window.openPromoPopup === 'function') {
+                        window.openPromoPopup();
+                        sessionStorage.setItem(hasSeenKey, 'true');
+                    } else if (configPopup === 'gallery' && typeof window.openGalleryPopup === 'function') {
+                        window.openGalleryPopup();
+                        sessionStorage.setItem(hasSeenKey, 'true');
+                    }
                 }
             }, 3000); // Show after 3 seconds
         }
@@ -114,7 +118,20 @@
         // Init WOW.js for animations
         new WOW().init();
 
-        // Global functions (needed for onclick attributes in HTML)
+        // Configurable Variable (Change this to 'gallery', 'promo', or 'none')
+        const ACTIVE_POPUP = 'gallery';
+
+        // Global functions
+        window.openPromoPopup = function () {
+            const popup = document.getElementById('promo-popup');
+            if (popup) {
+                popup.style.display = 'flex';
+                // Trigger reflow
+                popup.offsetHeight;
+                popup.classList.add('show');
+            }
+        };
+
         window.closePopup = function () {
             const popup = document.getElementById('promo-popup');
             if (popup) {
@@ -124,6 +141,57 @@
                 }, 400); // Wait for transition
             }
         }
+
+        // Gallery Popup Logic
+        window.openGalleryPopup = function () {
+            const popup = document.getElementById('gallery-popup');
+            if (popup) {
+                popup.style.display = 'flex';
+                // Trigger reflow
+                popup.offsetHeight;
+                popup.classList.add('show');
+            }
+        };
+
+        window.closeGalleryPopup = function () {
+            const popup = document.getElementById('gallery-popup');
+            if (popup) {
+                popup.classList.remove('show');
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                }, 400);
+            }
+        };
+
+        let galleryIndex = 0;
+        window.changeGallerySlide = function (n) {
+            const showcase = document.querySelector('.gallery-showcase');
+            if (!showcase) return;
+            const images = showcase.querySelectorAll('img');
+
+            images[galleryIndex].classList.remove('active');
+            galleryIndex += n;
+
+            if (galleryIndex >= images.length) galleryIndex = 0;
+            if (galleryIndex < 0) galleryIndex = images.length - 1;
+
+            images[galleryIndex].classList.add('active');
+
+            // Optional: Update text based on slide index (can be expanded)
+            const title = document.getElementById('gallery-title');
+            const desc = document.getElementById('gallery-desc');
+
+            const contentData = [
+                { t: "Annual Charity Gala 2024", d: "Momen berbagi kebahagiaan bersama anak yatim dalam rangka ulang tahun perusahaan yang ke-14. Terima kasih kepada seluruh partner yang telah mendukung acara ini." },
+                { t: "Grand Opening Cabang Baru", d: "Perluasan jangkauan layanan kami di Jakarta Selatan dengan konsep dapur terbuka." },
+                { t: "Masterclass dengan Chef Rizqi", d: "Sesi sharing knowledge tentang kuliner nusantara kepada talenta muda berbakat." }
+            ];
+
+            if (title && desc && contentData[galleryIndex]) {
+                title.innerText = contentData[galleryIndex].t;
+                desc.innerText = contentData[galleryIndex].d;
+            }
+        };
 
         window.changeSlide = function (n) {
             showSlides(window.slideIndex += n);
