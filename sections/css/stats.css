@@ -1,0 +1,17 @@
+.stats-section {
+    background: linear-gradient(135deg, var(--primary-color), #1e421f);
+    color: white;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-family: var(--font-serif);
+    font-weight: bold;
+}
