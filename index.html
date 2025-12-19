@@ -10,623 +10,128 @@
 
 <body>
 
-<header>
-    <nav>
-        <div class="logo">PT. Nur Rizqi Mandiri</div>
-        <div class="menu-toggle" id="menuToggle">
-            ☰
-        </div>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#about">Tentang Kami</a></li>
-            <li><a href="#videos">Video</a></li>
-            <li><a href="#services">Layanan</a></li>
-            <li><a href="#gallery">Galeri</a></li>
-            <li><a href="#contact" class="btn-cta">Pesan Sekarang</a></li>
-        </ul>
-    </nav>
-</header>
+    <div id="header-container"></div>
+    <div id="hero-container"></div>
+    <div id="about-container"></div>
+    <div id="videos-container"></div>
+    <div id="services-container"></div>
+    <div id="menu-container"></div>
+    <div id="packages-container"></div>
+    <div id="gallery-container"></div>
+    <div id="moments-container"></div>
+    <div id="faq-container"></div>
+    <div id="trusted-container"></div>
+    <div id="certifications-container"></div>
+    <div id="contact-container"></div>
+    <div id="features-container"></div>
+    <div id="stats-container"></div>
+    <div id="testimonials-container"></div>
+    <div id="cta-container"></div>
+    <div id="footer-container"></div>
+    <div id="floating-wa-container"></div>
 
-<section class="hero">
-    <div class="hero-decoration blob-top-left"></div>
-    <div class="hero-decoration blob-bottom-right"></div>
+    <script>
+        // List of sections to load in order
+        const sections = [
+            { id: 'header-container', file: 'sections/header.html' },
+            { id: 'hero-container', file: 'sections/hero.html' },
+            { id: 'about-container', file: 'sections/about.html' },
+            { id: 'videos-container', file: 'sections/videos.html' },
+            { id: 'services-container', file: 'sections/services.html' },
+            { id: 'menu-container', file: 'sections/menu.html' },
+            { id: 'packages-container', file: 'sections/packages.html' },
+            { id: 'gallery-container', file: 'sections/gallery.html' },
+            { id: 'moments-container', file: 'sections/moments.html' },
+            { id: 'faq-container', file: 'sections/faq.html' },
+            { id: 'trusted-container', file: 'sections/trusted.html' },
+            { id: 'certifications-container', file: 'sections/certifications.html' },
+            { id: 'contact-container', file: 'sections/contact.html' },
+            { id: 'features-container', file: 'sections/features.html' },
+            { id: 'stats-container', file: 'sections/stats.html' },
+            { id: 'testimonials-container', file: 'sections/testimonials.html' },
+            { id: 'cta-container', file: 'sections/cta.html' },
+            { id: 'footer-container', file: 'sections/footer.html' },
+            { id: 'floating-wa-container', file: 'sections/floating-wa.html' }
+        ];
 
-    <div class="hero-container">
-        <div class="hero-text">
-            <h1>Citarasa <span class="highlight">Istimewa</span></h1>
-            <p>Katering premium yang mengubah setiap acara menjadi momen tak terlupakan dengan hidangan lezat dan
-                presentasi memukau.</p>
-            <p style="margin-bottom: 1rem; font-weight: bold; color: var(--primary-color);">📞 Layanan Pelanggan:
-                (021)
-                123-4567</p>
-            <a href="#contact" class="hero-btn">Pesan Sekarang</a>
-        </div>
-
-        <div class="hero-image-container">
-            <div class="special-offer-badge">
-                <span>Promo</span>
-                <div class="percent">20%</div>
-                <span>OFF</span>
-            </div>
-            <div class="main-image-frame">
-                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80"
-                     alt="Hidangan Katering Segar">
-            </div>
-        </div>
-    </div>
-</section>
-<section id="about" class="section-padding">
-    <div class="section-title">
-        <h2>Cerita Kami</h2>
-        <p>Menyajikan gairah di atas piring sejak 2010</p>
-    </div>
-    <div class="about-content">
-        <div class="about-img">
-            <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=800&q=80"
-                 alt="Koki memasak">
-        </div>
-        <div class="about-text">
-            <h3>Lebih Dari Sekadar Makanan</h3>
-            <p>Di PT. Nur Rizqi Mandiri, kami percaya bahwa katering adalah tentang menciptakan suasana. Didirikan
-                oleh Chef
-                Rizqi Ardiansyah, tim kami berdedikasi untuk mencari bahan-bahan lokal terbaik dan mengubahnya
-                menjadi
-                mahakarya kuliner.</p>
-            <p>Dengan pengalaman lebih dari 15 tahun dalam kuliner Nusantara dan Internasional, kami menghadirkan
-                tingkat detail, kebersihan, dan rasa yang sama di setiap hidangan, baik untuk acara intimate maupun
-                gala besar.</p>
-        </div>
-    </div>
-</section>
-
-<section id="videos" class="bg-off-white">
-    <div class="section-padding">
-        <div class="section-title">
-            <h2>Di Balik Layar</h2>
-            <p>Lihat bagaimana kami menciptakan keajaiban</p>
-        </div>
-        <div class="video-grid">
-            <div class="video-item">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=test" title="Video Katering 1"
-                        allowfullscreen></iframe>
-            </div>
-            <div class="video-item">
-                <iframe src="https://www.youtube.com/embed/LxR_7cbb100?si=test" title="Video Katering 2"
-                        allowfullscreen></iframe>
-            </div>
-            <div class="video-item">
-                <iframe src="https://www.youtube.com/embed/9d8wWcJLnFI?si=test" title="Video Katering 3"
-                        allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="services" class="section-padding">
-    <div class="section-title">
-        <h2>Layanan Kami</h2>
-        <p>Solusi yang disesuaikan untuk setiap kesempatan</p>
-    </div>
-    <div class="services-grid">
-        <div class="service-card">
-            <div class="service-icon">💍</div>
-            <h3>Pernikahan</h3>
-            <p>Dari makan malam piring yang elegan hingga prasmanan rustic, kami membuat hari besar Anda terasa
-                nikmat.</p>
-        </div>
-        <div class="service-card">
-            <div class="service-icon">🤝</div>
-            <h3>Korporat</h3>
-            <p>Buat klien Anda terkesan dengan kotak makan siang yang canggih, rehat kopi, dan makan malam
-                eksekutif.</p>
-        </div>
-        <div class="service-card">
-            <div class="service-icon">🎉</div>
-            <h3>Acara Pribadi</h3>
-            <p>Ulang tahun, hari jadi, atau reuni keluarga. Kami menangani makanannya agar Anda bisa fokus menjamu
-                tamu.</p>
-        </div>
-    </div>
-</section>
-<section id="menu" class="section-padding">
-    <div class="section-title">
-        <h2>Signature Dishes</h2>
-        <p>A sneak peek at our favorites</p>
-    </div>
-    <div class="menu-grid">
-        <div class="menu-item">
-            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80"
-                 alt="Salad">
-            <div class="menu-overlay">
-                <h3>Organic Green Bowls</h3>
-                <p>Fresh farm-to-table greens with vinaigrette.</p>
-            </div>
-        </div>
-        <div class="menu-item">
-            <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=800&q=80"
-                 alt="Steak">
-            <div class="menu-overlay">
-                <h3>Prime Rib Platter</h3>
-                <p>Slow-roasted herbs and spices.</p>
-            </div>
-        </div>
-        <div class="menu-item">
-            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=800&q=80"
-                 alt="Dessert">
-            <div class="menu-overlay">
-                <h3>Artisan Desserts</h3>
-                <p>Hand-crafted mousses and pastries.</p>
-            </div>
-        </div>
-    </div>
-    <div style="text-align: center; margin-top: 3rem;">
-        <a href="#" class="hero-btn"
-           onclick="alert('Maaf, fitur download katalog sedang dalam pengembangan.'); return false;">📄 Download
-            Katalog Menu 2024</a>
-    </div>
-</section>
-
-<section id="packages" class="section-padding bg-off-white">
-    <div class="section-title">
-        <h2>Pilihan Paket Favorit</h2>
-        <p>Temukan paket yang pas untuk kebutuhan acara Anda</p>
-    </div>
-
-    <div class="tabs-container">
-        <button class="tab-btn active" onclick="openTab(event, 'Wedding')">💍 Pernikahan</button>
-        <button class="tab-btn" onclick="openTab(event, 'Corporate')">🤝 Korporat</button>
-        <button class="tab-btn" onclick="openTab(event, 'Social')">🎉 Acara Pribadi</button>
-    </div>
-
-    <!-- Tab Content: Wedding -->
-    <div id="Wedding" class="tab-content" style="display: block;">
-        <div class="package-grid">
-            <div class="package-card">
-                <div class="pkg-header">Silver Package</div>
-                <div class="pkg-price">Rp 85.000<span>/pax</span></div>
-                <ul class="pkg-features">
-                    <li>1 Appetizer</li>
-                    <li>1 Soup</li>
-                    <li>4 Main Course</li>
-                    <li>1 Dessert</li>
-                    <li>Air Mineral</li>
-                </ul>
-                <a href="#contact" class="btn-cta small">Pilih Paket</a>
-            </div>
-            <div class="package-card featured">
-                <div class="pkg-badge">Best Value</div>
-                <div class="pkg-header">Gold Package</div>
-                <div class="pkg-price">Rp 120.000<span>/pax</span></div>
-                <ul class="pkg-features">
-                    <li>2 Appetizer</li>
-                    <li>1 Soup</li>
-                    <li>5 Main Course</li>
-                    <li>2 Dessert</li>
-                    <li>Food Tasting (4 Org)</li>
-                </ul>
-                <a href="#contact" class="btn-cta small">Pilih Paket</a>
-            </div>
-            <div class="package-card">
-                <div class="pkg-header">Platinum Package</div>
-                <div class="pkg-price">Rp 175.000<span>/pax</span></div>
-                <ul class="pkg-features">
-                    <li>2 Appetizer</li>
-                    <li>2 Soup</li>
-                    <li>6 Main Course</li>
-                    <li>3 Dessert & Stall</li>
-                    <li>Premium Decoration</li>
-                </ul>
-                <a href="#contact" class="btn-cta small">Pilih Paket</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Tab Content: Corporate -->
-    <div id="Corporate" class="tab-content">
-        <div class="package-grid">
-            <div class="package-card">
-                <div class="pkg-header">Coffee Break</div>
-                <div class="pkg-price">Rp 45.000<span>/pax</span></div>
-                <ul class="pkg-features">
-                    <li>2 Snack Choices</li>
-                    <li>Aromatic Coffee</li>
-                    <li>Tea Selection</li>
-                    <li>Minimal 50 Pax</li>
-                    <li>Durasi 2 Jam</li>
-                </ul>
-                <a href="#contact" class="btn-cta small">Pilih Paket</a>
-            </div>
-            <div class="package-card featured">
-                <div class="pkg-badge">Popular</div>
-                <div class="pkg-header">Lunch Box Premium</div>
-                <div class="pkg-price">Rp 65.000<span>/box</span></div>
-                <ul class="pkg-features">
-                    <li>Nasi Putih/Daun Jeruk</li>
-                    <li>1 Protein Utama</li>
-                    <li>1 Sayuran</li>
-                    <li>1 Lauk Pendamping</li>
-                    <li>Buah Potong & Air</li>
-                </ul>
-                <a href="#contact" class="btn-cta small">Pilih Paket</a>
-            </div>
-            <div class="package-card">
-                <div class="pkg-header">Executive Buffet</div>
-                <div class="pkg-price">Rp 150.000<span>/pax</span></div>
-                <ul class="pkg-features">
-                    <li>Full Buffet Setup</li>
-                    <li>Appetizer to Dessert</li>
-                    <li>VIP Service</li>
-                    <li>Table Setup</li>
-                    <li>Free Flow Drink</li>
-                </ul>
-                <a href="#contact" class="btn-cta small">Pilih Paket</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Tab Content: Social -->
-    <div id="Social" class="tab-content">
-        <div class="package-grid">
-            <div class="package-card">
-                <div class="pkg-header">Kids Birthday</div>
-                <div class="pkg-price">Rp 55.000<span>/pax</span></div>
-                <ul class="pkg-features">
-                    <li>Kids Friendly Menu</li>
-                    <li>Mini Burgers/Pasta</li>
-                    <li>Chocolate Fountain</li>
-                    <li>Fruit Satay</li>
-                    <li>Cute Presentation</li>
-                </ul>
-                <a href="#contact" class="btn-cta small">Pilih Paket</a>
-            </div>
-            <div class="package-card featured">
-                <div class="pkg-badge">Favorite</div>
-                <div class="pkg-header">Family Reunion</div>
-                <div class="pkg-price">Rp 90.000<span>/pax</span></div>
-                <ul class="pkg-features">
-                    <li>Menu Prasmanan Nusantara</li>
-                    <li>Tumpeng Mini</li>
-                    <li>Es Buah Segar</li>
-                    <li>Live Cooking (Opsional)</li>
-                    <li>Lesehan Setup Available</li>
-                </ul>
-                <a href="#contact" class="btn-cta small">Pilih Paket</a>
-            </div>
-            <div class="package-card">
-                <div class="pkg-header">Private Dinner</div>
-                <div class="pkg-price">Rp 350.000<span>/pax</span></div>
-                <ul class="pkg-features">
-                    <li>Plated Service (Fine Dining)</li>
-                    <li>5 Courses Menu</li>
-                    <li>Personal Chef</li>
-                    <li>Table Decor</li>
-                    <li>Minimal 10 Pax</li>
-                </ul>
-                <a href="#contact" class="btn-cta small">Pilih Paket</a>
-            </div>
-        </div>
-    </div>
-</section>
-<section id="gallery" class="bg-off-white section-padding">
-    <div class="section-title">
-        <h2>Galeri Kreasi</h2>
-        <p>Sorotan menu dan tata letak acara kami</p>
-    </div>
-    <div class="slider-container">
-        <div class="slide active">
-            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=80"
-                 alt="Salad Segar">
-            <div class="slide-caption">
-                <h3>Organic Green Bowls</h3>
-                <p>Sayuran segar dari kebun dengan vinaigrette khas kami.</p>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="https://images.unsplash.com/photo-1470256699805-a29e1b58598a?auto=format&fit=crop&w=1200&q=80"
-                 alt="Buffet Setup">
-            <div class="slide-caption">
-                <h3>Tata Letak Prasmanan Elegan</h3>
-                <p>Setup yang indah untuk acara pernikahan outdoor.</p>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=1200&q=80"
-                 alt="Dessert">
-            <div class="slide-caption">
-                <h3>Artisan Desserts</h3>
-                <p>Mouse dan kue kering buatan tangan yang memanjakan lidah.</p>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1200&q=80"
-                 alt="Catering Event">
-            <div class="slide-caption">
-                <h3>Suasana Acara</h3>
-                <p>Kami menciptakan pengalaman bersantap yang tak terlupakan.</p>
-            </div>
-        </div>
-        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
-        <a class="next" onclick="changeSlide(1)">&#10095;</a>
-    </div>
-</section>
-<section class="section-padding">
-    <div class="section-title">
-        <h2>Moments in Motion</h2>
-        <p>Unscripted visuals from our culinary journey</p>
-    </div>
-
-    <div class="chaos-grid">
-        <div class="chaos-item big shift-up">
-            <img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1200&q=80">
-            <div class="chaos-overlay"></div>
-        </div>
-
-        <div class="chaos-item tall shift-right">
-            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80">
-            <div class="chaos-overlay"></div>
-        </div>
-
-        <div class="chaos-item shift-down">
-            <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=800&q=80">
-            <div class="chaos-overlay"></div>
-        </div>
-
-        <div class="chaos-item wide shift-left">
-            <img
-                    src="https://images.unsplash.com/photo-1470256699805-a29e1b58598a?auto=format&fit=crop&w=1200&q=80">
-            <div class="chaos-overlay"></div>
-        </div>
-
-        <div class="chaos-item shift-up">
-            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=800&q=80">
-            <div class="chaos-overlay"></div>
-        </div>
-
-        <div class="chaos-item shift-right">
-            <img src="https://images.unsplash.com/photo-1556910103-1c02745a30bf?auto=format&fit=crop&w=800&q=80">
-            <div class="chaos-overlay"></div>
-        </div>
-    </div>
-</section>
-
-<section id="faq" class="section-padding bg-off-white">
-    <div class="section-title">
-        <h2>Pertanyaan Umum (FAQ)</h2>
-        <p>Hal yang sering ditanyakan oleh klien kami</p>
-    </div>
-    <div class="faq-container">
-        <details class="faq-item">
-            <summary>Apakah bisa melakukan food testing sebelum memesan?</summary>
-            <p>Tentu saja! Kami menyediakan sesi food testing gratis untuk pemesanan pernikahan di atas 500 pax.
-                Untuk acara lain, silakan hubungi tim kami untuk jadwal food testing reguler.</p>
-        </details>
-        <details class="faq-item">
-            <summary>Berapa minimal pemesanan catering?</summary>
-            <p>Untuk prasmanan (buffet), minimal pemesanan adalah 50 porsi. Untuk nasi box/snack box, minimal 30
-                box. Kami juga melayani private dining untuk jumlah yang lebih kecil.</p>
-        </details>
-        <details class="faq-item">
-            <summary>Apakah area layanan mencakup seluruh Jabodetabek?</summary>
-            <p>Ya, kami melayani seluruh area Jakarta, Bogor, Depok, Tangerang, dan Bekasi. Untuk lokasi di luar
-                Jabodetabek, akan dikenakan biaya tambahan transportasi.</p>
-        </details>
-        <details class="faq-item">
-            <summary>Apakah menyediakan menu untuk diet khusus?</summary>
-            <p>Kami sangat fleksibel. Kami bisa menyediakan menu vegetarian, vegan, bebas gluten, atau menu diet
-                khusus lainnya sesuai permintaan Anda.</p>
-        </details>
-    </div>
-</section>
-
-<div class="logo-carousel-section section-padding bg-off-white">
-    <div class="section-title">
-        <h2>Dipercaya Oleh</h2>
-        <p>Mitra dan Klien Korporat Kami</p>
-    </div>
-    <div class="logo-carousel">
-        <!-- Pake placeholder logo -->
-        <img src="https://via.placeholder.com/150x60?text=Bank+BCA" alt="Bank BCA">
-        <img src="https://via.placeholder.com/150x60?text=Pertamina" alt="Pertamina">
-        <img src="https://via.placeholder.com/150x60?text=Telkom" alt="Telkom">
-        <img src="https://via.placeholder.com/150x60?text=Mandiri" alt="Mandiri">
-        <img src="https://via.placeholder.com/150x60?text=Kemenkeu" alt="Kemenkeu">
-    </div>
-</div>
-
-<section id="certifications" class="section-padding">
-    <div class="section-title">
-        <h2>Standar Kualitas & Keamanan</h2>
-        <p>Legalitas dan Sertifikasi Resmi</p>
-    </div>
-    <div class="cert-grid">
-        <div class="cert-item">
-            <div class="cert-icon">🏷️</div>
-            <h4>Halal MUI</h4>
-            <p>No. 123456789</p>
-        </div>
-        <div class="cert-item">
-            <div class="cert-icon">🏥</div>
-            <h4>Laik Hygiene</h4>
-            <p>Dinkes DKI Jakarta</p>
-        </div>
-        <div class="cert-item">
-            <div class="cert-icon">🏢</div>
-            <h4>Anggota APJI</h4>
-            <p>Asosiasi Jasa Boga</p>
-        </div>
-    </div>
-</section>
-
-<section id="contact" class="section-padding">
-    <div class="section-title">
-        <h2>Hubungi Kami</h2>
-        <p>Mari rencanakan menu Anda</p>
-    </div>
-    <div class="contact-container">
-        <div class="contact-info">
-            <h3>Informasi Kontak</h3>
-            <p>📍 Jl. Kuliner No. 123, Kota Makan</p>
-            <p>📞 (021) 123-4567</p>
-            <p>✉️ hello@nurrizqimandiri.com</p>
-            <br>
-            <p><strong>Jam Operasional:</strong></p>
-            <p>Sen - Jum: 09:00 - 18:00</p>
-            <p>Sab: 10:00 - 16:00</p>
-        </div>
-        <form>
-            <input type="text" placeholder="Nama Anda" required>
-            <input type="email" placeholder="Email Anda" required>
-            <select>
-                <option>Jenis Acara</option>
-                <option>Pernikahan</option>
-                <option>Korporat</option>
-                <option>Pesta Pribadi</option>
-            </select>
-            <input type="date">
-            <textarea rows="5"
-                      placeholder="Ceritakan kebutuhan Anda (jumlah tamu, pantangan diet, dll)..."></textarea>
-            <button type="submit">Kirim Permintaan</button>
-        </form>
-    </div>
-</section>
-
-<section class="section-padding bg-off-white">
-    <div class="section-title">
-        <h2>Why Choose PT. Nur Rizqi Mandiri</h2>
-        <p>More than catering, we deliver experiences</p>
-    </div>
-
-    <div class="features-grid">
-        <div class="feature-card">
-            <div class="feature-icon">🌿</div>
-            <h3>Fresh Ingredients</h3>
-            <p>Bahan premium dari supplier lokal terpercaya.</p>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-icon">👨‍🍳</div>
-            <h3>Professional Chef</h3>
-            <p>Tim dapur berpengalaman event kecil hingga besar.</p>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-icon">⏱️</div>
-            <h3>On-Time Service</h3>
-            <p>Setup rapi dan tepat waktu tanpa kompromi kualitas.</p>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-icon">✨</div>
-            <h3>Custom Menu</h3>
-            <p>Menu fleksibel sesuai tema dan kebutuhan klien.</p>
-        </div>
-    </div>
-</section>
-
-<section class="stats-section">
-    <div class="section-padding">
-        <div class="stats-grid">
-            <div>
-                <div class="stat-number">14+</div>
-                <p>Tahun Pengalaman</p>
-            </div>
-            <div>
-                <div class="stat-number">1.200+</div>
-                <p>Event Terselenggara</p>
-            </div>
-            <div>
-                <div class="stat-number">150K+</div>
-                <p>Tamu Terlayani</p>
-            </div>
-            <div>
-                <div class="stat-number">98%</div>
-                <p>Kepuasan Klien</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section-padding bg-off-white">
-    <div class="section-title">
-        <h2>What Our Clients Say</h2>
-        <p>Trusted by families & companies</p>
-    </div>
-
-    <div class="testimonial-grid">
-        <div class="testimonial-card">
-            <p>"Makanannya luar biasa dan tim sangat profesional. Semua tamu puas."</p>
-            <div class="testimonial-author">— Rina, Wedding Client</div>
-        </div>
-
-        <div class="testimonial-card">
-            <p>"Pelayanan cepat, rasa konsisten, dan presentasi elegan."</p>
-            <div class="testimonial-author">— Andi, Corporate Event</div>
-        </div>
-
-        <div class="testimonial-card">
-            <p>"Catering terbaik yang pernah kami gunakan untuk acara keluarga."</p>
-            <div class="testimonial-author">— Sari, Private Party</div>
-        </div>
-    </div>
-</section>
-
-<section class="section-padding">
-    <div class="cta-banner">
-        <h2>Ready to Elevate Your Event?</h2>
-        <p>Konsultasikan kebutuhan catering Anda bersama tim kami.</p>
-        <a href="#contact" class="hero-btn">Book Consultation</a>
-    </div>
-</section>
-
-
-<footer>
-    <p>&copy; <span id="copyright-year"></span> PT. Nur Rizqi Mandiri Catering. Hak Cipta Dilindungi.</p>
-</footer>
-
-<script>
-    const year = new Date().getFullYear();
-    document.getElementById("copyright-year").textContent = year + '';
-
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
-
-    menuToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-    });
-    let slideIndex = 1;
-    showSlides(slideIndex);
-
-    function changeSlide(n) {
-        showSlides(slideIndex += n);
-    }
-
-    function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("slide");
-        if (n > slides.length) {
-            slideIndex = 1
+        // Function to load a single HTML file
+        async function loadSection(id, file) {
+            try {
+                const response = await fetch(file);
+                if (!response.ok) throw new Error(`Failed to load ${file}`);
+                const text = await response.text();
+                document.getElementById(id).innerHTML = text;
+            } catch (error) {
+                console.error(error);
+                document.getElementById(id).innerHTML = `<p>Error loading section: ${file}. Note: You must run this via a local server (e.g. Live Server).</p>`;
+            }
         }
-        if (n < 1) {
-            slideIndex = slides.length
-        }
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-            slides[i].classList.remove('active');
-        }
-        slides[slideIndex - 1].style.display = "block";
-        slides[slideIndex - 1].classList.add('active');
-    }
-</script>
 
-<a href="https://wa.me/6281234567890" class="floating-wa" target="_blank" title="Chat via WhatsApp">
-    <svg viewBox="0 0 32 32" class="whatsapp-ico">
-        <path
-                d="M16 2C8.28 2 2 8.28 2 16c0 2.5.65 4.88 1.88 7L2 29l6.19-1.63C10.63 28.53 13.25 29 16 29c7.72 0 14-6.28 14-14S23.72 2 16 2zm0 25c-2.3 0-4.5-.6-6.42-1.78l-4.13 1.09 1.1-4.04C5.45 20.25 4.8 17.9 4.8 16c0-6.19 5.03-11.23 11.23-11.23 6.19 0 11.23 5.04 11.23 11.23 0 6.19-5.04 11.23-11.23 11.23z"
-                fill="currentColor"/>
-        <path
-                d="M21.93 20.3c-.35-.18-2.07-1.03-2.39-1.15-.32-.12-.55-.18-.78.17-.23.36-.88 1.13-1.08 1.37-.2.23-.4.26-.75.08-.35-.18-1.47-.54-2.8-1.73-1.04-.93-1.75-2.07-1.95-2.42-.2-.35-.02-.54.15-.71.16-.16.35-.42.53-.63.17-.21.23-.36.35-.6.11-.24.06-.45-.03-.63-.09-.18-.8-1.92-1.09-2.63-.29-.69-.58-.6-.79-.61-.2-.01-.43-.01-.66-.01-.23 0-.6.09-.92.43-.31.35-1.19 1.16-1.19 2.84s1.22 3.3 1.39 3.53c.17.22 2.39 3.65 5.79 5.12 2.01.87 2.8 1.41 3.79 1.7 1.25.36 2.65.31 3.76.02.73-.2 2.07-.85 2.39-1.67.31-.82.31-1.53.22-1.67-.09-.15-.32-.24-.67-.42z"
-                fill="currentColor"/>
-    </svg>
-</a>
+        // Initialize scripts after content is loaded
+        function initScripts() {
+            // Dynamic Year
+            const yearElem = document.getElementById("copyright-year");
+            if (yearElem) yearElem.textContent = new Date().getFullYear();
+
+            // Mobile Menu
+            const menuToggle = document.getElementById("menuToggle");
+            const navLinks = document.getElementById("navLinks");
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener("click", () => {
+                    navLinks.classList.toggle("active");
+                });
+            }
+
+            // Slider Logic
+            if (document.getElementsByClassName("slide").length > 0) {
+                window.slideIndex = 1;
+                showSlides(window.slideIndex);
+            }
+        }
+
+        // Global functions (needed for onclick attributes in HTML)
+        window.changeSlide = function (n) {
+            showSlides(window.slideIndex += n);
+        }
+
+        window.showSlides = function (n) {
+            let i;
+            let slides = document.getElementsByClassName("slide");
+            if (n > slides.length) { window.slideIndex = 1 }
+            if (n < 1) { window.slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+                slides[i].classList.remove('active');
+            }
+            slides[window.slideIndex - 1].style.display = "block";
+            slides[window.slideIndex - 1].classList.add('active');
+        }
+
+        window.openTab = function (evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Load all sections sequentially then init scripts
+        async function loadAll() {
+            for (const section of sections) {
+                await loadSection(section.id, section.file);
+            }
+            initScripts();
+        }
+
+        document.addEventListener('DOMContentLoaded', loadAll);
+
+    </script>
 </body>
 
 </html>
