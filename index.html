@@ -10,134 +10,162 @@
 
 <body>
 
-<div id="header-container"></div>
-<div id="hero-container"></div>
-<div id="about-container"></div>
-<div id="videos-container"></div>
-<div id="services-container"></div>
-<div id="menu-container"></div>
-<div id="packages-container"></div>
-<div id="gallery-container"></div>
-<div id="moments-container"></div>
-<div id="faq-container"></div>
-<div id="trusted-container"></div>
-<div id="certifications-container"></div>
-<div id="contact-container"></div>
-<div id="features-container"></div>
-<div id="stats-container"></div>
-<div id="testimonials-container"></div>
-<div id="cta-container"></div>
-<div id="footer-container"></div>
-<div id="floating-wa-container"></div>
+    <div id="header-container"></div>
+    <div id="hero-container"></div>
+    <div id="about-container"></div>
+    <div id="videos-container"></div>
+    <div id="services-container"></div>
+    <div id="menu-container"></div>
+    <div id="packages-container"></div>
+    <div id="gallery-container"></div>
+    <div id="moments-container"></div>
+    <div id="faq-container"></div>
+    <div id="trusted-container"></div>
+    <div id="certifications-container"></div>
+    <div id="contact-container"></div>
+    <div id="features-container"></div>
+    <div id="stats-container"></div>
+    <div id="testimonials-container"></div>
+    <div id="cta-container"></div>
+    <div id="footer-container"></div>
+    <div id="floating-wa-container"></div>
 
-<script>
-    // List of sections to load in order
-    const sections = [
-        {id: 'header-container', file: 'sections/header.html'},
-        {id: 'hero-container', file: 'sections/hero.html'},
-        {id: 'about-container', file: 'sections/about.html'},
-        {id: 'videos-container', file: 'sections/videos.html'},
-        {id: 'services-container', file: 'sections/services.html'},
-        {id: 'menu-container', file: 'sections/menu.html'},
-        {id: 'packages-container', file: 'sections/packages.html'},
-        {id: 'gallery-container', file: 'sections/gallery.html'},
-        {id: 'moments-container', file: 'sections/moments.html'},
-        {id: 'faq-container', file: 'sections/faq.html'},
-        {id: 'trusted-container', file: 'sections/trusted.html'},
-        {id: 'certifications-container', file: 'sections/certifications.html'},
-        {id: 'contact-container', file: 'sections/contact.html'},
-        {id: 'features-container', file: 'sections/features.html'},
-        {id: 'stats-container', file: 'sections/stats.html'},
-        {id: 'testimonials-container', file: 'sections/testimonials.html'},
-        {id: 'cta-container', file: 'sections/cta.html'},
-        {id: 'footer-container', file: 'sections/footer.html'},
-        {id: 'floating-wa-container', file: 'sections/floating-wa.html'}
-    ];
+    <div id="popup-promo-container"></div>
 
-    // Function to load a single HTML file
-    async function loadSection(id, file) {
-        try {
-            const response = await fetch(file);
-            if (!response.ok) throw new Error(`Failed to load ${file}`);
-            document.getElementById(id).innerHTML = await response.text();
-        } catch (error) {
-            console.error(error);
-            document.getElementById(id).innerHTML = `<p>Error loading section: ${file}. Note: You must run this via a local server (e.g. Live Server).</p>`;
-        }
-    }
+    <script>
+        // List of sections to load in order
+        const sections = [
+            { id: 'header-container', file: 'sections/header.html' },
+            { id: 'hero-container', file: 'sections/hero.html' },
+            { id: 'popup-promo-container', file: 'sections/popup-promo.html' },
+            { id: 'about-container', file: 'sections/about.html' },
+            { id: 'videos-container', file: 'sections/videos.html' },
+            { id: 'services-container', file: 'sections/services.html' },
+            { id: 'menu-container', file: 'sections/menu.html' },
+            { id: 'packages-container', file: 'sections/packages.html' },
+            { id: 'gallery-container', file: 'sections/gallery.html' },
+            { id: 'moments-container', file: 'sections/moments.html' },
+            { id: 'faq-container', file: 'sections/faq.html' },
+            { id: 'trusted-container', file: 'sections/trusted.html' },
+            { id: 'certifications-container', file: 'sections/certifications.html' },
+            { id: 'contact-container', file: 'sections/contact.html' },
+            { id: 'features-container', file: 'sections/features.html' },
+            { id: 'stats-container', file: 'sections/stats.html' },
+            { id: 'testimonials-container', file: 'sections/testimonials.html' },
+            { id: 'cta-container', file: 'sections/cta.html' },
+            { id: 'footer-container', file: 'sections/footer.html' },
+            { id: 'floating-wa-container', file: 'sections/floating-wa.html' }
+        ];
 
-    // Initialize scripts after content is loaded
-    function initScripts() {
-        // Dynamic Year
-        const yearElem = document.getElementById("copyright-year");
-        if (yearElem) {
-            const fullYear = new Date().getFullYear()
-            yearElem.textContent = fullYear + '';
+        // Function to load a single HTML file
+        async function loadSection(id, file) {
+            try {
+                const response = await fetch(file);
+                if (!response.ok) throw new Error(`Failed to load ${file}`);
+                document.getElementById(id).innerHTML = await response.text();
+            } catch (error) {
+                console.error(error);
+                document.getElementById(id).innerHTML = `<p>Error loading section: ${file}. Note: You must run this via a local server (e.g. Live Server).</p>`;
+            }
         }
 
-        // Mobile Menu
-        const menuToggle = document.getElementById("menuToggle");
-        const navLinks = document.getElementById("navLinks");
-        if (menuToggle && navLinks) {
-            menuToggle.addEventListener("click", () => {
-                navLinks.classList.toggle("active");
-            });
+        // Initialize scripts after content is loaded
+        function initScripts() {
+            // Dynamic Year
+            const yearElem = document.getElementById("copyright-year");
+            if (yearElem) {
+                const fullYear = new Date().getFullYear()
+                yearElem.textContent = fullYear + '';
+            }
+
+            // Mobile Menu
+            const menuToggle = document.getElementById("menuToggle");
+            const navLinks = document.getElementById("navLinks");
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener("click", () => {
+                    navLinks.classList.toggle("active");
+                });
+            }
+
+            // Slider Logic
+            if (document.getElementsByClassName("slide").length > 0) {
+                window.slideIndex = 1;
+                showSlides(window.slideIndex);
+            }
+
+            // Popup Logic
+            setTimeout(() => {
+                const popup = document.getElementById('promo-popup');
+                // Check if user has already seen the popup in this session
+                const hasSeenPopup = sessionStorage.getItem('hasSeenPopup');
+
+                if (popup && !hasSeenPopup) {
+                    popup.style.display = 'flex';
+                    // Trigger reflow
+                    popup.offsetHeight;
+                    popup.classList.add('show');
+                    sessionStorage.setItem('hasSeenPopup', 'true');
+                }
+            }, 3000); // Show after 3 seconds
         }
 
-        // Slider Logic
-        if (document.getElementsByClassName("slide").length > 0) {
-            window.slideIndex = 1;
-            showSlides(window.slideIndex);
+        // Global functions (needed for onclick attributes in HTML)
+        window.closePopup = function () {
+            const popup = document.getElementById('promo-popup');
+            if (popup) {
+                popup.classList.remove('show');
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                }, 400); // Wait for transition
+            }
         }
-    }
 
-    // Global functions (needed for onclick attributes in HTML)
-    window.changeSlide = function (n) {
-        showSlides(window.slideIndex += n);
-    }
+        window.changeSlide = function (n) {
+            showSlides(window.slideIndex += n);
+        }
 
-    window.showSlides = function (n) {
-        let i;
-        let slides = document.getElementsByClassName("slide");
-        if (n > slides.length) {
-            window.slideIndex = 1
+        window.showSlides = function (n) {
+            let i;
+            let slides = document.getElementsByClassName("slide");
+            if (n > slides.length) {
+                window.slideIndex = 1
+            }
+            if (n < 1) {
+                window.slideIndex = slides.length
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+                slides[i].classList.remove('active');
+            }
+            slides[window.slideIndex - 1].style.display = "block";
+            slides[window.slideIndex - 1].classList.add('active');
         }
-        if (n < 1) {
-            window.slideIndex = slides.length
-        }
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-            slides[i].classList.remove('active');
-        }
-        slides[window.slideIndex - 1].style.display = "block";
-        slides[window.slideIndex - 1].classList.add('active');
-    }
 
-    window.openTab = function (evt, tabName) {
-        let i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tab-content");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
+        window.openTab = function (evt, tabName) {
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
         }
-        tablinks = document.getElementsByClassName("tab-btn");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
+
+        // Load all sections sequentially then init scripts
+        async function loadAll() {
+            for (const section of sections) {
+                await loadSection(section.id, section.file);
+            }
+            initScripts();
         }
-        document.getElementById(tabName).style.display = "block";
-        evt.currentTarget.className += " active";
-    }
 
-    // Load all sections sequentially then init scripts
-    async function loadAll() {
-        for (const section of sections) {
-            await loadSection(section.id, section.file);
-        }
-        initScripts();
-    }
+        document.addEventListener('DOMContentLoaded', loadAll);
 
-    document.addEventListener('DOMContentLoaded', loadAll);
-
-</script>
+    </script>
 </body>
 
 </html>
