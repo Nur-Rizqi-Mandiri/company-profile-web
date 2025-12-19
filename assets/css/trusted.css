@@ -1,0 +1,17 @@
+.logo-carousel {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    opacity: 0.7;
+}
+
+.logo-carousel img {
+    height: 40px;
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+}
+
+.logo-carousel img:hover {
+    filter: grayscale(0%);
+}
