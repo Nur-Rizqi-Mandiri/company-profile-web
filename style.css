@@ -1,26 +1,26 @@
 /* Main Stylesheet Imports */
 
 /* Global & Utilities */
-@import url('sections/css/global.css');
+@import url('assets/css/global.css');
 
 /* Section-Specific Styles */
-@import url('sections/css/header.css');
-@import url('sections/css/hero.css');
-@import url('sections/css/popup-promo.css');
-@import url('sections/css/about.css');
-@import url('sections/css/videos.css');
-@import url('sections/css/services.css');
-@import url('sections/css/menu.css');
-@import url('sections/css/packages.css');
-@import url('sections/css/gallery.css');
-@import url('sections/css/moments.css');
-@import url('sections/css/faq.css');
-@import url('sections/css/trusted.css');
-@import url('sections/css/certifications.css');
-@import url('sections/css/contact.css');
-@import url('sections/css/features.css');
-@import url('sections/css/stats.css');
-@import url('sections/css/testimonials.css');
-@import url('sections/css/cta.css');
-@import url('sections/css/footer.css');
-@import url('sections/css/floating-wa.css');
+@import url('assets/css/header.css');
+@import url('assets/css/hero.css');
+@import url('assets/css/popup-promo.css');
+@import url('assets/css/about.css');
+@import url('assets/css/videos.css');
+@import url('assets/css/services.css');
+@import url('assets/css/menu.css');
+@import url('assets/css/packages.css');
+@import url('assets/css/gallery.css');
+@import url('assets/css/moments.css');
+@import url('assets/css/faq.css');
+@import url('assets/css/trusted.css');
+@import url('assets/css/certifications.css');
+@import url('assets/css/contact.css');
+@import url('assets/css/features.css');
+@import url('assets/css/stats.css');
+@import url('assets/css/testimonials.css');
+@import url('assets/css/cta.css');
+@import url('assets/css/footer.css');
+@import url('assets/css/floating-wa.css');
