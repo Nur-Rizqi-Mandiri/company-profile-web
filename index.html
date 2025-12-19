@@ -14,7 +14,7 @@
             --text-light: #f4f4f4;
             --bg-light: #ffffff;
             --bg-off-white: #f9f9f9;
-            --grid-line: rgba(0,0,0,0.05); /* Warna garis grid halus */
+            --grid-line: rgba(0, 0, 0, 0.05); /* Warna garis grid halus */
             --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             --font-serif: 'Georgia', serif;
         }
@@ -25,7 +25,9 @@
             box-sizing: border-box;
         }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             font-family: var(--font-main);
@@ -34,18 +36,46 @@
             overflow-x: hidden; /* Mencegah scroll horizontal akibat elemen dekorasi */
         }
 
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
-        img { max-width: 100%; display: block; }
-        .section-padding { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
-        .section-title { text-align: center; margin-bottom: 3rem; }
-        .section-title h2 { font-size: 2.5rem; color: var(--primary-color); font-family: var(--font-serif); margin-bottom: 0.5rem; }
-        .bg-off-white { background-color: var(--bg-off-white); }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .section-padding {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            font-family: var(--font-serif);
+            margin-bottom: 0.5rem;
+        }
+
+        .bg-off-white {
+            background-color: var(--bg-off-white);
+        }
 
         /* --- 2. NAVIGATION (Tetap Sama) --- */
         header {
             background: var(--bg-light);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: fixed;
             width: 100%;
             top: 0;
@@ -68,22 +98,38 @@
             font-family: var(--font-serif);
         }
 
-        .nav-links { display: flex; gap: 2rem; }
-        .nav-links a { font-weight: 500; transition: color 0.3s; }
-        .nav-links a:hover { color: var(--primary-color); }
-        .btn-cta {
-            background: var(--primary-color); color: var(--text-light);
-            padding: 0.5rem 1.2rem; border-radius: 4px; transition: background 0.3s;
+        .nav-links {
+            display: flex;
+            gap: 2rem;
         }
-        .btn-cta:hover { background: #1e421f; }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-cta {
+            background: var(--primary-color);
+            color: var(--text-light);
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .btn-cta:hover {
+            background: #1e421f;
+        }
 
         /* --- 3. NEW HERO SECTION (Desain Baru) --- */
         .hero {
             /* Menggunakan CSS untuk membuat pola grid latar belakang */
             background-color: var(--bg-light);
-            background-image:
-                linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
-                linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+            background-image: linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+            linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
             background-size: 40px 40px; /* Ukuran kotak grid */
 
             min-height: 90vh;
@@ -144,6 +190,7 @@
             transition: transform 0.3s, box-shadow 0.3s;
             display: inline-block;
         }
+
         .hero-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(44, 95, 45, 0.3);
@@ -163,7 +210,7 @@
             height: 450px;
             border-radius: 50%;
             border: 8px solid white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             overflow: hidden;
             position: relative;
             z-index: 2;
@@ -191,16 +238,20 @@
             align-items: center;
             text-align: center;
             font-weight: bold;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             z-index: 3;
             transform: rotate(-10deg);
         }
+
         .special-offer-badge .percent {
             font-size: 2rem;
             line-height: 1;
             font-family: var(--font-serif);
         }
-        .special-offer-badge span { font-size: 0.9rem; }
+
+        .special-offer-badge span {
+            font-size: 0.9rem;
+        }
 
         /* Elemen Dekorasi Abstrak Latar Belakang (Menggunakan CSS murni) */
         .hero-decoration {
@@ -208,17 +259,23 @@
             z-index: 1;
             opacity: 0.4;
         }
+
         /* Bentuk blob di kiri atas */
         .blob-top-left {
-            top: -100px; left: -100px;
-            width: 400px; height: 400px;
+            top: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
             background: var(--accent-light);
             border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
         }
+
         /* Bentuk blob di kanan bawah */
         .blob-bottom-right {
-            bottom: -150px; right: -50px;
-            width: 500px; height: 500px;
+            bottom: -150px;
+            right: -50px;
+            width: 500px;
+            height: 500px;
             background: var(--primary-light);
             border-radius: 60% 40% 30% 70% / 50% 30% 70% 50%;
         }
@@ -247,7 +304,7 @@
                 gap: 1.5rem;
                 padding: 2rem 0;
                 display: none;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             }
 
             .nav-links.active {
@@ -284,69 +341,273 @@
         }
 
         /* --- 4. SECTIONS LAINNYA (About, Video, dll - Tidak banyak berubah) --- */
-        .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-        .about-text p { margin-bottom: 1.5rem; }
-        .about-img img { border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
 
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
-        .video-item { position: relative; overflow: hidden; padding-bottom: 56.25%; height: 0; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .video-item iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
 
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .service-card { background: white; padding: 2rem; text-align: center; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: transform 0.3s; }
-        .service-card:hover { transform: translateY(-5px); }
-        .service-icon { font-size: 3rem; margin-bottom: 1rem; color: var(--primary-color); }
+        .about-img img {
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-item {
+            position: relative;
+            overflow: hidden;
+            padding-bottom: 56.25%;
+            height: 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-item iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
 
         /* Slider Styles */
-        .slider-container { position: relative; max-width: 1000px; margin: auto; overflow: hidden; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); height: 500px; }
-        .slide { display: none; height: 100%; }
-        .slide.active { display: block; animation: fade 0.8s; }
-        @keyframes fade { from {opacity: .4} to {opacity: 1} }
-        .slide img { width: 100%; height: 100%; object-fit: cover; }
-        .slide-caption { position: absolute; bottom: 20px; left: 20px; background: rgba(44, 95, 45, 0.8); color: white; padding: 1rem 1.5rem; border-radius: 4px; max-width: 80%; }
-        .slide-caption h3 { margin-bottom: 0.5rem; font-family: var(--font-serif); }
-        .prev, .next { cursor: pointer; position: absolute; top: 50%; width: auto; padding: 16px; margin-top: -22px; color: white; font-weight: bold; font-size: 24px; transition: 0.3s ease; border-radius: 0 3px 3px 0; user-select: none; background-color: rgba(0,0,0,0.3); }
-        .next { right: 0; border-radius: 3px 0 0 3px; }
-        .prev:hover, .next:hover { background-color: var(--primary-color); }
+        .slider-container {
+            position: relative;
+            max-width: 1000px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            height: 500px;
+        }
+
+        .slide {
+            display: none;
+            height: 100%;
+        }
+
+        .slide.active {
+            display: block;
+            animation: fade 0.8s;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slide-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(44, 95, 45, 0.8);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 4px;
+            max-width: 80%;
+        }
+
+        .slide-caption h3 {
+            margin-bottom: 0.5rem;
+            font-family: var(--font-serif);
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            transition: 0.3s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: var(--primary-color);
+        }
 
         /* Contact Form */
-        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
-        .contact-info h3 { margin-bottom: 1rem; color: var(--primary-color); }
-        .contact-info p { margin-bottom: 0.5rem; }
-        form { display: flex; flex-direction: column; gap: 1rem; }
-        input, textarea, select { padding: 1rem; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; }
-        button[type="submit"] { padding: 1rem; background: var(--primary-color); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem; font-weight: bold; transition: background 0.3s; }
-        button[type="submit"]:hover { background: #1e421f; }
-        footer { background: #222; color: #aaa; text-align: center; padding: 2rem; margin-top: 2rem; }
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        input, textarea, select {
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        button[type="submit"] {
+            padding: 1rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background: #1e421f;
+        }
+
+        footer {
+            background: #222;
+            color: #aaa;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 992px) {
-            .hero h1 { font-size: 3rem; }
-            .hero h1 span.highlight { font-size: 4rem; }
-            .main-image-frame { width: 350px; height: 350px; }
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero h1 span.highlight {
+                font-size: 4rem;
+            }
+
+            .main-image-frame {
+                width: 350px;
+                height: 350px;
+            }
         }
 
         @media (max-width: 768px) {
-            .nav-links { display: none; } /* Disederhanakan untuk mobile */
+            .nav-links {
+                display: none;
+            }
 
+            /* Disederhanakan untuk mobile */
             /* Hero Responsif di HP */
             .hero-container {
                 grid-template-columns: 1fr; /* Menjadi 1 kolom */
                 text-align: center;
                 gap: 2rem;
             }
-            .hero-text { text-align: center; }
-            .hero h1 { font-size: 2.5rem; }
-            .hero h1 span.highlight { font-size: 3.5rem; }
-            .hero p { margin: 0 auto 2rem auto; }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h1 span.highlight {
+                font-size: 3.5rem;
+            }
+
+            .hero p {
+                margin: 0 auto 2rem auto;
+            }
 
             /* Gambar di HP */
-            .main-image-frame { width: 300px; height: 300px; margin: 0 auto; }
-            .special-offer-badge { width: 90px; height: 90px; top: 20px; left: 50%; margin-left: -140px;} /* Penyesuaian posisi badge di HP */
-            .special-offer-badge .percent { font-size: 1.5rem; }
+            .main-image-frame {
+                width: 300px;
+                height: 300px;
+                margin: 0 auto;
+            }
 
-            .about-content, .contact-container { grid-template-columns: 1fr; }
-            .slider-container { height: 350px; }
+            .special-offer-badge {
+                width: 90px;
+                height: 90px;
+                top: 20px;
+                left: 50%;
+                margin-left: -140px;
+            }
+
+            /* Penyesuaian posisi badge di HP */
+            .special-offer-badge .percent {
+                font-size: 1.5rem;
+            }
+
+            .about-content, .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .slider-container {
+                height: 350px;
+            }
         }
 
         .menu-grid {
@@ -369,14 +630,16 @@
             transition: transform 0.5s;
         }
 
-        .menu-item:hover img { transform: scale(1.1); }
+        .menu-item:hover img {
+            transform: scale(1.1);
+        }
 
         .menu-overlay {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
             color: white;
             padding: 2rem 1rem 1rem;
         }
@@ -407,7 +670,7 @@
             position: relative;
             overflow: hidden;
             border-radius: 16px;
-            box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
             --x: 0px;
             --y: 0px;
@@ -426,9 +689,9 @@
             position: absolute;
             inset: 0;
             background: linear-gradient(
-                to top,
-                rgba(0,0,0,0.25),
-                rgba(0,0,0,0)
+                    to top,
+                    rgba(0, 0, 0, 0.25),
+                    rgba(0, 0, 0, 0)
             );
             opacity: 0;
             transition: opacity 0.3s ease;
@@ -453,15 +716,28 @@
         }
 
         /* Offset chaos HALUS */
-        .chaos-item.shift-up    { --y: -16px; z-index: 2; }
-        .chaos-item.shift-down  { --y: 14px; }
-        .chaos-item.shift-left  { --x: -14px; z-index: 2; }
-        .chaos-item.shift-right { --x: 14px; }
+        .chaos-item.shift-up {
+            --y: -16px;
+            z-index: 2;
+        }
+
+        .chaos-item.shift-down {
+            --y: 14px;
+        }
+
+        .chaos-item.shift-left {
+            --x: -14px;
+            z-index: 2;
+        }
+
+        .chaos-item.shift-right {
+            --x: 14px;
+        }
 
         /* Hover: hanya scale & elevate */
         .chaos-item:hover {
             transform: translate(var(--x), var(--y)) scale(1.04);
-            box-shadow: 0 16px 35px rgba(0,0,0,0.22);
+            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.22);
             z-index: 5;
         }
 
@@ -478,9 +754,10 @@
                 grid-column: auto !important;
                 grid-row: auto !important;
                 aspect-ratio: 4 / 3;
-                box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+                box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
             }
         }
+
         /* === WHY CHOOSE US === */
         .features-grid {
             display: grid;
@@ -493,7 +770,7 @@
             padding: 2rem;
             border-radius: 14px;
             text-align: center;
-            box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s ease;
         }
 
@@ -537,7 +814,7 @@
             background: white;
             padding: 2rem;
             border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
         .testimonial-card p {
@@ -565,7 +842,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: rgba(0,0,0,0.55);
+            background: rgba(0, 0, 0, 0.55);
         }
 
         .cta-banner * {
@@ -610,8 +887,10 @@
     <div class="hero-container">
         <div class="hero-text">
             <h1>Citarasa <span class="highlight">Istimewa</span></h1>
-            <p>Katering premium yang mengubah setiap acara menjadi momen tak terlupakan dengan hidangan lezat dan presentasi memukau.</p>
-            <p style="margin-bottom: 1rem; font-weight: bold; color: var(--primary-color);">📞 Layanan Pelanggan: (021) 123-4567</p>
+            <p>Katering premium yang mengubah setiap acara menjadi momen tak terlupakan dengan hidangan lezat dan
+                presentasi memukau.</p>
+            <p style="margin-bottom: 1rem; font-weight: bold; color: var(--primary-color);">📞 Layanan Pelanggan: (021)
+                123-4567</p>
             <a href="#contact" class="hero-btn">Pesan Sekarang</a>
         </div>
 
@@ -622,7 +901,8 @@
                 <span>OFF</span>
             </div>
             <div class="main-image-frame">
-                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80" alt="Hidangan Katering Segar">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80"
+                     alt="Hidangan Katering Segar">
             </div>
         </div>
     </div>
@@ -634,12 +914,16 @@
     </div>
     <div class="about-content">
         <div class="about-img">
-            <img src="https://images.unsplash.com/photo-1556910103-1c02745a30bf?auto=format&fit=crop&w=800&q=80" alt="Koki memasak">
+            <img src="https://images.unsplash.com/photo-1556910103-1c02745a30bf?auto=format&fit=crop&w=800&q=80"
+                 alt="Koki memasak">
         </div>
         <div class="about-text">
             <h3>Lebih Dari Sekadar Makanan</h3>
-            <p>Di Savory & Sage, kami percaya bahwa katering adalah tentang menciptakan suasana. Didirikan oleh Chef Elena Rossi, tim kami berdedikasi untuk mencari bahan-bahan lokal terbaik dan mengubahnya menjadi mahakarya kuliner.</p>
-            <p>Baik Anda mengadakan makan malam intim untuk 10 orang atau gala untuk 500 orang, kami menghadirkan tingkat detail, kebersihan, dan rasa yang sama di setiap hidangan.</p>
+            <p>Di Savory & Sage, kami percaya bahwa katering adalah tentang menciptakan suasana. Didirikan oleh Chef
+                Elena Rossi, tim kami berdedikasi untuk mencari bahan-bahan lokal terbaik dan mengubahnya menjadi
+                mahakarya kuliner.</p>
+            <p>Baik Anda mengadakan makan malam intim untuk 10 orang atau gala untuk 500 orang, kami menghadirkan
+                tingkat detail, kebersihan, dan rasa yang sama di setiap hidangan.</p>
         </div>
     </div>
 </section>
@@ -652,13 +936,16 @@
         </div>
         <div class="video-grid">
             <div class="video-item">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=test" title="Video Katering 1" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=test" title="Video Katering 1"
+                        allowfullscreen></iframe>
             </div>
             <div class="video-item">
-                <iframe src="https://www.youtube.com/embed/LxR_7cbb100?si=test" title="Video Katering 2" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/LxR_7cbb100?si=test" title="Video Katering 2"
+                        allowfullscreen></iframe>
             </div>
             <div class="video-item">
-                <iframe src="https://www.youtube.com/embed/9d8wWcJLnFI?si=test" title="Video Katering 3" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/9d8wWcJLnFI?si=test" title="Video Katering 3"
+                        allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -673,17 +960,20 @@
         <div class="service-card">
             <div class="service-icon">💍</div>
             <h3>Pernikahan</h3>
-            <p>Dari makan malam piring yang elegan hingga prasmanan rustic, kami membuat hari besar Anda terasa nikmat.</p>
+            <p>Dari makan malam piring yang elegan hingga prasmanan rustic, kami membuat hari besar Anda terasa
+                nikmat.</p>
         </div>
         <div class="service-card">
             <div class="service-icon">🤝</div>
             <h3>Korporat</h3>
-            <p>Buat klien Anda terkesan dengan kotak makan siang yang canggih, rehat kopi, dan makan malam eksekutif.</p>
+            <p>Buat klien Anda terkesan dengan kotak makan siang yang canggih, rehat kopi, dan makan malam
+                eksekutif.</p>
         </div>
         <div class="service-card">
             <div class="service-icon">🎉</div>
             <h3>Acara Pribadi</h3>
-            <p>Ulang tahun, hari jadi, atau reuni keluarga. Kami menangani makanannya agar Anda bisa fokus menjamu tamu.</p>
+            <p>Ulang tahun, hari jadi, atau reuni keluarga. Kami menangani makanannya agar Anda bisa fokus menjamu
+                tamu.</p>
         </div>
     </div>
 </section>
@@ -694,21 +984,24 @@
     </div>
     <div class="menu-grid">
         <div class="menu-item">
-            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80" alt="Salad">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80"
+                 alt="Salad">
             <div class="menu-overlay">
                 <h3>Organic Green Bowls</h3>
                 <p>Fresh farm-to-table greens with vinaigrette.</p>
             </div>
         </div>
         <div class="menu-item">
-            <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=800&q=80" alt="Steak">
+            <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=800&q=80"
+                 alt="Steak">
             <div class="menu-overlay">
                 <h3>Prime Rib Platter</h3>
                 <p>Slow-roasted herbs and spices.</p>
             </div>
         </div>
         <div class="menu-item">
-            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=800&q=80" alt="Dessert">
+            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=800&q=80"
+                 alt="Dessert">
             <div class="menu-overlay">
                 <h3>Artisan Desserts</h3>
                 <p>Hand-crafted mousses and pastries.</p>
@@ -723,28 +1016,32 @@
     </div>
     <div class="slider-container">
         <div class="slide active">
-            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=80" alt="Salad Segar">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=80"
+                 alt="Salad Segar">
             <div class="slide-caption">
                 <h3>Organic Green Bowls</h3>
                 <p>Sayuran segar dari kebun dengan vinaigrette khas kami.</p>
             </div>
         </div>
         <div class="slide">
-            <img src="https://images.unsplash.com/photo-1470256699805-a29e1b58598a?auto=format&fit=crop&w=1200&q=80" alt="Buffet Setup">
+            <img src="https://images.unsplash.com/photo-1470256699805-a29e1b58598a?auto=format&fit=crop&w=1200&q=80"
+                 alt="Buffet Setup">
             <div class="slide-caption">
                 <h3>Tata Letak Prasmanan Elegan</h3>
                 <p>Setup yang indah untuk acara pernikahan outdoor.</p>
             </div>
         </div>
         <div class="slide">
-            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=1200&q=80" alt="Dessert">
+            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=1200&q=80"
+                 alt="Dessert">
             <div class="slide-caption">
                 <h3>Artisan Desserts</h3>
                 <p>Mouse dan kue kering buatan tangan yang memanjakan lidah.</p>
             </div>
         </div>
         <div class="slide">
-            <img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1200&q=80" alt="Catering Event">
+            <img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1200&q=80"
+                 alt="Catering Event">
             <div class="slide-caption">
                 <h3>Suasana Acara</h3>
                 <p>Kami menciptakan pengalaman bersantap yang tak terlupakan.</p>
@@ -925,18 +1222,26 @@
     });
     let slideIndex = 1;
     showSlides(slideIndex);
-    function changeSlide(n) { showSlides(slideIndex += n); }
+
+    function changeSlide(n) {
+        showSlides(slideIndex += n);
+    }
+
     function showSlides(n) {
         let i;
         let slides = document.getElementsByClassName("slide");
-        if (n > slides.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = slides.length}
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
         for (i = 0; i < slides.length; i++) {
             slides[i].style.display = "none";
             slides[i].classList.remove('active');
         }
-        slides[slideIndex-1].style.display = "block";
-        slides[slideIndex-1].classList.add('active');
+        slides[slideIndex - 1].style.display = "block";
+        slides[slideIndex - 1].classList.add('active');
     }
 </script>
 
