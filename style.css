@@ -839,3 +839,77 @@ footer {
         box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
     }
 }
+/* === LOGO CAROUSEL === */
+.logo-carousel {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    opacity: 0.7;
+}
+
+.logo-carousel img {
+    height: 40px;
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+}
+
+.logo-carousel img:hover {
+    filter: grayscale(0%);
+}
+
+/* === CERTIFICATIONS === */
+.cert-grid {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.cert-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    width: 200px;
+    border: 1px solid #eee;
+}
+
+.cert-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.cert-item h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.2rem;
+}
+
+/* === FLOATING WA === */
+.floating-wa {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+    z-index: 9999;
+    transition: transform 0.3s;
+}
+
+.floating-wa:hover {
+    transform: scale(1.1);
+}
+
+.whatsapp-ico {
+    width: 35px;
+    height: 35px;
+}
+
