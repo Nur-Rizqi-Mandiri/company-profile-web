@@ -1,33 +1,35 @@
 <section id="contact" class="bg-off-white">
     <div class="section-padding">
         <div class="section-title">
-            <h2>Hubungi Kami</h2>
-            <p>Mari rencanakan menu Anda</p>
+            <h2 data-i18n="contact.title">Hubungi Kami</h2>
+            <p data-i18n="contact.subtitle">Mari rencanakan menu Anda</p>
         </div>
         <div class="contact-container">
             <div class="contact-info wow animate__animated animate__fadeInLeft">
-                <h3>Informasi Kontak</h3>
+                <h3 data-i18n="contact.info.title">Informasi Kontak</h3>
                 <p>📍 Jl. Kuliner No. 123, Kota Makan</p>
                 <p>📞 (021) 123-4567</p>
                 <p>✉️ hello@nurrizqimandiri.com</p>
                 <br>
-                <p><strong>Jam Operasional:</strong></p>
-                <p>Sen - Jum: 09:00 - 18:00</p>
-                <p>Sab: 10:00 - 16:00</p>
+                <p><strong data-i18n="contact.info.hours">Jam Operasional:</strong></p>
+                <div data-i18n="contact.info.days">
+                    <p>Sen - Jum: 09:00 - 18:00</p>
+                    <p>Sab: 10:00 - 16:00</p>
+                </div>
             </div>
             <form class="wow animate__animated animate__fadeInRight">
-                <input type="text" placeholder="Nama Anda" required>
-                <input type="email" placeholder="Email Anda" required>
+                <input type="text" placeholder="Nama Anda" required data-i18n="contact.form.name">
+                <input type="email" placeholder="Email Anda" required data-i18n="contact.form.email">
                 <select>
-                    <option>Jenis Acara</option>
-                    <option>Pernikahan</option>
-                    <option>Korporat</option>
-                    <option>Pesta Pribadi</option>
+                    <option data-i18n="contact.form.type">Jenis Acara</option>
+                    <option data-i18n="contact.form.type.wedding">Pernikahan</option>
+                    <option data-i18n="contact.form.type.corporate">Korporat</option>
+                    <option data-i18n="contact.form.type.private">Pesta Pribadi</option>
                 </select>
                 <input type="date">
-                <textarea rows="5"
-                    placeholder="Ceritakan kebutuhan Anda (jumlah tamu, pantangan diet, dll)..."></textarea>
-                <button type="submit">Kirim Permintaan</button>
+                <textarea rows="5" placeholder="Ceritakan kebutuhan Anda (jumlah tamu, pantangan diet, dll)..."
+                    data-i18n="contact.form.message"></textarea>
+                <button type="submit" data-i18n="contact.form.submit">Kirim Permintaan</button>
             </form>
         </div>
     </div>

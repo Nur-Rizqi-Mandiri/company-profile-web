@@ -35,7 +35,11 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 
+    <script src="assets/js/translations.js"></script>
     <script>
+        // Language state
+        let currentLang = localStorage.getItem('lang') || 'id';
+
         // List of sections to load in order
         const sections = [
             { id: 'header-container', file: 'assets/page/header.html' },
@@ -66,11 +70,58 @@
             try {
                 const response = await fetch(file);
                 if (!response.ok) throw new Error(`Failed to load ${file}`);
-                document.getElementById(id).innerHTML = await response.text();
+                const html = await response.text();
+                document.getElementById(id).innerHTML = html;
+
+                // Apply translations to the newly loaded section
+                applyTranslations(document.getElementById(id));
             } catch (error) {
                 console.error(error);
                 document.getElementById(id).innerHTML = `<p>Error loading section: ${file}. Note: You must run this via a local server (e.g. Live Server).</p>`;
             }
+        }
+
+        // Translation Injection Logic
+        function applyTranslations(container = document) {
+            const elements = container.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    const translation = translations[currentLang][key];
+
+                    // Handle different element types
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = translation;
+                    } else if (el.tagName === 'SELECT') {
+                        // For select, we might want to translate the first option if it's a placeholder
+                        if (el.options[0] && el.options[0].getAttribute('data-i18n') === key) {
+                            el.options[0].text = translation;
+                        }
+                    } else {
+                        el.innerHTML = translation;
+                    }
+                }
+            });
+
+            // Update active state of language buttons
+            const langButtons = document.querySelectorAll('.lang-btn');
+            langButtons.forEach(btn => {
+                const lang = btn.getAttribute('onclick').match(/'([^']+)'/)[1];
+                if (lang === currentLang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        // Language Switcher Function
+        window.switchLanguage = function (lang) {
+            if (lang === currentLang) return;
+            currentLang = lang;
+            localStorage.setItem('lang', lang);
+            document.documentElement.lang = lang;
+            applyTranslations();
         }
 
         // Initialize scripts after content is loaded
@@ -181,11 +232,19 @@
             const title = document.getElementById('gallery-title');
             const desc = document.getElementById('gallery-desc');
 
-            const contentData = [
+            const contentDataID = [
                 { t: "Annual Charity Gala 2024", d: "Momen berbagi kebahagiaan bersama anak yatim dalam rangka ulang tahun perusahaan yang ke-14. Terima kasih kepada seluruh partner yang telah mendukung acara ini." },
                 { t: "Grand Opening Cabang Baru", d: "Perluasan jangkauan layanan kami di Jakarta Selatan dengan konsep dapur terbuka." },
                 { t: "Masterclass dengan Chef Rizqi", d: "Sesi sharing knowledge tentang kuliner nusantara kepada talenta muda berbakat." }
             ];
+
+            const contentDataEN = [
+                { t: "Annual Charity Gala 2024", d: "A moment of sharing happiness with orphans in celebration of the company's 14th anniversary. Thank you to all partners who supported this event." },
+                { t: "New Branch Grand Opening", d: "Expanding our service reach in South Jakarta with an open kitchen concept." },
+                { t: "Masterclass with Chef Rizqi", d: "Knowledge sharing session about Indonesian cuisine to talented young minds." }
+            ];
+
+            const contentData = currentLang === 'id' ? contentDataID : contentDataEN;
 
             if (title && desc && contentData[galleryIndex]) {
                 title.innerText = contentData[galleryIndex].t;
@@ -210,8 +269,10 @@
                 slides[i].style.display = "none";
                 slides[i].classList.remove('active');
             }
-            slides[window.slideIndex - 1].style.display = "block";
-            slides[window.slideIndex - 1].classList.add('active');
+            if (slides[window.slideIndex - 1]) {
+                slides[window.slideIndex - 1].style.display = "block";
+                slides[window.slideIndex - 1].classList.add('active');
+            }
         }
 
         window.openTab = function (evt, tabName) {
@@ -230,6 +291,14 @@
 
         // Load all sections sequentially then init scripts
         async function loadAll() {
+            // Ensure translations object exists
+            if (typeof translations === 'undefined') {
+                console.warn('Translations not loaded yet, retrying in 100ms...');
+                setTimeout(loadAll, 100);
+                return;
+            }
+
+            document.documentElement.lang = currentLang;
             for (const section of sections) {
                 await loadSection(section.id, section.file);
             }
@@ -237,7 +306,6 @@
         }
 
         document.addEventListener('DOMContentLoaded', loadAll);
-
     </script>
 </body>
 
