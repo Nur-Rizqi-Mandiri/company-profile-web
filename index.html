@@ -243,9 +243,28 @@
             // Mobile Menu
             const menuToggle = document.getElementById("menuToggle");
             const navLinks = document.getElementById("navLinks");
-            if (menuToggle && navLinks) {
-                menuToggle.addEventListener("click", () => {
+            const menuOverlay = document.getElementById("menuOverlay");
+
+            if (menuToggle && navLinks && menuOverlay) {
+                const toggleMenu = () => {
                     navLinks.classList.toggle("active");
+                    menuOverlay.classList.toggle("active");
+                    document.body.style.overflow = navLinks.classList.contains("active") ? "hidden" : "";
+                };
+
+                const closeMenu = () => {
+                    navLinks.classList.remove("active");
+                    menuOverlay.classList.remove("active");
+                    document.body.style.overflow = "";
+                };
+
+                menuToggle.addEventListener("click", toggleMenu);
+                menuOverlay.addEventListener("click", closeMenu);
+
+                // Close menu when a link is clicked
+                const links = navLinks.querySelectorAll("a");
+                links.forEach(link => {
+                    link.addEventListener("click", closeMenu);
                 });
             }
 
