@@ -137,10 +137,49 @@ async function loadAll() {
     }
 
     document.documentElement.lang = currentLang;
-    for (const section of sections) {
-        await loadSection(section.id, section.file);
+
+    // Critical sections to load immediately
+    const criticalSections = ['header-container', 'hero-container', 'popup-promo-container'];
+
+    for (const sectionId of criticalSections) {
+        const section = sections.find(s => s.id === sectionId);
+        if (section) {
+            await loadSection(section.id, section.file);
+        }
     }
+
+    // Initialize scripts for critical content
     initScripts();
+
+    // Lazy load the rest of the sections
+    const lazySections = sections.filter(s => !criticalSections.includes(s.id));
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '200px', // Load slightly before they enter viewport
+        threshold: 0.01
+    };
+
+    const sectionObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const sectionId = entry.target.id;
+                const section = lazySections.find(s => s.id === sectionId);
+                if (section) {
+                    loadSection(section.id, section.file);
+                    observer.unobserve(entry.target);
+                }
+            }
+        });
+    }, observerOptions);
+
+    lazySections.forEach(section => {
+        const el = document.getElementById(section.id);
+        if (el) {
+            sectionObserver.observe(el);
+        }
+    });
+
     if (typeof window.initVerticalNav === 'function') {
         window.initVerticalNav();
     }
