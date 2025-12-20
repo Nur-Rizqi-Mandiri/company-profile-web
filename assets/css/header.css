@@ -54,6 +54,10 @@ nav {
     color: var(--primary-color);
 }
 
+.menu-close {
+    display: none;
+}
+
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;

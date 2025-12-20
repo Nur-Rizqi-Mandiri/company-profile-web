@@ -279,6 +279,15 @@ body.dark-theme .theme-toggle:hover {
     background: rgba(255, 193, 7, 0.1);
 }
 
+body.dark-theme .lang-toggle {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+body.dark-theme .lang-toggle:hover {
+    background: rgba(255, 193, 7, 0.1);
+}
+
 .theme-toggle .sun-icon {
     display: none;
 }
