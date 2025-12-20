@@ -171,6 +171,20 @@
             }
         }
 
+        // Language Switcher Function
+        window.switchLanguage = function (lang) {
+            if (lang === currentLang) return;
+            currentLang = lang;
+            localStorage.setItem('lang', lang);
+            document.documentElement.lang = lang;
+            applyTranslations();
+        }
+
+        window.toggleLanguage = function () {
+            const nextLang = currentLang === 'id' ? 'en' : 'id';
+            window.switchLanguage(nextLang);
+        }
+
         // Translation Injection Logic
         function applyTranslations(container = document) {
             const elements = container.querySelectorAll('[data-i18n]');
@@ -193,25 +207,28 @@
                 }
             });
 
-            // Update active state of language buttons
+            // Update language toggle button text
+            const langToggle = document.getElementById('langToggle');
+            if (langToggle) {
+                langToggle.textContent = currentLang === 'id' ? 'EN' : 'ID';
+            }
+
+            // Update active state of language buttons (legacy support)
             const langButtons = document.querySelectorAll('.lang-btn');
             langButtons.forEach(btn => {
-                const lang = btn.getAttribute('onclick').match(/'([^']+)'/)[1];
-                if (lang === currentLang) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
+                const onclickAttr = btn.getAttribute('onclick');
+                if (onclickAttr) {
+                    const match = onclickAttr.match(/'([^']+)'/);
+                    if (match) {
+                        const lang = match[1];
+                        if (lang === currentLang) {
+                            btn.classList.add('active');
+                        } else {
+                            btn.classList.remove('active');
+                        }
+                    }
                 }
             });
-        }
-
-        // Language Switcher Function
-        window.switchLanguage = function (lang) {
-            if (lang === currentLang) return;
-            currentLang = lang;
-            localStorage.setItem('lang', lang);
-            document.documentElement.lang = lang;
-            applyTranslations();
         }
 
         // Initialize scripts after content is loaded
