@@ -102,6 +102,17 @@ nav {
     .nav-links a {
         font-size: 1.2rem;
     }
+
+    .menu-close {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 2.5rem;
+        cursor: pointer;
+        color: var(--primary-color);
+        line-height: 1;
+    }
 }
 
 /* Language Toggle */
