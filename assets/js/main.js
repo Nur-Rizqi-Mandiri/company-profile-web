@@ -27,6 +27,7 @@ const sections = [
     { id: 'cta-container', file: 'assets/page/cta.html' },
     { id: 'footer-container', file: 'assets/page/footer.html' },
     { id: 'floating-wa-container', file: 'assets/page/floating-wa.html' },
+    { id: 'video-modal-container', file: 'assets/page/video-modal.html' },
     { id: 'popup-gallery-container', file: 'assets/page/popup-gallery.html' }
 ];
 
