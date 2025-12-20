@@ -23,6 +23,8 @@ const translations = {
         "hero.desc": "Katering premium yang mengubah setiap acara menjadi momen tak terlupakan dengan hidangan lezat dan presentasi memukau.",
         "hero.cs": "📞 Customer Service: (021) 123-4567",
         "hero.order": "Pesan Sekarang",
+        "hero.offer.label": "Eksklusif",
+        "hero.offer.off": "HEMAT",
 
         "about.title": "Kisah Kami",
         "about.subtitle": "Menyajikan gairah di atas piring sejak 2010",
@@ -142,11 +144,11 @@ const translations = {
 
         "footer.copy": "&copy; <span id=\"copyright-year\"></span> PT. Nur Rizqi Mandiri Catering. Hak Cipta Dilindungi.",
 
-        "promo.welcome": "🎉 Selamat Datang!",
-        "promo.desc": "Wujudkan acara impian Anda dengan hidangan istimewa.",
-        "promo.box.title": "Dapatkan Penawaran Spesial",
-        "promo.box.desc": "Diskon 10% untuk pemesanan pertama<br>(Min. 50 Pax)",
-        "promo.claim": "Klaim Promo",
+        "promo.welcome": "🎁 Hadiah Spesial Untuk Anda!",
+        "promo.desc": "Jadikan setiap momen berharga Anda lebih istimewa dengan sentuhan kuliner premium kami.",
+        "promo.box.title": "Penawaran Terbatas",
+        "promo.box.desc": "Dapatkan konsultasi gratis dan penawaran spesial untuk pemesanan pertama Anda.",
+        "promo.claim": "Dapatkan Sekarang",
         "promo.later": "Nanti saja, terima kasih"
     },
     en: {
@@ -173,6 +175,8 @@ const translations = {
         "hero.desc": "Premium catering that transforms every event into an unforgettable moment with delicious dishes and stunning presentation.",
         "hero.cs": "📞 Customer Service: (021) 123-4567",
         "hero.order": "Order Now",
+        "hero.offer.label": "Exclusive",
+        "hero.offer.off": "OFF",
 
         "about.title": "Our Story",
         "about.subtitle": "Serving passion on a plate since 2010",
@@ -292,11 +296,11 @@ const translations = {
 
         "footer.copy": "&copy; <span id=\"copyright-year\"></span> PT. Nur Rizqi Mandiri Catering. All Rights Reserved.",
 
-        "promo.welcome": "🎉 Welcome!",
-        "promo.desc": "Realize your dream event with special dishes.",
-        "promo.box.title": "Get a Special Offer",
-        "promo.box.desc": "10% discount for your first order<br>(Min. 50 Pax)",
-        "promo.claim": "Claim Promo",
+        "promo.welcome": "🎁 A Special Gift For You!",
+        "promo.desc": "Make your precious moments even more special with our premium culinary touch.",
+        "promo.box.title": "Limited Time Offer",
+        "promo.box.desc": "Get a free consultation and a special offer for your first order.",
+        "promo.claim": "Get It Now",
         "promo.later": "Maybe later, thanks"
     }
 };
