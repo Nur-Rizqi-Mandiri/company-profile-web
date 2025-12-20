@@ -30,11 +30,11 @@ const translations = {
 
         "menu.title": "Hidangan Khas",
         "menu.subtitle": "Intip sekilas favorit kami",
-        "menu.salad.title": "Organic Green Bowls",
+        "menu.salad.title": "Mangkuk Sayur Organik",
         "menu.salad.desc": "Sayuran segar langsung dari pertanian dengan vinaigrette.",
-        "menu.steak.title": "Prime Rib Platter",
+        "menu.steak.title": "Hidangan Prime Rib",
         "menu.steak.desc": "Panggang lambat dengan bumbu dan rempah-rempah.",
-        "menu.dessert.title": "Artisan Desserts",
+        "menu.dessert.title": "Hidangan Penutup Artisan",
         "menu.dessert.desc": "Mousse dan kue-kue buatan tangan.",
         "menu.download": "📄 Unduh Katalog Menu 2024",
 
@@ -47,11 +47,11 @@ const translations = {
 
         "gallery.title": "Galeri Kreasi",
         "gallery.subtitle": "Sorotan menu dan tata letak acara kami",
-        "gallery.item1.title": "Organic Green Bowls",
+        "gallery.item1.title": "Mangkuk Sayur Organik",
         "gallery.item1.desc": "Sayuran segar langsung dari pertanian dengan vinaigrette khas kami.",
-        "gallery.item2.title": "Elegant Buffet Layout",
+        "gallery.item2.title": "Tata Letak Prasmanan Elegan",
         "gallery.item2.desc": "Penataan cantik untuk acara pernikahan outdoor.",
-        "gallery.item3.title": "Artisan Desserts",
+        "gallery.item3.title": "Hidangan Penutup Artisan",
         "gallery.item3.desc": "Mousse dan kue-kue buatan tangan yang memanjakan lidah.",
         "gallery.item4.title": "Suasana Acara",
         "gallery.item4.desc": "Kami menciptakan pengalaman bersantap yang tak terlupakan.",
@@ -81,7 +81,10 @@ const translations = {
         "contact.form.message": "Ceritakan kebutuhan Anda (jumlah tamu, batasan diet, dll)...",
         "contact.form.submit": "Kirim Pertanyaan",
 
-        "moments.title": "Moments in Motion",
+        "videos.title": "Di Balik Layar",
+        "videos.subtitle": "Lihat bagaimana kami menciptakan keajaiban",
+
+        "moments.title": "Momen Berkesan",
         "moments.subtitle": "Visual tanpa skenario dari perjalanan kuliner kami",
         "moments.btn": "Lihat Galeri Event",
 
@@ -216,6 +219,9 @@ const translations = {
         "contact.form.type.private": "Private Party",
         "contact.form.message": "Tell us about your needs (guest count, dietary restrictions, etc)...",
         "contact.form.submit": "Send Inquiry",
+
+        "videos.title": "Behind the Scenes",
+        "videos.subtitle": "See how we create the magic",
 
         "moments.title": "Moments in Motion",
         "moments.subtitle": "Unscripted visuals from our culinary journey",
