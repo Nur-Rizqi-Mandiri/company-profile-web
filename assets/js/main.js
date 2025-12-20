@@ -44,6 +44,9 @@ async function loadSection(id, file) {
         // Apply translations to the newly loaded section
         applyTranslations(document.getElementById(id));
 
+        // Apply configuration values
+        applyConfig(document.getElementById(id));
+
         // Initialize carousel if hero is loaded
         if (id === 'hero-container' && typeof window.startHeroAutoSlide === 'function') {
             window.startHeroAutoSlide();
@@ -100,6 +103,65 @@ function applyTranslations(container = document) {
     const langToggle = document.getElementById('langToggle');
     if (langToggle) {
         langToggle.textContent = currentLang === 'id' ? 'EN' : 'ID';
+    }
+}
+
+
+// Configuration Injection Logic
+function applyConfig(container = document) {
+    if (typeof CONFIG === 'undefined') return;
+
+    // Helper to safely set text content
+    const setText = (id, value) => {
+        const el = container.querySelector(`#${id}`);
+        if (el) el.textContent = value;
+    };
+
+    // Helper to safely set attribute
+    const setAttr = (id, attr, value) => {
+        const el = container.querySelector(`#${id}`);
+        if (el) el.setAttribute(attr, value);
+    };
+
+    // Apply Company Info
+    setText('company-name', CONFIG.company.name);
+    setText('company-desc', CONFIG.company.description);
+    setText('footer-company-name', CONFIG.company.name);
+    setText('footer-desc', CONFIG.company.description);
+
+    // Apply Contact Info
+    setText('contact-address', CONFIG.contact.address);
+    setText('contact-phone', CONFIG.contact.phone_display);
+    setText('contact-email', CONFIG.contact.email);
+    setText('footer-address', CONFIG.contact.address);
+    setText('footer-phone', CONFIG.contact.phone);
+    setText('footer-email', CONFIG.contact.email);
+
+    // Apply Hours
+    setText('contact-hours', CONFIG.hours.text);
+    setText('contact-hours-sat', CONFIG.hours.saturday);
+
+    // Apply WhatsApp Link
+    const waLinks = container.querySelectorAll('.floating-wa, #wa-link');
+    waLinks.forEach(link => {
+        link.href = `https://wa.me/${CONFIG.contact.whatsapp}`;
+    });
+
+    // Apply Certifications
+    setText('cert-halal', CONFIG.certifications.halal);
+    setText('cert-hygiene', CONFIG.certifications.hygiene);
+    setText('cert-apji', CONFIG.certifications.apji);
+
+    // Apply Trusted Logos
+    const trustedContainer = container.querySelector('#trusted-logo-container');
+    if (trustedContainer && CONFIG.trusted_by.length > 0) {
+        trustedContainer.innerHTML = ''; // Clear existing
+        CONFIG.trusted_by.forEach(partner => {
+            const img = document.createElement('img');
+            img.src = partner.url;
+            img.alt = partner.name;
+            trustedContainer.appendChild(img);
+        });
     }
 }
 
