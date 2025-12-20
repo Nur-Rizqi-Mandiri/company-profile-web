@@ -70,11 +70,11 @@ const CONFIG = {
         { title: "Suasana Acara", desc: "Kami menciptakan pengalaman bersantap yang tak terlupakan.", image: "https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=800&q=40&fm=webp" }
     ],
     moments_images: [
-        { url: "https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1200&q=80", class: "big shift-up" },
-        { url: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80", class: "tall shift-right" },
-        { url: "https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=800&q=80", class: "shift-down" },
-        { url: "https://images.unsplash.com/photo-1470256699805-a29e1b58598a?auto=format&fit=crop&w=1200&q=80", class: "wide shift-left" },
-        { url: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=800&q=80", class: "shift-up" },
-        { url: "https://images.unsplash.com/photo-1556910103-1c02745a30bf?auto=format&fit=crop&w=800&q=80", class: "shift-right" }
+        { url: "https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1200&q=80", class: "big" },
+        { url: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80", class: "tall" },
+        { url: "https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=800&q=80", class: "" },
+        { url: "https://images.unsplash.com/photo-1470256699805-a29e1b58598a?auto=format&fit=crop&w=1200&q=80", class: "wide" },
+        { url: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=800&q=80", class: "" },
+        { url: "https://images.unsplash.com/photo-1556910103-1c02745a30bf?auto=format&fit=crop&w=800&q=80", class: "" }
     ]
 };

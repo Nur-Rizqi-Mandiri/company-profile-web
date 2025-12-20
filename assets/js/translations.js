@@ -21,10 +21,10 @@ const translations = {
 
         "hero.title": "Cita Rasa <span class=\"highlight\">Istimewa</span>",
         "hero.desc": "Katering premium yang mengubah setiap acara menjadi momen tak terlupakan dengan hidangan lezat dan presentasi memukau.",
-        "hero.cs": "📞 Customer Service: (021) 123-4567",
+        "hero.cs": "Butuh Katering untuk Acara Spesial? Konsultasi Gratis Sekarang!",
         "hero.order": "Pesan Sekarang",
-        "hero.offer.label": "Eksklusif",
-        "hero.offer.off": "HEMAT",
+        "hero.offer.label": "Jaminan",
+        "hero.offer.off": "Rasa & Kualitas",
 
         "about.title": "Kisah Kami",
         "about.subtitle": "Menyajikan gairah di atas piring sejak 2010",
