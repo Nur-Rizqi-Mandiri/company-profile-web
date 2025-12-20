@@ -12,23 +12,44 @@
 <body>
 
     <div id="header-container"></div>
-    <div id="hero-container"></div>
-    <div id="about-container"></div>
-    <div id="videos-container"></div>
-    <div id="services-container"></div>
-    <div id="menu-container"></div>
-    <div id="packages-container"></div>
-    <div id="gallery-container"></div>
-    <div id="moments-container"></div>
-    <div id="faq-container"></div>
-    <div id="trusted-container"></div>
-    <div id="certifications-container"></div>
-    <div id="contact-container"></div>
-    <div id="features-container"></div>
-    <div id="stats-container"></div>
-    <div id="testimonials-container"></div>
-    <div id="cta-container"></div>
-    <div id="footer-container"></div>
+
+    <div class="vertical-nav">
+        <a href="#hero-container" class="nav-dot active" data-section="hero-container"></a>
+        <a href="#about-container" class="nav-dot" data-section="about-container"></a>
+        <a href="#videos-container" class="nav-dot" data-section="videos-container"></a>
+        <a href="#services-container" class="nav-dot" data-section="services-container"></a>
+        <a href="#menu-container" class="nav-dot" data-section="menu-container"></a>
+        <a href="#packages-container" class="nav-dot" data-section="packages-container"></a>
+        <a href="#gallery-container" class="nav-dot" data-section="gallery-container"></a>
+        <a href="#moments-container" class="nav-dot" data-section="moments-container"></a>
+        <a href="#faq-container" class="nav-dot" data-section="faq-container"></a>
+        <a href="#trusted-container" class="nav-dot" data-section="trusted-container"></a>
+        <a href="#certifications-container" class="nav-dot" data-section="certifications-container"></a>
+        <a href="#contact-container" class="nav-dot" data-section="contact-container"></a>
+        <a href="#features-container" class="nav-dot" data-section="features-container"></a>
+        <a href="#stats-container" class="nav-dot" data-section="stats-container"></a>
+        <a href="#testimonials-container" class="nav-dot" data-section="testimonials-container"></a>
+        <a href="#cta-container" class="nav-dot" data-section="cta-container"></a>
+        <a href="#footer-container" class="nav-dot" data-section="footer-container"></a>
+    </div>
+
+    <div id="hero-container" class="snap-section"></div>
+    <div id="about-container" class="snap-section"></div>
+    <div id="videos-container" class="snap-section"></div>
+    <div id="services-container" class="snap-section"></div>
+    <div id="menu-container" class="snap-section"></div>
+    <div id="packages-container" class="snap-section"></div>
+    <div id="gallery-container" class="snap-section"></div>
+    <div id="moments-container" class="snap-section"></div>
+    <div id="faq-container" class="snap-section"></div>
+    <div id="trusted-container" class="snap-section"></div>
+    <div id="certifications-container" class="snap-section"></div>
+    <div id="contact-container" class="snap-section"></div>
+    <div id="features-container" class="snap-section"></div>
+    <div id="stats-container" class="snap-section"></div>
+    <div id="testimonials-container" class="snap-section"></div>
+    <div id="cta-container" class="snap-section"></div>
+    <div id="footer-container" class="snap-section"></div>
     <div id="floating-wa-container"></div>
     <div id="popup-promo-container"></div>
     <div id="popup-gallery-container"></div>
@@ -65,6 +86,37 @@
             { id: 'popup-gallery-container', file: 'assets/page/popup-gallery.html' }
         ];
 
+        // Hero Carousel Logic
+        let currentHeroSlide = 0;
+        let heroInterval;
+
+        window.setHeroSlide = function (index) {
+            const slides = document.querySelectorAll('.hero-slide');
+            const dots = document.querySelectorAll('.dot');
+            if (slides.length === 0) return;
+
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+
+            currentHeroSlide = index;
+            if (currentHeroSlide >= slides.length) currentHeroSlide = 0;
+            if (currentHeroSlide < 0) currentHeroSlide = slides.length - 1;
+
+            if (slides[currentHeroSlide]) slides[currentHeroSlide].classList.add('active');
+            if (dots[currentHeroSlide]) dots[currentHeroSlide].classList.add('active');
+
+            // Reset interval on manual click
+            clearInterval(heroInterval);
+            startHeroAutoSlide();
+        }
+
+        function startHeroAutoSlide() {
+            clearInterval(heroInterval);
+            heroInterval = setInterval(() => {
+                setHeroSlide(currentHeroSlide + 1);
+            }, 5000);
+        }
+
         // Function to load a single HTML file
         async function loadSection(id, file) {
             try {
@@ -75,6 +127,11 @@
 
                 // Apply translations to the newly loaded section
                 applyTranslations(document.getElementById(id));
+
+                // Initialize carousel if hero is loaded
+                if (id === 'hero-container') {
+                    startHeroAutoSlide();
+                }
             } catch (error) {
                 console.error(error);
                 document.getElementById(id).innerHTML = `<p>Error loading section: ${file}. Note: You must run this via a local server (e.g. Live Server).</p>`;
@@ -170,7 +227,7 @@
         new WOW().init();
 
         // Configurable Variable (Change this to 'gallery', 'promo', or 'none')
-        const ACTIVE_POPUP = 'gallery';
+        const ACTIVE_POPUP = 'none';
 
         // Global functions
         window.openPromoPopup = function () {
