@@ -50,12 +50,12 @@
 }
 
 .package-card {
-    background: white;
+    background: var(--card-bg);
     border-radius: 12px;
     padding: 2rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 5px 15px var(--card-shadow);
     position: relative;
-    border: 1px solid #eee;
+    border: 1px solid var(--grid-line);
     transition: transform 0.3s;
     display: flex;
     flex-direction: column;
@@ -63,7 +63,7 @@
 
 .package-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 25px var(--card-shadow);
 }
 
 .package-card.featured {
@@ -100,11 +100,11 @@
 .pkg-price {
     font-size: 2rem;
     font-weight: bold;
-    color: var(--dark-color);
+    color: var(--text-main);
     text-align: center;
     margin-bottom: 1.5rem;
     padding-bottom: 1.5rem;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--grid-line);
 }
 
 .pkg-price span {
@@ -122,5 +122,5 @@
 .pkg-features li {
     margin-bottom: 0.8rem;
     text-align: center;
-    color: #555;
+    color: var(--text-muted);
 }

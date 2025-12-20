@@ -88,6 +88,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 
+    <script src="assets/js/theme.js"></script>
     <script src="assets/js/translations.js"></script>
     <script>
         // Language state
@@ -229,6 +230,11 @@
                 menuToggle.addEventListener("click", () => {
                     navLinks.classList.toggle("active");
                 });
+            }
+
+            // Theme Toggle
+            if (typeof window.initThemeToggle === 'function') {
+                window.initThemeToggle();
             }
 
             // Slider Logic

@@ -1,15 +1,37 @@
 :root {
+    /* Light Mode (Default) */
     --primary-color: #2c5f2d;
     --primary-light: #4a8a4b;
     --accent-color: #ffc107;
     --accent-light: #ffe066;
-    --text-dark: #333333;
+    --text-main: #333333;
+    --text-muted: #666666;
     --text-light: #f4f4f4;
-    --bg-light: #ffffff;
-    --bg-off-white: #f9f9f9;
+    --bg-main: #ffffff;
+    --bg-alt: #f9f9f9;
     --grid-line: rgba(0, 0, 0, 0.05);
+    --card-bg: #ffffff;
+    --card-shadow: rgba(0, 0, 0, 0.1);
     --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --font-serif: 'Georgia', serif;
+    --header-bg: rgba(255, 255, 255, 0.95);
+}
+
+body.dark-theme {
+    /* Dark Mode */
+    --primary-color: #3a7d3c;
+    --primary-light: #5cb35d;
+    --accent-color: #ffca28;
+    --accent-light: #ffe082;
+    --text-main: #e0e0e0;
+    --text-muted: #b0b0b0;
+    --text-light: #f4f4f4;
+    --bg-main: #121212;
+    --bg-alt: #1e1e1e;
+    --grid-line: rgba(255, 255, 255, 0.05);
+    --card-bg: #1e1e1e;
+    --card-shadow: rgba(0, 0, 0, 0.3);
+    --header-bg: rgba(18, 18, 18, 0.95);
 }
 
 * {
@@ -24,9 +46,11 @@ html {
 
 body {
     font-family: var(--font-main);
-    color: var(--text-dark);
+    color: var(--text-main);
+    background-color: var(--bg-main);
     line-height: 1.6;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -68,7 +92,7 @@ img {
 }
 
 .bg-off-white {
-    background-color: var(--bg-off-white);
+    background-color: var(--bg-alt);
 }
 
 .logo-carousel img {
@@ -157,7 +181,7 @@ img {
     height: 12px;
     border-radius: 50%;
     background: rgba(44, 95, 45, 0.3);
-    border: 2px solid white;
+    border: 2px solid var(--bg-main);
     transition: all 0.3s ease;
     position: relative;
     display: flex;
@@ -212,4 +236,48 @@ img {
 button,
 a {
     -webkit-tap-highlight-color: transparent;
+}
+/* Theme Toggle Button */
+.theme-toggle {
+    background: none;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.2rem 0.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    margin-left: 0.5rem;
+}
+
+.theme-toggle:hover {
+    background: rgba(44, 95, 45, 0.1);
+}
+
+body.dark-theme .theme-toggle {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+body.dark-theme .theme-toggle:hover {
+    background: rgba(255, 193, 7, 0.1);
+}
+
+.theme-toggle .sun-icon {
+    display: none;
+}
+
+.theme-toggle .moon-icon {
+    display: block;
+}
+
+body.dark-theme .theme-toggle .sun-icon {
+    display: block;
+}
+
+body.dark-theme .theme-toggle .moon-icon {
+    display: none;
 }
