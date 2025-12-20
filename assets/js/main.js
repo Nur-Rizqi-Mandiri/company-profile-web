@@ -48,6 +48,11 @@ async function loadSection(id, file) {
         if (id === 'hero-container' && typeof window.startHeroAutoSlide === 'function') {
             window.startHeroAutoSlide();
         }
+
+        // Initialize video grid if videos are loaded
+        if (id === 'videos-container' && typeof window.initVideoGrid === 'function') {
+            window.initVideoGrid();
+        }
     } catch (error) {
         console.error(error);
         document.getElementById(id).innerHTML = `<p>Error loading section: ${file}. Note: You must run this via a local server (e.g. Live Server).</p>`;
