@@ -360,6 +360,38 @@
                 await loadSection(section.id, section.file);
             }
             initScripts();
+            initVerticalNav();
+        }
+
+
+        function initVerticalNav() {
+            const dots = document.querySelectorAll('.nav-dot');
+            const sections = document.querySelectorAll('.snap-section');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.id;
+                        dots.forEach(dot => {
+                            if (dot.getAttribute('data-section') === id) {
+                                dot.classList.add('active');
+                            } else {
+                                dot.classList.remove('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
         }
 
         document.addEventListener('DOMContentLoaded', loadAll);
