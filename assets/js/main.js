@@ -163,6 +163,128 @@ function applyConfig(container = document) {
             trustedContainer.appendChild(img);
         });
     }
+
+    // --- Dynamic Section Rendering ---
+
+    // 1. Render Hero Slides
+    const heroContainer = container.querySelector('#hero-slides-container');
+    const heroDots = container.querySelector('#hero-dots-container');
+    if (heroContainer && heroDots && CONFIG.hero_slides.length > 0) {
+        heroContainer.innerHTML = '';
+        heroDots.innerHTML = '';
+        CONFIG.hero_slides.forEach((slide, index) => {
+            // Slide
+            const slideDiv = document.createElement('div');
+            slideDiv.className = `hero-slide ${index === 0 ? 'active' : ''}`;
+            slideDiv.innerHTML = `<div class="main-image-frame"><img src="${slide.image}" alt="${slide.alt}" loading="${index === 0 ? 'eager' : 'lazy'}"></div>`;
+            heroContainer.appendChild(slideDiv);
+
+            // Dot
+            const dot = document.createElement('span');
+            dot.className = `dot ${index === 0 ? 'active' : ''}`;
+            dot.onclick = () => window.setHeroSlide(index);
+            heroDots.appendChild(dot);
+        });
+    }
+
+    // 2. Render Menu Grid
+    const menuContainer = container.querySelector('#menu-grid-container');
+    if (menuContainer && CONFIG.menu_items.length > 0) {
+        menuContainer.innerHTML = '';
+        CONFIG.menu_items.forEach((item, index) => {
+            const div = document.createElement('div');
+            div.className = 'menu-item wow animate__animated animate__fadeInUp';
+            // Simple delay stagger
+            // div.setAttribute('data-wow-delay', `${index * 0.1}s`);
+            div.innerHTML = `
+                <img src="${item.image}" alt="${item.title}" loading="lazy">
+                <div class="menu-overlay">
+                    <h3>${item.title}</h3>
+                    <p>${item.desc}</p>
+                </div>
+            `;
+            menuContainer.appendChild(div);
+        });
+    }
+
+    // 3. Render Packages
+    if (CONFIG.packages) {
+        const renderPkgTab = (tabId, pkgData) => {
+            const pkgContainer = container.querySelector(`#pkg-${tabId}-container`);
+            if (pkgContainer && pkgData) {
+                pkgContainer.innerHTML = '';
+                pkgData.forEach((pkg, index) => {
+                    const isFeatured = pkg.badge ? 'featured' : '';
+                    const featuresHtml = pkg.features.map(f => `<li>${f}</li>`).join('');
+                    const badgeHtml = pkg.badge ? `<div class="pkg-badge">${pkg.badge}</div>` : '';
+
+                    const div = document.createElement('div');
+                    div.className = `package-card ${isFeatured} wow animate__animated animate__zoomIn`;
+                    if (index === 1) div.setAttribute('data-wow-delay', '0.2s');
+
+                    div.innerHTML = `
+                        ${badgeHtml}
+                        <div class="pkg-header">${pkg.name}</div>
+                        <ul class="pkg-features">${featuresHtml}</ul>
+                        <a href="#contact" class="btn-cta small" data-i18n="packages.btn">Pilih Paket</a>
+                    `;
+                    pkgContainer.appendChild(div);
+                });
+            }
+        };
+        renderPkgTab('wedding', CONFIG.packages.wedding);
+        renderPkgTab('corporate', CONFIG.packages.corporate);
+        renderPkgTab('social', CONFIG.packages.social);
+    }
+
+    // 4. Render Gallery Slider
+    const galleryContainer = container.querySelector('#gallery-slider-container');
+    if (galleryContainer && CONFIG.gallery_items.length > 0) {
+        // Keep controls
+        const controls = galleryContainer.querySelectorAll('.prev, .next');
+        let controlsHtml = '';
+        if (controls.length === 0) {
+            controlsHtml = `
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>`;
+        } else {
+            controls.forEach(c => c.remove()); // Re-add at end
+            controlsHtml = `
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>`;
+        }
+
+        galleryContainer.innerHTML = '';
+        CONFIG.gallery_items.forEach((item, index) => {
+            const div = document.createElement('div');
+            div.className = `slide ${index === 0 ? 'active' : ''}`;
+            div.innerHTML = `
+                <img src="${item.image}" alt="${item.title}" loading="lazy">
+                <div class="slide-caption wow animate__animated animate__fadeInUp">
+                    <h3>${item.title}</h3>
+                    <p>${item.desc}</p>
+                </div>
+            `;
+            galleryContainer.appendChild(div);
+        });
+        galleryContainer.insertAdjacentHTML('beforeend', controlsHtml);
+    }
+
+    // 5. Render Moments
+    const momentsContainer = container.querySelector('#moments-grid-container');
+    if (momentsContainer && CONFIG.moments_images.length > 0) {
+        momentsContainer.innerHTML = '';
+        CONFIG.moments_images.forEach((imgData, index) => {
+            const div = document.createElement('div');
+            div.className = `chaos-item ${imgData.class} wow animate__animated animate__fadeIn`;
+            div.setAttribute('data-wow-delay', `${(index * 0.1) + 0.1}s`);
+            div.innerHTML = `
+                <img src="${imgData.url}" loading="lazy">
+                <div class="chaos-overlay"></div>
+            `;
+            momentsContainer.appendChild(div);
+        });
+    }
 }
 
 // Initialize scripts after content is loaded
