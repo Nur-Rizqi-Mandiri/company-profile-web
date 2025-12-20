@@ -2,9 +2,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 4rem;
+    gap: 2rem;
     flex-wrap: wrap;
-    padding: 2rem 0;
+    padding: 1.5rem 0;
+}
+
+@media (min-width: 768px) {
+    .logo-carousel {
+        gap: 4rem;
+        padding: 2rem 0;
+    }
 }
 
 .logo-carousel img {

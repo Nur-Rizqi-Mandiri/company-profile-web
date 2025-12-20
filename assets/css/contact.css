@@ -1,7 +1,7 @@
 .contact-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
 }
 
 .contact-info h3 {
@@ -26,6 +26,7 @@ select {
     border: 1px solid #ddd;
     border-radius: 4px;
     font-family: inherit;
+    width: 100%;
 }
 
 button[type="submit"] {
@@ -44,8 +45,9 @@ button[type="submit"]:hover {
     background: #1e421f;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
     .contact-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
     }
 }

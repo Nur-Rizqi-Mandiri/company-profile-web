@@ -22,6 +22,13 @@ nav {
     font-weight: bold;
     color: var(--primary-color);
     font-family: var(--font-serif);
+    white-space: nowrap;
+}
+
+@media (max-width: 360px) {
+    .logo {
+        font-size: 1rem;
+    }
 }
 
 .nav-links {
@@ -53,23 +60,32 @@ nav {
     }
 
     .nav-links {
-        position: absolute;
-        top: 60px;
-        right: 0;
+        position: fixed;
+        top: 0;
+        right: -100%;
         background: var(--bg-main);
-        width: 100%;
+        width: 80%;
+        height: 100vh;
         flex-direction: column;
         align-items: center;
-        gap: 1.5rem;
-        padding: 2rem 0;
-        display: none;
-        box-shadow: 0 10px 20px var(--card-shadow);
+        justify-content: center;
+        gap: 2rem;
+        padding: 2rem;
+        display: flex;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 15px var(--card-shadow);
+        z-index: 1001;
     }
 
     .nav-links.active {
-        display: flex;
+        right: 0;
+    }
+
+    .nav-links a {
+        font-size: 1.2rem;
     }
 }
+
 /* Language Toggle */
 .lang-toggle {
     background: none;

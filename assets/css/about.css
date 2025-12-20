@@ -1,7 +1,7 @@
 .about-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    grid-template-columns: 1fr;
+    gap: 2rem;
     align-items: center;
 }
 
@@ -12,10 +12,12 @@
 .about-img img {
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
     .about-content {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
     }
 }

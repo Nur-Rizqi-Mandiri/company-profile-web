@@ -3,7 +3,8 @@
     background-image: linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
         linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
     background-size: 40px 40px;
-    min-height: 90vh;
+    min-height: auto;
+    padding: 4rem 0;
     margin-top: 60px;
     position: relative;
     overflow: hidden;
@@ -15,21 +16,22 @@
 .hero-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1.5rem;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    grid-template-columns: 1fr;
+    gap: 2rem;
     align-items: center;
     position: relative;
     z-index: 2;
+    text-align: center;
 }
 
 .hero-text {
-    text-align: left;
+    text-align: center;
 }
 
 .hero h1 {
-    font-size: 4rem;
+    font-size: 2.2rem;
     line-height: 1.1;
     margin-bottom: 1.5rem;
     color: var(--primary-color);
@@ -38,19 +40,19 @@
 .hero h1 span.highlight {
     font-family: var(--font-serif);
     display: block;
-    font-size: 5rem;
+    font-size: 3rem;
     color: var(--text-main);
 }
 
 .hero p {
-    font-size: 1.1rem;
-    margin-bottom: 2.5rem;
+    font-size: 1rem;
+    margin: 0 auto 2rem auto;
     max-width: 500px;
     color: var(--text-muted);
 }
 
 .hero-btn {
-    padding: 1rem 3rem;
+    padding: 0.9rem 2.5rem;
     background: var(--primary-color);
     color: white;
     font-weight: bold;
@@ -59,6 +61,7 @@
     letter-spacing: 1px;
     transition: transform 0.3s, box-shadow 0.3s;
     display: inline-block;
+    font-size: 0.9rem;
 }
 
 .hero-btn:hover {
@@ -83,8 +86,8 @@
 
 .hero-slides {
     position: relative;
-    width: 450px;
-    height: 450px;
+    width: 280px;
+    height: 280px;
 }
 
 .hero-slide {
@@ -107,7 +110,7 @@
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    border: 8px solid var(--bg-main);
+    border: 6px solid var(--bg-main);
     box-shadow: 0 10px 30px var(--card-shadow);
     overflow: hidden;
     transition: border-color 0.3s ease;
@@ -127,8 +130,8 @@
 }
 
 .dot {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background: rgba(44, 95, 45, 0.2);
     cursor: pointer;
@@ -142,12 +145,13 @@
 
 .special-offer-badge {
     position: absolute;
-    top: 50px;
-    left: -20px;
+    top: 10px;
+    left: 50%;
+    margin-left: -130px;
     background: var(--accent-color);
     color: #333333;
-    width: 120px;
-    height: 120px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     display: flex;
     flex-direction: column;
@@ -161,13 +165,13 @@
 }
 
 .special-offer-badge .percent {
-    font-size: 2rem;
+    font-size: 1.3rem;
     line-height: 1;
     font-family: var(--font-serif);
 }
 
 .special-offer-badge span {
-    font-size: 0.9rem;
+    font-size: 0.7rem;
 }
 
 .hero-decoration {
@@ -179,8 +183,8 @@
 .blob-top-left {
     top: -100px;
     left: -100px;
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
     background: var(--accent-light);
     border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
 }
@@ -188,75 +192,95 @@
 .blob-bottom-right {
     bottom: -150px;
     right: -50px;
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
     background: var(--primary-light);
     border-radius: 60% 40% 30% 70% / 50% 30% 70% 50%;
 }
 
-@media (max-width: 992px) {
-    .hero h1 {
-        font-size: 3rem;
-    }
-
-    .hero h1 span.highlight {
-        font-size: 4rem;
-    }
-
-    .main-image-frame {
-        width: 350px;
-        height: 350px;
-    }
-}
-
-@media (max-width: 768px) {
+/* Desktop Styles */
+@media (min-width: 768px) {
     .hero {
-        min-height: auto;
-        padding: 4rem 0;
-    }
-
-    .hero h1 {
-        font-size: 2.2rem;
-    }
-
-    .hero h1 span.highlight {
-        font-size: 3rem;
-    }
-
-    .hero-btn {
-        padding: 0.9rem 2.5rem;
-        font-size: 0.9rem;
+        min-height: 90vh;
+        padding: 0;
     }
 
     .hero-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 2rem;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        text-align: left;
+        padding: 2rem;
     }
 
     .hero-text {
-        text-align: center;
+        text-align: left;
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero h1 span.highlight {
+        font-size: 4.5rem;
     }
 
     .hero p {
-        margin: 0 auto 2rem auto;
+        font-size: 1.1rem;
+        margin: 0 0 2.5rem 0;
+    }
+
+    .hero-btn {
+        padding: 1rem 3rem;
+        font-size: 1rem;
+    }
+
+    .hero-slides {
+        width: 400px;
+        height: 400px;
     }
 
     .main-image-frame {
-        width: 300px;
-        height: 300px;
-        margin: 0 auto;
+        border-width: 8px;
     }
 
     .special-offer-badge {
-        width: 90px;
-        height: 90px;
-        top: 20px;
-        left: 50%;
-        margin-left: -140px;
+        width: 120px;
+        height: 120px;
+        top: 50px;
+        left: -20px;
+        margin-left: 0;
     }
 
     .special-offer-badge .percent {
-        font-size: 1.5rem;
+        font-size: 2rem;
+    }
+
+    .special-offer-badge span {
+        font-size: 0.9rem;
+    }
+
+    .blob-top-left {
+        width: 400px;
+        height: 400px;
+    }
+
+    .blob-bottom-right {
+        width: 500px;
+        height: 500px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .hero h1 {
+        font-size: 4rem;
+    }
+
+    .hero h1 span.highlight {
+        font-size: 5rem;
+    }
+
+    .hero-slides {
+        width: 450px;
+        height: 450px;
     }
 }

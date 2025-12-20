@@ -73,6 +73,12 @@ img {
     margin: 0 auto;
 }
 
+@media (max-width: 768px) {
+    .section-padding {
+        padding: 3rem 1.5rem;
+    }
+}
+
 .snap-section {
     position: relative;
     z-index: 1;
@@ -89,6 +95,12 @@ img {
     color: var(--primary-color);
     font-family: var(--font-serif);
     margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .section-title h2 {
+        font-size: 2rem;
+    }
 }
 
 .bg-off-white {
@@ -237,6 +249,7 @@ button,
 a {
     -webkit-tap-highlight-color: transparent;
 }
+
 /* Theme Toggle Button */
 .theme-toggle {
     background: none;
