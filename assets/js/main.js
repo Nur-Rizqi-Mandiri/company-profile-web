@@ -131,6 +131,32 @@ function initScripts() {
     if (typeof window.initPopupTrigger === 'function') {
         window.initPopupTrigger(ACTIVE_POPUP);
     }
+
+    // Scroll to Top Logic
+    initScrollTop();
+}
+
+function initScrollTop() {
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+    if (!scrollTopBtn) return;
+
+    // Show/Hide button on scroll
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            scrollTopBtn.classList.add('show');
+        } else {
+            scrollTopBtn.classList.remove('show');
+        }
+    });
+
+    // Scroll to top on click
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 }
 
 // Load all sections sequentially then init scripts
@@ -145,7 +171,7 @@ async function loadAll() {
     document.documentElement.lang = currentLang;
 
     // Critical sections to load immediately
-    const criticalSections = ['header-container', 'hero-container', 'popup-promo-container'];
+    const criticalSections = ['header-container', 'hero-container', 'popup-promo-container', 'floating-wa-container'];
 
     for (const sectionId of criticalSections) {
         const section = sections.find(s => s.id === sectionId);
