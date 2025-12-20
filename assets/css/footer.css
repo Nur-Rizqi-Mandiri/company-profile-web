@@ -1,28 +1,106 @@
 footer {
-    background-color: var(--bg-alt);
-    padding: 3rem 2rem;
-    text-align: center;
-    border-top: 1px solid var(--grid-line);
+    background-color: #1a1a1a;
+    color: #f4f4f4;
+    padding-top: 4rem;
+    font-family: var(--font-main);
 }
 
 .footer-content {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 2rem 3rem;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 3rem;
 }
 
-footer p {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    margin-top: 2rem;
+.footer-section h3 {
+    font-family: var(--font-serif);
+    color: var(--primary-light);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
 }
 
-@media (min-width: 600px) {
+.footer-section h4 {
+    color: var(--accent-color);
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-section p {
+    color: #b0b0b0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-section ul li a {
+    color: #cbd5e1;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-section ul li a:hover {
+    color: var(--primary-light);
+    transform: translateX(5px);
+}
+
+.contact p i {
+    width: 25px;
+    color: var(--accent-light);
+    margin-right: 10px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    background-color: #111;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-bottom p {
+    color: #888;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* Tablet & Desktop */
+@media (min-width: 768px) {
     .footer-content {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 3rem;
-        text-align: left;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .footer-content {
+        grid-template-columns: 2fr 1fr 1.5fr 1fr;
     }
 }
