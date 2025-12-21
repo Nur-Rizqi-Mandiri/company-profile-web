@@ -149,7 +149,10 @@ const translations = {
         "promo.box.title": "Penawaran Terbatas",
         "promo.box.desc": "Dapatkan konsultasi gratis dan penawaran spesial untuk pemesanan pertama Anda.",
         "promo.claim": "Dapatkan Sekarang",
-        "promo.later": "Nanti saja, terima kasih"
+        "promo.later": "Nanti saja, terima kasih",
+
+        "cookie.text": "Kami menggunakan cookies untuk meningkatkan pengalaman Anda di website ini.",
+        "cookie.btn": "Saya Mengerti"
     },
     en: {
         "nav.home": "Home",
@@ -301,6 +304,9 @@ const translations = {
         "promo.box.title": "Limited Time Offer",
         "promo.box.desc": "Get a free consultation and a special offer for your first order.",
         "promo.claim": "Get It Now",
-        "promo.later": "Maybe later, thanks"
+        "promo.later": "Maybe later, thanks",
+
+        "cookie.text": "We use cookies to ensure you get the best experience on our website.",
+        "cookie.btn": "I Understand"
     }
 };

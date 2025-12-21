@@ -28,7 +28,8 @@ const sections = [
     { id: 'footer-container', file: 'assets/page/footer.html' },
     { id: 'floating-wa-container', file: 'assets/page/floating-wa.html' },
     { id: 'video-modal-container', file: 'assets/page/video-modal.html' },
-    { id: 'popup-gallery-container', file: 'assets/page/popup-gallery.html' }
+    { id: 'popup-gallery-container', file: 'assets/page/popup-gallery.html' },
+    { id: 'cookie-consent-container', file: 'assets/page/cookie-consent.html' }
 ];
 
 // Configurable Variable (Change this to 'gallery', 'promo', or 'none')
@@ -318,6 +319,11 @@ function initScripts() {
 
     // Scroll to Top Logic
     initScrollTop();
+
+    // Cookie Consent Logic
+    if (typeof window.initCookieConsent === 'function') {
+        window.initCookieConsent();
+    }
 }
 
 function initScrollTop() {
@@ -355,7 +361,7 @@ async function loadAll() {
     document.documentElement.lang = currentLang;
 
     // Critical sections to load immediately
-    const criticalSections = ['header-container', 'hero-container', 'popup-promo-container', 'floating-wa-container'];
+    const criticalSections = ['header-container', 'hero-container', 'popup-promo-container', 'floating-wa-container', 'cookie-consent-container'];
 
     for (const sectionId of criticalSections) {
         const section = sections.find(s => s.id === sectionId);
