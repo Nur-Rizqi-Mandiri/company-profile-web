@@ -75,6 +75,12 @@ const CONFIG = {
         { url: "https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=800&q=80", class: "" },
         { url: "https://images.unsplash.com/photo-1470256699805-a29e1b58598a?auto=format&fit=crop&w=1200&q=80", class: "wide" },
         { url: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=800&q=80", class: "" },
-        { url: "https://images.unsplash.com/photo-1556910103-1c02745a30bf?auto=format&fit=crop&w=800&q=80", class: "" }
+        { url: "https://images.unsplash.com/photo-1556910103-1c02745a30bf?auto=format&fit=crop&w=800&q=80", class: "tall" },
+        // New Images
+        { url: "https://images.unsplash.com/photo-1519225421980-715cb0202128?auto=format&fit=crop&w=1200&q=80", class: "big" }, // Wedding table
+        { url: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=80", class: "wide" }, // Celebration
+        { url: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80", class: "" }, // Food detail
+        { url: "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=800&q=80", class: "tall" }, // Meat carving
+        { url: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80", class: "" }  // Fine dining plate
     ]
 };
