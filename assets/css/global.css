@@ -13,8 +13,8 @@
     --grid-line: rgba(0, 0, 0, 0.05);
     --card-bg: #ffffff;
     --card-shadow: rgba(0, 0, 0, 0.1);
-    --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    --font-serif: 'Georgia', serif;
+    --font-main: 'Outfit', sans-serif;
+    --font-serif: 'Playfair Display', serif;
     --header-bg: rgba(255, 255, 255, 0.95);
 }
 

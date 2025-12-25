@@ -58,76 +58,107 @@
 
 .package-card {
     background: var(--card-bg);
-    border-radius: 12px;
-    padding: 2rem;
-    box-shadow: 0 5px 15px var(--card-shadow);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     position: relative;
-    border: 1px solid var(--grid-line);
-    transition: transform 0.3s;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    transition: all 0.4s ease;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+}
+
+/* Elegant glass effect for dark mode or specific themes if needed */
+[data-theme="dark"] .package-card {
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .package-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 25px var(--card-shadow);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-color: var(--primary-color);
 }
 
 .package-card.featured {
-    border: 2px solid var(--secondary-color);
-    transform: scale(1.05);
+    border: 2px solid var(--accent-color);
+    transform: scale(1.03);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    z-index: 2;
 }
 
 .package-card.featured:hover {
-    transform: scale(1.05) translateY(-10px);
+    transform: scale(1.03) translateY(-8px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
 }
 
 .pkg-badge {
     position: absolute;
-    top: -15px;
+    top: 0;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--secondary-color);
-    color: var(--dark-color);
-    padding: 0.5rem 1.5rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: var(--accent-color);
+    color: #333;
+    padding: 0.4rem 2rem;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(255, 193, 7, 0.3);
 }
 
 .pkg-header {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.8rem;
+    font-weight: 700;
     margin-bottom: 0.5rem;
     color: var(--primary-color);
     text-align: center;
+    font-family: var(--font-serif);
 }
 
 .pkg-price {
-    font-size: 2rem;
-    font-weight: bold;
+    font-size: 2.5rem;
+    font-weight: 700;
     color: var(--text-main);
     text-align: center;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
     border-bottom: 1px solid var(--grid-line);
+    font-family: var(--font-serif);
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 0.5rem;
 }
 
 .pkg-price span {
     font-size: 1rem;
-    color: #777;
-    font-weight: normal;
+    color: var(--text-muted);
+    font-weight: 400;
+    font-family: var(--font-main);
 }
 
 .pkg-features {
     list-style: none;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     flex-grow: 1;
+    padding: 0 1rem;
 }
 
 .pkg-features li {
-    margin-bottom: 0.8rem;
-    text-align: center;
+    margin-bottom: 1rem;
+    text-align: left;
     color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.pkg-features li::before {
+    content: "✓";
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 1.1rem;
 }
