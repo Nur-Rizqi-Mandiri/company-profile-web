@@ -8,7 +8,8 @@
     --text-muted: #666666;
     --text-light: #f4f4f4;
     --bg-main: #ffffff;
-    --bg-alt: #f9f9f9;
+    --bg-alt: #f0f0f0;
+    /* Stronger Grey */
     --grid-line: rgba(0, 0, 0, 0.05);
     --card-bg: #ffffff;
     --card-shadow: rgba(0, 0, 0, 0.1);
@@ -27,7 +28,8 @@ body.dark-theme {
     --text-muted: #b0b0b0;
     --text-light: #f4f4f4;
     --bg-main: #121212;
-    --bg-alt: #1e1e1e;
+    --bg-alt: #252525;
+    /* Visible contrast against 121212 */
     --grid-line: rgba(255, 255, 255, 0.05);
     --card-bg: #1e1e1e;
     --card-shadow: rgba(0, 0, 0, 0.3);
@@ -103,7 +105,8 @@ img {
     }
 }
 
-.bg-off-white {
+.bg-off-white,
+.bg-grey {
     background-color: var(--bg-alt);
 }
 

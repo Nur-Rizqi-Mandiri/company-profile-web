@@ -105,6 +105,20 @@ const translations = {
         "trusted.subtitle": "Mitra dan Klien Korporat Kami",
 
         "certifications.title": "Standar Kualitas & Keamanan",
+        "certifications.subtitle": "Standar Keamanan Pangan & Halal",
+
+        "process.title": "Cara Pemesanan",
+        "process.subtitle": "4 Langkah Mudah Menuju Acara Impian",
+        "process.step1.title": "Konsultasi",
+        "process.step1.desc": "Hubungi kami untuk diskusi kebutuhan acara.",
+        "process.step2.title": "Food Testing",
+        "process.step2.desc": "Cicipi menu andalan kami secara gratis.",
+        "process.step3.title": "Penawaran",
+        "process.step3.desc": "Kami kirimkan detail paket dan harga.",
+        "process.step4.title": "Deal",
+        "process.step4.desc": "Konfirmasi dan kami siapkan semuanya.",
+        "process.cta": "Mulai Sekarang",
+
         "certifications.subtitle": "Legalitas dan Sertifikasi Resmi",
         "certifications.halal.title": "Halal MUI",
         "certifications.halal.desc": "No. 123456789",
@@ -261,6 +275,19 @@ const translations = {
 
         "certifications.title": "Quality & Safety Standards",
         "certifications.subtitle": "Official Legality and Certifications",
+
+        "process.title": "How to Order",
+        "process.subtitle": "4 Easy Steps to Your Dream Event",
+        "process.step1.title": "Consultation",
+        "process.step1.desc": "Contact us to discuss your event needs.",
+        "process.step2.title": "Food Testing",
+        "process.step2.desc": "Taste our signature dishes for free.",
+        "process.step3.title": "Quotation",
+        "process.step3.desc": "We send detailed packages and pricing.",
+        "process.step4.title": "Deal",
+        "process.step4.desc": "Confirm and we handle the rest.",
+        "process.cta": "Start Now",
+
         "certifications.halal.title": "Halal MUI",
         "certifications.halal.desc": "No. 123456789",
         "certifications.hygiene.title": "Hygiene Worthy",
