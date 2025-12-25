@@ -78,8 +78,8 @@
     .process-steps::before {
         content: '';
         position: absolute;
-        top: 60px;
-        /* Adjust based on icon size/padding */
+        top: 88px;
+        /* Aligned to center of 80px icon + 2rem padding + 1rem parent padding */
         left: 10%;
         right: 10%;
         height: 2px;
