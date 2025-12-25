@@ -34,7 +34,7 @@ const sections = [
 ];
 
 // Configurable Variable (Change this to 'gallery', 'promo', or 'none')
-const ACTIVE_POPUP = 'none';
+const ACTIVE_POPUP = 'promo';
 
 // Function to load a single HTML file
 async function loadSection(id, file) {
