@@ -4,7 +4,7 @@
 }
 
 .faq-item {
-    background: white;
+    background: var(--card-bg);
     margin-bottom: 1rem;
     padding: 1.2rem;
     border-radius: 8px;
@@ -46,9 +46,9 @@
 .faq-item p {
     margin-top: 1rem;
     line-height: 1.6;
-    color: #555;
+    color: var(--text-muted);
     padding-top: 1rem;
-    border-top: 1px solid #eee;
+    border-top: 1px solid var(--grid-line);
     font-size: 0.95rem;
 }
 
@@ -56,12 +56,15 @@
     .faq-item {
         padding: 1.5rem;
     }
+
     .faq-item summary {
         font-size: 1.1rem;
     }
+
     .faq-item summary::after {
         font-size: 1.5rem;
     }
+
     .faq-item p {
         font-size: 1rem;
     }

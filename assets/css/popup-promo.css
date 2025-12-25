@@ -20,7 +20,7 @@
 }
 
 .popup-content {
-    background: white;
+    background: var(--card-bg);
     width: 90%;
     max-width: 800px;
     border-radius: 12px;
@@ -43,7 +43,7 @@
     background: none;
     border: none;
     font-size: 2rem;
-    color: #555;
+    color: var(--text-muted);
     cursor: pointer;
     z-index: 10;
     line-height: 1;
@@ -81,12 +81,12 @@
 }
 
 .popup-text p {
-    color: #666;
+    color: var(--text-muted);
     margin-bottom: 1.5rem;
 }
 
 .promo-box {
-    background: #fdf5e6;
+    background: var(--bg-alt);
     /* Light orange-ish */
     border: 2px dashed var(--secondary-color);
     padding: 1rem;
@@ -103,12 +103,12 @@
 }
 
 .promo-code-container {
-    background: white;
+    background: var(--card-bg);
     padding: 0.5rem 1rem;
     border-radius: 4px;
     margin-bottom: 0.5rem;
     display: inline-block;
-    border: 1px solid #ddd;
+    border: 1px solid var(--grid-line);
 }
 
 .promo-code {
@@ -122,20 +122,20 @@
 .promo-desc {
     font-size: 0.9rem;
     margin-bottom: 0;
-    color: #444;
+    color: var(--text-main);
 }
 
 .no-thanks {
     margin-top: 1rem;
     font-size: 0.8rem;
-    color: #999;
+    color: var(--text-muted);
     cursor: pointer;
     text-decoration: underline;
     margin-bottom: 0 !important;
 }
 
 .no-thanks:hover {
-    color: #555;
+    color: var(--text-main);
 }
 
 @media (max-width: 768px) {

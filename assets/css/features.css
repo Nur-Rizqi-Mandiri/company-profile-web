@@ -5,7 +5,8 @@
 }
 
 .feature-card {
-    background: white;
+    background: var(--card-bg);
+    color: var(--text-main);
     padding: 2rem;
     border-radius: 14px;
     text-align: center;

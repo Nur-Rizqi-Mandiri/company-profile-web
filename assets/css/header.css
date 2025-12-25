@@ -18,11 +18,21 @@ nav {
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
     font-size: 1.2rem;
     font-weight: bold;
     color: var(--primary-color);
     font-family: var(--font-serif);
     white-space: nowrap;
+    text-decoration: none;
+    /* Just in case */
+}
+
+.logo-text {
+    display: block;
+    /* Ensure it's visible */
 }
 
 @media (max-width: 360px) {
