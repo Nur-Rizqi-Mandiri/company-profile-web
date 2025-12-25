@@ -104,3 +104,11 @@ footer {
         grid-template-columns: 2fr 1fr 1.5fr 1fr;
     }
 }
+
+.footer-title {
+    font-family: var(--font-serif);
+    color: #fff;
+    margin-top: 1rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+}

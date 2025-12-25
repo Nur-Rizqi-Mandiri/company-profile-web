@@ -146,10 +146,7 @@ function applyConfig(container = document) {
         link.href = `https://wa.me/${CONFIG.contact.whatsapp}`;
     });
 
-    // Apply Certifications
-    setText('cert-halal', CONFIG.certifications.halal);
-    setText('cert-hygiene', CONFIG.certifications.hygiene);
-    setText('cert-apji', CONFIG.certifications.apji);
+
 
     // Apply Trusted Logos
     const trustedContainer = container.querySelector('#trusted-logo-container');
@@ -278,6 +275,7 @@ function applyConfig(container = document) {
             div.className = `chaos-item ${imgData.class} wow animate__animated animate__fadeIn`;
             div.setAttribute('data-wow-delay', `${(index * 0.1) + 0.1}s`);
             div.innerHTML = `
+                <img src="${imgData.url}" loading="lazy">
                 <div class="chaos-overlay"></div>
             `;
             momentsContainer.appendChild(div);
@@ -398,6 +396,39 @@ function applyConfig(container = document) {
                 <div class="play-button"><span>▶</span></div>
             `;
             videoContainer.appendChild(div);
+        });
+    }
+
+    // 13. Render Certifications
+    const certContainer = container.querySelector('#cert-grid-container');
+    if (certContainer && CONFIG.certifications) {
+        certContainer.innerHTML = '';
+        CONFIG.certifications.forEach((item, index) => {
+            const div = document.createElement('div');
+            div.className = 'cert-item wow animate__animated animate__fadeInUp';
+            if (index > 0) div.setAttribute('data-wow-delay', `${index * 0.1}s`);
+
+            // Check if icon is an image URL (simple check) or emoji
+            const isImage = item.icon.includes('/') || item.icon.includes('.');
+            const iconContent = isImage
+                ? `<img src="${item.icon}" alt="${item.title}" style="width: 100%; height: 100%; object-fit: contain;">`
+                : `<div class="cert-icon">${item.icon}</div>`;
+
+            div.innerHTML = `
+                <div class="cert-badge">${item.badge}</div>
+                <div class="cert-icon-wrapper">
+                    ${iconContent}
+                </div>
+                <div class="cert-content">
+                    <h4>${item.title}</h4>
+                    <div class="cert-number">${item.number}</div>
+                    <p class="cert-issuer">${item.issuer}</p>
+                    <div class="cert-status">
+                        <span class="status-dot"></span> Terverifikasi
+                    </div>
+                </div>
+            `;
+            certContainer.appendChild(div);
         });
     }
 }

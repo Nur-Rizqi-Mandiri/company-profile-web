@@ -21,11 +21,11 @@ const CONFIG = {
         text: "Sen - Jum: 09:00 - 18:00",
         saturday: "Sab: 10:00 - 16:00"
     },
-    certifications: {
-        halal: "No. 123456789",
-        hygiene: "Dinkes DKI Jakarta",
-        apji: "Asosiasi Jasa Boga"
-    },
+    certifications: [
+        { title: "Sertifikasi Halal", number: "ID31110000326470622", issuer: "Majelis Ulama Indonesia", icon: "🕌", badge: "Official" },
+        { title: "Sertifikat Laik Hygiene", number: "443.51/2923/Dinkes/2023", issuer: "Dinas Kesehatan DKI Jakarta", icon: "🛡️", badge: "Health" },
+        { title: "Anggota Resmi", number: "018/D.PD/APJI/DKI/2023", issuer: "Asosiasi Perusahaan Jasaboga Indonesia", icon: "🤝", badge: "Member" }
+    ],
     trusted_by: [
         { name: "Indofood", url: "https://upload.wikimedia.org/wikipedia/commons/2/2d/Indofood_logo-id.svg" },
         { name: "TPK Koja", url: "https://www.tpkkoja.co.id/wp-content/uploads/2023/02/TPK-KOJA.png" },
