@@ -1,0 +1,57 @@
+/* Logo Styles */
+.brand-logo {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.brand-logo:hover {
+    transform: scale(1.05);
+}
+
+/* Removed legacy footer logo styles to allow wrapper to control layout */
+
+/* Wrapper for white background & circle crop */
+.logo-circle-wrapper {
+    background-color: white;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header specific wrapper size */
+.logo .logo-circle-wrapper {
+    width: 60px;
+    height: 60px;
+}
+
+/* Footer specific wrapper size */
+.footer-section.brand .logo-circle-wrapper {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem;
+}
+
+/* Image inside wrapper */
+.logo-circle-wrapper .brand-logo {
+    width: 85%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 0;
+    /* Let wrapper handle shape */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .brand-logo {
+        height: 40px;
+    }
+
+    .footer-section.brand .brand-logo {
+        height: 60px;
+    }
+}

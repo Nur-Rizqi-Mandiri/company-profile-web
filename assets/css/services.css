@@ -12,7 +12,8 @@
 }
 
 .service-card {
-    background: white;
+    background: var(--card-bg);
+    color: var(--text-main);
     padding: 2rem;
     text-align: center;
     border-radius: 8px;

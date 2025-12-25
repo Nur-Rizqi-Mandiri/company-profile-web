@@ -12,7 +12,8 @@
 }
 
 .menu-item {
-    background: white;
+    background: var(--card-bg);
+    color: var(--text-main);
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
