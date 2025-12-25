@@ -61,8 +61,7 @@
 
 @media (min-width: 768px) {
     .cookie-banner {
-        left: inherit;
-        /* Align right on desktop */
-        right: 30px;
+        left: 30px;
+        right: auto;
     }
 }

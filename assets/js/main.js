@@ -54,10 +54,7 @@ async function loadSection(id, file) {
             window.startHeroAutoSlide();
         }
 
-        // Initialize video grid if videos are loaded
-        if (id === 'videos-container' && typeof window.initVideoGrid === 'function') {
-            window.initVideoGrid();
-        }
+
     } catch (error) {
         console.error(error);
         document.getElementById(id).innerHTML = `<p>Error loading section: ${file}. Note: You must run this via a local server (e.g. Live Server).</p>`;
@@ -281,10 +278,126 @@ function applyConfig(container = document) {
             div.className = `chaos-item ${imgData.class} wow animate__animated animate__fadeIn`;
             div.setAttribute('data-wow-delay', `${(index * 0.1) + 0.1}s`);
             div.innerHTML = `
-                <img src="${imgData.url}" loading="lazy">
                 <div class="chaos-overlay"></div>
             `;
             momentsContainer.appendChild(div);
+        });
+    }
+
+    // 6. Render FAQ
+    const faqContainer = container.querySelector('#faq-list-container');
+    if (faqContainer && CONFIG.faq && CONFIG.faq.length > 0) {
+        faqContainer.innerHTML = '';
+        CONFIG.faq.forEach((item, index) => {
+            const details = document.createElement('details');
+            details.className = 'faq-item wow animate__animated animate__fadeInUp';
+            details.setAttribute('data-wow-delay', `${index * 0.1}s`);
+            details.innerHTML = `
+                <summary>${item.q}</summary>
+                <p>${item.a}</p>
+            `;
+            faqContainer.appendChild(details);
+        });
+    }
+
+    // 7. Render Features
+    const featuresContainer = container.querySelector('#features-grid-container');
+    if (featuresContainer && CONFIG.features) {
+        featuresContainer.innerHTML = '';
+        CONFIG.features.forEach((item) => {
+            const div = document.createElement('div');
+            div.className = 'feature-card wow animate__animated animate__fadeInUp';
+            div.innerHTML = `
+                <div class="feature-icon">${item.icon}</div>
+                <h3>${item.title}</h3>
+                <p>${item.desc}</p>
+            `;
+            featuresContainer.appendChild(div);
+        });
+    }
+
+    // 8. Render Services
+    const servicesContainer = container.querySelector('#services-grid-container');
+    if (servicesContainer && CONFIG.services) {
+        servicesContainer.innerHTML = '';
+        CONFIG.services.forEach((item, index) => {
+            const div = document.createElement('div');
+            div.className = 'service-card wow animate__animated animate__fadeInUp';
+            if (index > 0) div.setAttribute('data-wow-delay', `${index * 0.2}s`);
+            div.innerHTML = `
+                <div class="service-icon">${item.icon}</div>
+                <h3>${item.title}</h3>
+                <p>${item.desc}</p>
+            `;
+            servicesContainer.appendChild(div);
+        });
+    }
+
+    // 9. Render Stats
+    const statsContainer = container.querySelector('#stats-grid-container');
+    if (statsContainer && CONFIG.stats) {
+        statsContainer.innerHTML = '';
+        CONFIG.stats.forEach((item) => {
+            const div = document.createElement('div');
+            div.innerHTML = `
+                <div class="stat-number">${item.number}</div>
+                <p>${item.label}</p>
+            `;
+            statsContainer.appendChild(div);
+        });
+    }
+
+    // 10. Render Process
+    const processContainer = container.querySelector('#process-steps-container');
+    if (processContainer && CONFIG.process) {
+        processContainer.innerHTML = '';
+        CONFIG.process.forEach((item, index) => {
+            const div = document.createElement('div');
+            div.className = 'process-step wow animate__animated animate__fadeInUp';
+            div.setAttribute('data-wow-delay', `${(index + 1) * 0.1}s`);
+            div.innerHTML = `
+                <div class="step-icon">
+                    <i class="${item.icon}"></i>
+                    <div class="step-number">${item.number}</div>
+                </div>
+                <h3>${item.title}</h3>
+                <p>${item.desc}</p>
+            `;
+            processContainer.appendChild(div);
+        });
+    }
+
+    // 11. Render Testimonials
+    const testimonialsContainer = container.querySelector('#testimonial-grid-container');
+    if (testimonialsContainer && CONFIG.testimonials) {
+        testimonialsContainer.innerHTML = '';
+        CONFIG.testimonials.forEach((item) => {
+            const div = document.createElement('div');
+            div.className = 'testimonial-card wow animate__animated animate__fadeInUp';
+            div.innerHTML = `
+                <p>${item.text}</p>
+                <div class="testimonial-author">— ${item.author}</div>
+            `;
+            testimonialsContainer.appendChild(div);
+        });
+    }
+
+    // 12. Render Videos
+    const videoContainer = container.querySelector('#video-grid-container');
+    if (videoContainer && CONFIG.videos) {
+        videoContainer.innerHTML = '';
+        CONFIG.videos.forEach((video) => {
+            const div = document.createElement('div');
+            div.className = 'video-item wow animate__animated animate__fadeInUp';
+            // Ensure openVideoModal is available
+            div.setAttribute('onclick', `openVideoModal('${video.id}')`);
+
+            const thumbUrl = video.thumbnail || `https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`;
+            div.innerHTML = `
+                <img src="${thumbUrl}" alt="${video.title}" loading="lazy">
+                <div class="play-button"><span>▶</span></div>
+            `;
+            videoContainer.appendChild(div);
         });
     }
 }

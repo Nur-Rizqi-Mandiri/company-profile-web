@@ -82,5 +82,45 @@ const CONFIG = {
         { url: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80", class: "" }, // Food detail
         { url: "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=800&q=80", class: "tall" }, // Meat carving
         { url: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80", class: "" }  // Fine dining plate
+    ],
+
+    features: [
+        { icon: "🌿", title: "Bahan Segar", desc: "Bahan premium dari supplier lokal terpercaya." },
+        { icon: "👨‍🍳", title: "Koki Profesional", desc: "Tim dapur berpengalaman event kecil hingga besar." },
+        { icon: "⏱️", title: "Layanan Tepat Waktu", desc: "Setup rapi dan tepat waktu tanpa kompromi kualitas." },
+        { icon: "✨", title: "Menu Kustom", desc: "Menu fleksibel sesuai tema dan kebutuhan klien." }
+    ],
+    services: [
+        { icon: "💍", title: "Pernikahan", desc: "Dari makan malam piring yang elegan hingga prasmanan rustic, kami membuat hari besar Anda terasa nikmat." },
+        { icon: "🤝", title: "Korporat", desc: "Buat klien Anda terkesan dengan kotak makan siang yang canggih, rehat kopi, dan makan malam eksekutif." },
+        { icon: "🎉", title: "Acara Pribadi", desc: "Ulang tahun, hari jadi, atau reuni keluarga. Kami menangani makanannya agar Anda bisa fokus menjamu tamu." }
+    ],
+    stats: [
+        { number: "14+", label: "Tahun Pengalaman" },
+        { number: "1.200+", label: "Event Terselenggara" },
+        { number: "150K+", label: "Tamu Terlayani" },
+        { number: "98%", label: "Kepuasan Klien" }
+    ],
+    process: [
+        { icon: "fas fa-comments", number: "1", title: "Konsultasi", desc: "Diskusi gratis mengenai kebutuhan, tanggal, dan anggaran acara Anda." },
+        { icon: "fas fa-utensils", number: "2", title: "Food Testing", desc: "Cicipi menu pilihan Anda untuk memastikan rasa sesuai selera." },
+        { icon: "fas fa-file-invoice-dollar", number: "3", title: "Penawaran", desc: "Kami kirimkan detail paket dan harga transparan tanpa biaya tersembunyi." },
+        { icon: "fas fa-handshake", number: "4", title: "Deal", desc: "Konfirmasi pesanan dan biarkan kami yang mengurus sisanya." }
+    ],
+    testimonials: [
+        { text: "\"Makanannya luar biasa dan tim sangat profesional. Semua tamu puas.\"", author: "Rina, Klien Pernikahan" },
+        { text: "\"Pelayanan cepat, rasa konsisten, dan presentasi elegan.\"", author: "Andi, Acara Korporat" },
+        { text: "\"Catering terbaik yang pernah kami gunakan untuk acara keluarga.\"", author: "Sari, Pesta Pribadi" }
+    ],
+    videos: [
+        { id: 'dQw4w9WgXcQ', title: 'Video Katering 1', thumbnail: 'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg' },
+        { id: 'LxR_7cbb100', title: 'Video Katering 2', thumbnail: 'https://img.youtube.com/vi/LxR_7cbb100/maxresdefault.jpg' },
+        { id: '9d8wWcJLnFI', title: 'Video Katering 3', thumbnail: 'https://img.youtube.com/vi/9d8wWcJLnFI/maxresdefault.jpg' }
+    ],
+    faq: [
+        { q: "Apakah bisa melakukan food testing sebelum memesan?", a: "Tentu saja! Kami menyediakan sesi food testing gratis untuk pemesanan pernikahan di atas 500 pax. Untuk acara lain, silakan hubungi tim kami untuk jadwal food testing reguler." },
+        { q: "Berapa minimal pemesanan catering?", a: "Untuk prasmanan (buffet), minimal pemesanan adalah 50 porsi. Untuk nasi box/snack box, minimal 30 box. Kami juga melayani private dining untuk jumlah yang lebih kecil." },
+        { q: "Apakah area layanan mencakup seluruh Jabodetabek?", a: "Ya, kami melayani seluruh area Jakarta, Bogor, Depok, Tangerang, dan Bekasi. Untuk lokasi di luar Jabodetabek, akan dikenakan biaya tambahan transportasi." },
+        { q: "Apakah menyediakan menu untuk diet khusus?", a: "Kami sangat fleksibel. Kami bisa menyediakan menu vegetarian, vegan, bebas gluten, atau menu diet khusus lainnya sesuai permintaan Anda." }
     ]
 };

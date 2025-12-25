@@ -5,20 +5,52 @@
             <p data-i18n="certifications.subtitle">Legalitas dan Sertifikasi Resmi</p>
         </div>
         <div class="cert-grid">
-            <div class="cert-item wow animate__animated animate__zoomIn">
-                <div class="cert-icon">🏷️</div>
-                <h4 data-i18n="certifications.halal.title">Halal MUI</h4>
-                <p id="cert-halal" data-i18n="certifications.halal.desc">No. 123456789</p>
+            <!-- Halal -->
+            <div class="cert-item wow animate__animated animate__fadeInUp">
+                <div class="cert-badge">Official</div>
+                <div class="cert-icon-wrapper">
+                    <div class="cert-icon">🕌</div>
+                </div>
+                <div class="cert-content">
+                    <h4 data-i18n="certifications.halal.title">Sertifikasi Halal</h4>
+                    <div class="cert-number">No. <span id="cert-halal">LOADING...</span></div>
+                    <p class="cert-issuer">Majelis Ulama Indonesia</p>
+                    <div class="cert-status">
+                        <span class="status-dot"></span> Terverifikasi
+                    </div>
+                </div>
             </div>
-            <div class="cert-item wow animate__animated animate__zoomIn">
-                <div class="cert-icon">🏥</div>
-                <h4 data-i18n="certifications.hygiene.title">Laik Hygiene</h4>
-                <p id="cert-hygiene" data-i18n="certifications.hygiene.desc">Dinkes DKI Jakarta</p>
+
+            <!-- Hygiene -->
+            <div class="cert-item wow animate__animated animate__fadeInUp" data-wow-delay="0.1s">
+                <div class="cert-badge">Health</div>
+                <div class="cert-icon-wrapper">
+                    <div class="cert-icon">🛡️</div>
+                </div>
+                <div class="cert-content">
+                    <h4 data-i18n="certifications.hygiene.title">Sertifikat Laik Hygiene</h4>
+                    <div class="cert-number" id="cert-hygiene">LOADING...</div>
+                    <p class="cert-issuer">Dinas Kesehatan DKI Jakarta</p>
+                    <div class="cert-status">
+                        <span class="status-dot"></span> Terverifikasi
+                    </div>
+                </div>
             </div>
-            <div class="cert-item wow animate__animated animate__zoomIn">
-                <div class="cert-icon">🏢</div>
-                <h4 data-i18n="certifications.apji.title">Anggota APJI</h4>
-                <p id="cert-apji" data-i18n="certifications.apji.desc">Asosiasi Jasa Boga</p>
+
+            <!-- APJI -->
+            <div class="cert-item wow animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+                <div class="cert-badge">Member</div>
+                <div class="cert-icon-wrapper">
+                    <div class="cert-icon">🤝</div>
+                </div>
+                <div class="cert-content">
+                    <h4 data-i18n="certifications.apji.title">Anggota Resmi</h4>
+                    <div class="cert-number" id="cert-apji">LOADING...</div>
+                    <p class="cert-issuer">Asosiasi Perusahaan Jasaboga Indonesia</p>
+                    <div class="cert-status">
+                        <span class="status-dot"></span> Aktif
+                    </div>
+                </div>
             </div>
         </div>
     </div>
