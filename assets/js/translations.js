@@ -5,7 +5,6 @@ const translations = {
         "nav.videos": "Video",
         "nav.services": "Layanan",
         "nav.menu": "Menu",
-        "nav.menu": "Menu",
         "nav.packages": "Paket",
         "nav.process": "Cara Pesan",
         "nav.gallery": "Galeri",
@@ -107,7 +106,6 @@ const translations = {
         "trusted.subtitle": "Mitra dan Klien Korporat Kami",
 
         "certifications.title": "Standar Kualitas & Keamanan",
-        "certifications.subtitle": "Standar Keamanan Pangan & Halal",
 
         "process.title": "Cara Pemesanan",
         "process.subtitle": "4 Langkah Mudah Menuju Acara Impian",
@@ -175,7 +173,6 @@ const translations = {
         "nav.about": "About Us",
         "nav.videos": "Videos",
         "nav.services": "Services",
-        "nav.menu": "Menu",
         "nav.menu": "Menu",
         "nav.packages": "Packages",
         "nav.process": "How To Order",

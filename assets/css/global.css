@@ -182,7 +182,7 @@ img {
 /* Vertical Navigation */
 .vertical-nav {
     position: fixed;
-    right: 2rem;
+    right: 1.2rem;
     top: 50%;
     transform: translateY(-50%);
     display: flex;

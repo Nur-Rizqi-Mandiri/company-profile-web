@@ -108,9 +108,9 @@ const CONFIG = {
         { icon: "fas fa-handshake", number: "4", title: "Deal", desc: "Konfirmasi pesanan dan biarkan kami yang mengurus sisanya." }
     ],
     testimonials: [
-        { text: "\"Makanannya luar biasa dan tim sangat profesional. Semua tamu puas.\"", author: "Rina, Klien Pernikahan" },
-        { text: "\"Pelayanan cepat, rasa konsisten, dan presentasi elegan.\"", author: "Andi, Acara Korporat" },
-        { text: "\"Catering terbaik yang pernah kami gunakan untuk acara keluarga.\"", author: "Sari, Pesta Pribadi" }
+        { text: "\"Makanannya luar biasa dan tim sangat profesional. Semua tamu puas.\"", author: "Rina, Klien Pernikahan", image: "" },
+        { text: "\"Pelayanan cepat, rasa konsisten, dan presentasi elegan.\"", author: "Andi, Acara Korporat", image: "" },
+        { text: "\"Catering terbaik yang pernah kami gunakan untuk acara keluarga.\"", author: "Sari, Pesta Pribadi", image: "" }
     ],
     videos: [
         { id: 'dQw4w9WgXcQ', title: 'Video Katering 1', thumbnail: 'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg' },

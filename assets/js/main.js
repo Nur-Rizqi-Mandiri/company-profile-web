@@ -147,7 +147,6 @@ function applyConfig(container = document) {
     });
 
 
-
     // Apply Trusted Logos
     const trustedContainer = container.querySelector('#trusted-logo-container');
     if (trustedContainer && CONFIG.trusted_by.length > 0) {
@@ -187,7 +186,7 @@ function applyConfig(container = document) {
     const menuContainer = container.querySelector('#menu-grid-container');
     if (menuContainer && CONFIG.menu_items.length > 0) {
         menuContainer.innerHTML = '';
-        CONFIG.menu_items.forEach((item, index) => {
+        CONFIG.menu_items.forEach((item) => {
             const div = document.createElement('div');
             div.className = 'menu-item wow animate__animated animate__fadeInUp';
             // Simple delay stagger
@@ -238,7 +237,7 @@ function applyConfig(container = document) {
     if (galleryContainer && CONFIG.gallery_items.length > 0) {
         // Keep controls
         const controls = galleryContainer.querySelectorAll('.prev, .next');
-        let controlsHtml = '';
+        let controlsHtml;
         if (controls.length === 0) {
             controlsHtml = `
             <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
@@ -275,7 +274,7 @@ function applyConfig(container = document) {
             div.className = `chaos-item ${imgData.class} wow animate__animated animate__fadeIn`;
             div.setAttribute('data-wow-delay', `${(index * 0.1) + 0.1}s`);
             div.innerHTML = `
-                <img src="${imgData.url}" loading="lazy">
+                <img src="${imgData.url}" loading="lazy" alt="${imgData.url}">
                 <div class="chaos-overlay"></div>
             `;
             momentsContainer.appendChild(div);
@@ -369,13 +368,55 @@ function applyConfig(container = document) {
     const testimonialsContainer = container.querySelector('#testimonial-grid-container');
     if (testimonialsContainer && CONFIG.testimonials) {
         testimonialsContainer.innerHTML = '';
-        CONFIG.testimonials.forEach((item) => {
+
+        const pastelColors = ['#FFD1DC', '#E0F7FA', '#F3E5F5', '#FFF9C4', '#E1F5FE', '#F1F8E9', '#FFE0B2', '#D1C4E9'];
+
+        const getInitials = (name) => {
+            const parts = name.split(' ');
+            if (parts.length === 1) return parts[0].substring(0, 2).toUpperCase();
+            return (parts[0][0] + parts[1][0]).toUpperCase();
+        };
+
+        const renderTestimonial = (item) => {
             const div = document.createElement('div');
             div.className = 'testimonial-card wow animate__animated animate__fadeInUp';
+
+            // Random color
+            const randomColor = pastelColors[Math.floor(Math.random() * pastelColors.length)];
+            div.style.backgroundColor = randomColor;
+
+            // Initials or Image
+            // Use author name, strip everything after comma if present (e.g. "Rina, Klien")
+            const cleanName = item.author.split(',')[0].trim();
+            const initials = getInitials(cleanName);
+
+            let avatarContent;
+            if (item.image && item.image.trim() !== '') {
+                avatarContent = `<img src="${item.image}" alt="${item.author}" loading="lazy">`;
+            } else {
+                avatarContent = initials;
+            }
+
             div.innerHTML = `
-                <p>${item.text}</p>
-                <div class="testimonial-author">— ${item.author}</div>
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">${avatarContent}</div>
+                </div>
+                <div class="testimonial-content">
+                    <p>${item.text}</p>
+                    <div class="testimonial-author">— ${item.author}</div>
+                </div>
             `;
+            return div;
+        };
+
+        CONFIG.testimonials.forEach((item) => {
+            testimonialsContainer.appendChild(renderTestimonial(item));
+        });
+
+        // Duplicate for infinite scroll
+        CONFIG.testimonials.forEach((item) => {
+            const div = renderTestimonial(item);
+            div.setAttribute('aria-hidden', 'true');
             testimonialsContainer.appendChild(div);
         });
     }

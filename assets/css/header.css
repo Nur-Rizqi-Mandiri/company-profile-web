@@ -68,7 +68,7 @@ nav {
     display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .menu-toggle {
         display: block;
     }
@@ -126,6 +126,26 @@ nav {
         cursor: pointer;
         color: var(--primary-color);
         line-height: 1;
+    }
+}
+
+/* Optimization for tablets and small laptops (1025px - 1200px) */
+@media (min-width: 1025px) and (max-width: 1200px) {
+    nav {
+        padding: 0.8rem 1rem;
+    }
+
+    .nav-links {
+        gap: 0.8rem;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem;
+    }
+
+    .logo {
+        gap: 0.5rem;
+        font-size: 1.1rem;
     }
 }
 

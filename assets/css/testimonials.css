@@ -1,23 +1,89 @@
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+.testimonial-scroller {
+    max-width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.testimonial-track {
+    display: flex;
     gap: 2rem;
+    width: max-content;
+    animation: scroll 40s linear infinite;
+    padding: 1rem 0;
+    align-items: stretch;
+    /* Ensure all cards stretch to the tallest height */
+}
+
+.testimonial-track:hover {
+    animation-play-state: paused;
 }
 
 .testimonial-card {
-    background: var(--card-bg);
+    /* background: var(--card-bg); Removed */
     color: var(--text-main);
     padding: 2rem;
     border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); Removed */
+    flex: 0 0 320px;
+    max-width: 320px;
+    white-space: normal;
+    display: flex;
+    flex-direction: column;
+    /* height: 100%; Removed to let flex-stretch work properly */
+    min-height: 250px;
+    /* Ensure a decent minimum height */
+}
+
+.testimonial-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-right: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+    /* Ensure image doesn't overflow */
+}
+
+.testimonial-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .testimonial-card p {
     font-style: italic;
     margin-bottom: 1.2rem;
+    flex-grow: 1;
 }
 
 .testimonial-author {
     font-weight: bold;
     color: var(--primary-color);
+}
+
+@keyframes scroll {
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonial-card {
+        flex: 0 0 280px;
+        max-width: 280px;
+    }
 }
