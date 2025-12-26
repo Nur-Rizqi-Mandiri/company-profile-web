@@ -9,8 +9,9 @@
     display: flex;
     gap: 2rem;
     width: max-content;
-    animation: scroll 40s linear infinite;
-    padding: 1rem 0;
+    /* animation: scroll 40s linear infinite; Removed for JS control */
+    padding: 1rem 0 3rem 0;
+    /* Added bottom padding */
     align-items: stretch;
     /* Ensure all cards stretch to the tallest height */
 }

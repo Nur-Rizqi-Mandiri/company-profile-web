@@ -253,6 +253,10 @@ function applyConfig(container = document) {
         CONFIG.gallery_items.forEach((item, index) => {
             const div = document.createElement('div');
             div.className = `slide ${index === 0 ? 'active' : ''}`;
+            // Add click handler for preview
+            div.style.cursor = 'pointer';
+            div.onclick = () => openGalleryPreview(item.image, item.title, item.desc);
+
             div.innerHTML = `
                 <img src="${item.image}" alt="${item.title}" loading="lazy">
                 <div class="slide-caption wow animate__animated animate__fadeInUp">
@@ -511,6 +515,135 @@ function initScripts() {
     // Cookie Consent Logic
     if (typeof window.initCookieConsent === 'function') {
         window.initCookieConsent();
+    }
+
+    // Contact Form Notification
+    initContactForm();
+
+    // Testimonials Infinite Scroll
+    initTestimonialsSmoothScroll();
+}
+
+function initContactForm() {
+    const form = document.querySelector('#contact-container form');
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Simulate sending
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = 'Mengirim...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                alert('Pesan Anda berhasil terkirim! Tim kami akan segera menghubungi Anda.');
+                form.reset();
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }, 1500);
+        });
+    }
+}
+
+function initTestimonialsSmoothScroll() {
+    const track = document.getElementById('testimonial-grid-container');
+    if (!track) return;
+
+    // Clone items for infinite loop illusion
+    const items = Array.from(track.children);
+    if (items.length === 0) return;
+
+    // Clone enough items to fill twice the screen width
+    items.forEach(item => {
+        const clone = item.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        track.appendChild(clone);
+    });
+    // Do it again just to be safe for large screens
+    items.forEach(item => {
+        const clone = item.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        track.appendChild(clone);
+    });
+
+    let x = 0;
+    let speed = 0.5; // Pixels per frame
+    let animationId;
+    let isPaused = false;
+    let startX = 0;
+    let isDragging = false;
+    let scrollLeftAtStart = 0;
+
+    const animate = () => {
+        if (!isPaused) {
+            x -= speed;
+            // Reset if moved past the width of original content
+            // Approximate width check: simpler to just check scrollWidth/3
+            if (Math.abs(x) >= track.scrollWidth / 3) {
+                x = 0;
+            }
+            track.style.transform = `translateX(${x}px)`;
+        }
+        animationId = requestAnimationFrame(animate);
+    };
+
+    // Start animation
+    animate();
+
+    // Touch/Hover Interaction
+    track.addEventListener('mouseenter', () => isPaused = true);
+    track.addEventListener('mouseleave', () => isPaused = false);
+
+    track.addEventListener('touchstart', (e) => {
+        isPaused = true;
+        isDragging = true;
+        startX = e.touches[0].pageX - x;
+    }, { passive: true });
+
+    track.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault(); // Prevent page scroll while dragging carousel
+        const currentX = e.touches[0].pageX;
+        x = currentX - startX;
+        track.style.transform = `translateX(${x}px)`;
+    }, { passive: false });
+
+    track.addEventListener('touchend', () => {
+        isDragging = false;
+        isPaused = false;
+    });
+}
+
+// Global function for Gallery Preview
+window.openGalleryPreview = function (src, title, desc) {
+    const popup = document.getElementById('gallery-popup');
+    if (!popup) return;
+
+    // Inject content directly for preview
+    const showcase = popup.querySelector('.gallery-showcase');
+    // Clear existing images used for the "other" popup logic
+    if (showcase) {
+        showcase.innerHTML = `<img src="${src}" class="active" style="display:block; width:100%; height:100%; object-fit:contain;">`;
+        // Hide nav buttons if just previewing single image
+        // Or keep them if we want to build a full gallery viewer later depending on CONFIG array
+    }
+
+    const infoTitle = popup.querySelector('#gallery-title');
+    const infoDesc = popup.querySelector('#gallery-desc');
+
+    if (infoTitle) infoTitle.textContent = title || 'Galeri';
+    if (infoDesc) infoDesc.textContent = desc || '';
+
+    // Show popup
+    popup.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+window.closeGalleryPopup = function () {
+    const popup = document.getElementById('gallery-popup');
+    if (popup) {
+        popup.classList.remove('active');
+        document.body.style.overflow = '';
     }
 }
 
