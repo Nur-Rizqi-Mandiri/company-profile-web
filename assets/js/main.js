@@ -522,6 +522,9 @@ function initScripts() {
 
     // Testimonials Infinite Scroll
     initTestimonialsSmoothScroll();
+
+    // Global Image Preview
+    initGlobalImagePreview();
 }
 
 function initContactForm() {
@@ -621,28 +624,26 @@ window.openGalleryPreview = function (src, title, desc) {
 
     // Inject content directly for preview
     const showcase = popup.querySelector('.gallery-showcase');
-    // Clear existing images used for the "other" popup logic
     if (showcase) {
-        showcase.innerHTML = `<img src="${src}" class="active" style="display:block; width:100%; height:100%; object-fit:contain;">`;
-        // Hide nav buttons if just previewing single image
-        // Or keep them if we want to build a full gallery viewer later depending on CONFIG array
+        showcase.innerHTML = `<img src="${src}" class="active" alt="${title}">`;
     }
 
-    const infoTitle = popup.querySelector('#gallery-title');
-    const infoDesc = popup.querySelector('#gallery-desc');
-
-    if (infoTitle) infoTitle.textContent = title || 'Galeri';
-    if (infoDesc) infoDesc.textContent = desc || '';
-
     // Show popup
-    popup.classList.add('active');
+    popup.classList.add('show');
     document.body.style.overflow = 'hidden';
+
+    // Click outside to close
+    popup.onclick = function (e) {
+        if (e.target === popup) {
+            closeGalleryPopup();
+        }
+    }
 }
 
 window.closeGalleryPopup = function () {
     const popup = document.getElementById('gallery-popup');
     if (popup) {
-        popup.classList.remove('active');
+        popup.classList.remove('show');
         document.body.style.overflow = '';
     }
 }
@@ -682,7 +683,7 @@ async function loadAll() {
     document.documentElement.lang = currentLang;
 
     // Critical sections to load immediately
-    const criticalSections = ['header-container', 'hero-container', 'popup-promo-container', 'floating-wa-container', 'cookie-consent-container'];
+    const criticalSections = ['header-container', 'hero-container', 'popup-promo-container', 'floating-wa-container', 'cookie-consent-container', 'popup-gallery-container'];
 
     for (const sectionId of criticalSections) {
         const section = sections.find(s => s.id === sectionId);

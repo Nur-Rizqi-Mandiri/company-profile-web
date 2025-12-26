@@ -2,6 +2,8 @@
     position: relative;
     max-width: 1000px;
     margin: auto;
+    margin-bottom: 5rem;
+    /* Restore spacing after moving out of section-padding */
     overflow: hidden;
     border-radius: 12px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -85,8 +87,7 @@ background-color: var(--primary-color);
         width: 100%;
         max-width: 100%;
         border-radius: 0;
-        margin: 0 -2rem;
-        /* Negative margin to counteract section padding if needed, assuming section has padding */
+        margin: 0;
     }
 }
 
