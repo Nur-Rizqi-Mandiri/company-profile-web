@@ -1,10 +1,9 @@
 .hero {
-    background-color: var(--bg-main);
-    background-image: linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
-        linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
-    background-size: 40px 40px;
+    background: linear-gradient(135deg, #FFF9EB 0%, #FFF1F0 100%);
+    /* Cheerful warm gradient */
     min-height: auto;
-    padding: 4rem 0;
+    padding: 2rem 0 4rem;
+    /* Adjusted padding */
     margin-top: 60px;
     position: relative;
     overflow: hidden;
@@ -13,13 +12,145 @@
     transition: background-color 0.3s ease;
 }
 
+[data-theme="dark"] .hero {
+    background-color: var(--bg-main);
+}
+
+/* Cheerful Background Decorations */
+.hero-bg-decor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    /* Bump up slightly */
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/* Grid Line Overlay */
+.hero-bg-decor::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Subtle warm grid lines */
+    background-image:
+        linear-gradient(to right, rgba(255, 167, 38, 0.15) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 167, 38, 0.15) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+.decor-bubble {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.5;
+    /* Increased from 0.25 */
+    filter: blur(40px);
+    /* Reduced blur slightly from 50px */
+    animation: floatBubble 10s infinite ease-in-out alternate;
+    mix-blend-mode: multiply;
+    /* Helps colors pop on light background */
+}
+
+/* New Organic Shapes (Abstract) */
+.decor-organic {
+    position: absolute;
+    background: linear-gradient(45deg, var(--primary-light), var(--accent-light));
+    opacity: 0.3;
+    /* Increased from 0.15 */
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    filter: blur(50px);
+    animation: floatOrganic 20s infinite linear;
+}
+
+.bubble-1 {
+    width: 300px;
+    height: 300px;
+    background: #FFF9C4;
+    top: -50px;
+    left: -50px;
+    animation-duration: 12s;
+}
+
+.bubble-2 {
+    width: 450px;
+    height: 450px;
+    background: #FFE0B2;
+    bottom: -120px;
+    right: -120px;
+    animation-duration: 18s;
+    animation-delay: 1s;
+}
+
+.bubble-3 {
+    width: 250px;
+    height: 250px;
+    background: #E8F5E9;
+    bottom: 10%;
+    right: 15%;
+    opacity: 0.2;
+    animation-duration: 22s;
+    animation-delay: 2s;
+}
+
+.bubble-4 {
+    width: 180px;
+    height: 180px;
+    background: #E1F5FE;
+    top: 15%;
+    left: 20%;
+    opacity: 0.2;
+    animation-duration: 16s;
+    animation-delay: 3s;
+}
+
+.organic-1 {
+    width: 500px;
+    height: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #FFECB3;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+@keyframes floatBubble {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(30px, -30px) scale(1.1);
+    }
+}
+
+@keyframes floatOrganic {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    }
+
+    50% {
+        transform: translate(-50%, -55%) rotate(180deg) scale(1.1);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg) scale(1);
+    }
+}
+
 .hero-container {
-    max-width: 1200px;
+    max-width: 1280px;
+    /* Slightly wider for impact */
     margin: 0 auto;
     padding: 1.5rem;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 3rem;
     align-items: center;
     position: relative;
     z-index: 2;
@@ -28,53 +159,79 @@
 
 .hero-text {
     text-align: center;
+    order: 2;
+    /* Text below image on mobile usually, or keep standard Flow */
 }
 
 .hero h1 {
-    font-size: 2.2rem;
-    line-height: 1.1;
+    font-size: 2.8rem;
+    line-height: 1.2;
     margin-bottom: 1.5rem;
     color: var(--primary-color);
+    font-family: var(--font-serif);
+    font-weight: 700;
 }
 
 .hero h1 span.highlight {
-    font-family: var(--font-serif);
-    display: block;
-    font-size: 3rem;
-    color: var(--text-main);
+    display: inline-block;
+    /* Changed from block to inline-block for flow */
+    color: var(--accent-color);
+    position: relative;
+}
+
+/* Underline effect for highlight */
+.hero h1 span.highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 193, 7, 0.3);
+    z-index: -1;
+    border-radius: 4px;
 }
 
 .hero p {
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin: 0 auto 2rem auto;
     max-width: 500px;
     color: var(--text-muted);
+    font-weight: 400;
 }
 
 .hero-btn {
-    padding: 0.9rem 2.5rem;
+    padding: 1rem 3rem;
     background: var(--primary-color);
     color: white;
-    font-weight: bold;
+    font-weight: 600;
     border-radius: 50px;
+    /* Rounded pill for friendlier look */
     text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
     display: inline-block;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    box-shadow: 0 10px 20px rgba(44, 95, 45, 0.15);
 }
 
 .hero-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(44, 95, 45, 0.3);
+    box-shadow: 0 15px 30px rgba(44, 95, 45, 0.25);
+    background: var(--primary-light);
 }
 
+/* Image Config */
 .hero-image-container {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    order: 1;
+    /* Image first on mobile? Or text? Let's keep Text first on Desktop, Image first on Mobile usually looks good but let's stick to DOM order (Text then Image) which converts to stack */
 }
+
+/* Desktop layout override later */
 
 .hero-carousel {
     position: relative;
@@ -86,8 +243,11 @@
 
 .hero-slides {
     position: relative;
-    width: 280px;
-    height: 280px;
+    width: 100%;
+    max-width: 400px;
+    /* Mobile limit */
+    aspect-ratio: 4/5;
+    /* Tall portrait feels majestic for food */
 }
 
 .hero-slide {
@@ -97,7 +257,7 @@
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: opacity 0.8s ease-in-out;
+    transition: opacity 1s ease-in-out;
     z-index: 1;
 }
 
@@ -109,31 +269,83 @@
 .main-image-frame {
     width: 100%;
     height: 100%;
-    border-radius: 50%;
-    border: 6px solid var(--bg-main);
-    box-shadow: 0 10px 30px var(--card-shadow);
+    /* ARCH SHAPE mobile: simple rounded top */
+    border-radius: 200px 200px 0 0;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 8px solid rgba(255, 255, 255, 0.8);
+    /* Soft white border */
     overflow: hidden;
-    transition: border-color 0.3s ease;
+    position: relative;
 }
 
 .main-image-frame img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 5s ease;
+    /* Subtle zoom effect */
 }
 
+.hero-slide.active .main-image-frame img {
+    transform: scale(1.05);
+    /* Slow zoom in when active */
+}
+
+/* Special Offer Badge - Floating Card Style */
+.special-offer-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -10px;
+    background: white;
+    color: var(--text-main);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    z-index: 3;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    top: auto;
+    left: auto;
+    margin: 0;
+    transform: none;
+    width: auto;
+    height: auto;
+}
+
+.special-offer-badge .percent {
+    font-size: 2.5rem;
+    line-height: 1;
+    font-family: var(--font-serif);
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.special-offer-badge span {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+/* Dots */
 .carousel-dots {
     display: flex;
-    gap: 0.8rem;
-    margin-top: 1.5rem;
+    gap: 1rem;
+    margin-top: 2rem;
     z-index: 5;
+    justify-content: center;
 }
 
 .dot {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
-    background: rgba(44, 95, 45, 0.2);
+    background: transparent;
+    border: 2px solid var(--primary-color);
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -143,144 +355,75 @@
     transform: scale(1.2);
 }
 
-.special-offer-badge {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    margin-left: -130px;
-    background: var(--accent-color);
-    color: #333333;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-weight: bold;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    z-index: 3;
-    transform: rotate(-10deg);
-}
-
-.special-offer-badge .percent {
-    font-size: 1.3rem;
-    line-height: 1;
-    font-family: var(--font-serif);
-}
-
-.special-offer-badge span {
-    font-size: 0.7rem;
-}
-
-.hero-decoration {
-    position: absolute;
-    z-index: 1;
-    opacity: 0.4;
-}
-
-.blob-top-left {
-    top: -100px;
-    left: -100px;
-    width: 300px;
-    height: 300px;
-    background: var(--accent-light);
-    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-}
-
-.blob-bottom-right {
-    bottom: -150px;
-    right: -50px;
-    width: 400px;
-    height: 400px;
-    background: var(--primary-light);
-    border-radius: 60% 40% 30% 70% / 50% 30% 70% 50%;
-}
 
 /* Desktop Styles */
-@media (min-width: 768px) {
+@media (min-width: 900px) {
     .hero {
         min-height: 90vh;
+        /* Full viewport height */
         padding: 0;
     }
 
     .hero-container {
-        grid-template-columns: 1fr 1fr;
-        gap: 3rem;
+        grid-template-columns: 1.2fr 1fr;
+        /* Text wider than image area */
+        gap: 4rem;
         text-align: left;
-        padding: 2rem;
+        padding: 0 3rem;
     }
 
     .hero-text {
         text-align: left;
+        order: 1;
+    }
+
+    .hero-image-container {
+        order: 2;
+        justify-content: flex-end;
     }
 
     .hero h1 {
-        font-size: 3.5rem;
-    }
-
-    .hero h1 span.highlight {
         font-size: 4.5rem;
+        /* Large impact */
+        margin-bottom: 2rem;
     }
 
     .hero p {
-        font-size: 1.1rem;
-        margin: 0 0 2.5rem 0;
-    }
-
-    .hero-btn {
-        padding: 1rem 3rem;
-        font-size: 1rem;
+        margin: 0 0 3rem 0;
+        font-size: 1.2rem;
     }
 
     .hero-slides {
-        width: 400px;
-        height: 400px;
+        max-width: 100%;
+        width: 480px;
+        /* Scale up */
+        height: 600px;
     }
 
     .main-image-frame {
-        border-width: 8px;
+        /* Premium Arch Shape */
+        border-radius: 400px 400px 0 0;
     }
 
     .special-offer-badge {
-        width: 120px;
-        height: 120px;
-        top: 50px;
-        left: -20px;
-        margin-left: 0;
+        bottom: 40px;
+        right: -30px;
+        padding: 1.5rem 2rem;
     }
 
-    .special-offer-badge .percent {
-        font-size: 2rem;
-    }
-
-    .special-offer-badge span {
-        font-size: 0.9rem;
-    }
-
-    .blob-top-left {
-        width: 400px;
-        height: 400px;
-    }
-
-    .blob-bottom-right {
-        width: 500px;
-        height: 500px;
+    .carousel-dots {
+        justify-content: flex-start;
+        /* Align dots left on desktop */
     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
     .hero h1 {
-        font-size: 4rem;
-    }
-
-    .hero h1 span.highlight {
-        font-size: 5rem;
+        font-size: 5.5rem;
     }
 
     .hero-slides {
-        width: 450px;
-        height: 450px;
+        width: 550px;
+        height: 700px;
     }
 }
