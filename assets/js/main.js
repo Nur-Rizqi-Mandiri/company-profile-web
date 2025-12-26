@@ -357,8 +357,10 @@ function applyConfig(container = document) {
                     <i class="${item.icon}"></i>
                     <div class="step-number">${item.number}</div>
                 </div>
-                <h3>${item.title}</h3>
-                <p>${item.desc}</p>
+                <div class="step-content">
+                    <h3>${item.title}</h3>
+                    <p>${item.desc}</p>
+                </div>
             `;
             processContainer.appendChild(div);
         });

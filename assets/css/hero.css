@@ -39,8 +39,8 @@
     height: 100%;
     /* Subtle warm grid lines */
     background-image:
-        linear-gradient(to right, rgba(255, 167, 38, 0.15) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 167, 38, 0.15) 1px, transparent 1px);
+            linear-gradient(to right, rgba(255, 167, 38, 0.15) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 167, 38, 0.15) 1px, transparent 1px);
     background-size: 40px 40px;
 }
 
@@ -306,10 +306,11 @@
     align-items: center;
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    z-index: 3;
+    z-index: 10;
     border: 1px solid rgba(0, 0, 0, 0.05);
-    top: auto;
-    left: auto;
+    top: -10px;
+    right: 0;
+    bottom: auto;
     margin: 0;
     transform: none;
     width: auto;
@@ -406,7 +407,8 @@
     }
 
     .special-offer-badge {
-        bottom: 40px;
+        top: 40px;
+        bottom: auto;
         right: -30px;
         padding: 1.5rem 2rem;
     }
