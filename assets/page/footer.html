@@ -18,6 +18,8 @@
                 <li><a href="#services-container" data-i18n="nav.services">Layanan</a></li>
                 <li><a href="#menu-container" data-i18n="nav.menu">Menu</a></li>
                 <li><a href="#contact-container" data-i18n="nav.contact">Kontak</a></li>
+                <li><a href="#" onclick="openLegalModal('terms'); return false;">Syarat & Ketentuan</a></li>
+                <li><a href="#" onclick="openLegalModal('privacy'); return false;">Kebijakan Privasi</a></li>
             </ul>
         </div>
 
@@ -41,7 +43,9 @@
 
     <div class="footer-bottom">
         <p data-i18n="footer.copy">&copy; <span id="copyright-year"></span> PT. Nur Rizqi Mandiri Catering. Hak Cipta
-            Dilindungi. | <a href="#" onclick="alert('Syarat & Ketentuan Coming Soon'); return false;"
-                             style="color: #888; text-decoration: none;">Syarat & Ketentuan</a></p>
+            Dilindungi. | <a href="#" onclick="openLegalModal('terms'); return false;"
+                             style="color: #888; text-decoration: none;">Syarat & Ketentuan</a> | <a href="#"
+                                                                                                     onclick="openLegalModal('privacy'); return false;" style="color: #888; text-decoration: none;">Kebijakan
+                Privasi</a></p>
     </div>
 </footer>

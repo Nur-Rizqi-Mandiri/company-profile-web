@@ -29,7 +29,9 @@ const sections = [
     { id: 'floating-wa-container', file: 'assets/page/floating-wa.html' },
     { id: 'popup-promo-container', file: 'assets/page/popup-promo.html' },
     { id: 'video-modal-container', file: 'assets/page/video-modal.html' },
+    { id: 'video-modal-container', file: 'assets/page/video-modal.html' },
     { id: 'popup-gallery-container', file: 'assets/page/popup-gallery.html' },
+    { id: 'legal-modal-container', file: 'assets/page/legal-modal.html' },
     { id: 'cookie-consent-container', file: 'assets/page/cookie-consent.html' }
 ];
 
@@ -505,6 +507,47 @@ function applyConfig(container = document) {
     window.renderCertifications(container);
 }
 
+// Open Legal Modal logic
+window.openLegalModal = async function (type) {
+    const modal = document.getElementById('legal-modal');
+    const titleEl = document.getElementById('legal-title');
+    const bodyEl = document.getElementById('legal-body');
+    const overlay = document.querySelector('.legal-modal-overlay');
+
+    if (!modal || !titleEl || !bodyEl) {
+        console.error('Legal modal elements not found');
+        return;
+    }
+
+    // Set Title
+    titleEl.textContent = type === 'terms' ? 'Syarat & Ketentuan' : 'Kebijakan Privasi';
+
+    // Show Loading
+    bodyEl.innerHTML = '<div class="loading-spinner">Loading...</div>';
+    overlay.classList.add('show');
+    document.body.style.overflow = 'hidden'; // Lock scroll
+
+    // Fetch Content
+    const file = type === 'terms' ? 'assets/page/content-terms.html' : 'assets/page/content-privacy.html';
+    try {
+        const response = await fetch(file);
+        if (!response.ok) throw new Error('Failed to load content');
+        const html = await response.text();
+        bodyEl.innerHTML = html;
+    } catch (error) {
+        console.error(error);
+        bodyEl.innerHTML = '<p>Maaf, konten gagal dimuat. Silakan coba lagi nanti.</p>';
+    }
+}
+
+window.closeLegalModal = function () {
+    const overlay = document.querySelector('.legal-modal-overlay');
+    if (overlay) {
+        overlay.classList.remove('show');
+        document.body.style.overflow = ''; // Unlock scroll
+    }
+}
+
 // Initialize scripts after content is loaded
 function initScripts() {
     // Dynamic Year
@@ -550,6 +593,16 @@ function initScripts() {
 
     // Global Image Preview
     initGlobalImagePreview();
+
+    // Check URL params for Direct Linking (Legal Modal)
+    const urlParams = new URLSearchParams(window.location.search);
+    const legalParam = urlParams.get('legal');
+    if (legalParam === 'terms' || legalParam === 'privacy') {
+        // Small delay to ensure DOM is ready and transition is smooth
+        setTimeout(() => {
+            window.openLegalModal(legalParam);
+        }, 500);
+    }
 }
 
 function initContactForm() {
@@ -776,7 +829,7 @@ async function loadAll() {
     document.documentElement.lang = currentLang;
 
     // Critical sections to load immediately
-    const criticalSections = ['header-container', 'hero-container', 'popup-promo-container', 'floating-wa-container', 'cookie-consent-container', 'popup-gallery-container'];
+    const criticalSections = ['header-container', 'hero-container', 'popup-promo-container', 'floating-wa-container', 'cookie-consent-container', 'popup-gallery-container', 'legal-modal-container'];
 
     for (const sectionId of criticalSections) {
         const section = sections.find(s => s.id === sectionId);
