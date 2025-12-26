@@ -597,16 +597,31 @@ function initTestimonialsSmoothScroll() {
     track.addEventListener('mouseenter', () => isPaused = true);
     track.addEventListener('mouseleave', () => isPaused = false);
 
+    let startY = 0;
+
     track.addEventListener('touchstart', (e) => {
         isPaused = true;
         isDragging = true;
         startX = e.touches[0].pageX - x;
+        startY = e.touches[0].pageY; // Track Y to detect vertical scroll
     }, { passive: true });
 
     track.addEventListener('touchmove', (e) => {
         if (!isDragging) return;
-        e.preventDefault(); // Prevent page scroll while dragging carousel
+
         const currentX = e.touches[0].pageX;
+        const currentY = e.touches[0].pageY;
+
+        const diffX = Math.abs(currentX - (startX + x)); // approximate delta
+        const diffY = Math.abs(currentY - startY);
+
+        // If vertical movement is greater than horizontal, allow native scroll
+        if (diffY > diffX && diffY > 10) {
+            isDragging = false; // Stop custom dragging
+            return;
+        }
+
+        e.preventDefault(); // Lock scroll for horizontal swiping
         x = currentX - startX;
         track.style.transform = `translateX(${x}px)`;
     }, { passive: false });
@@ -646,6 +661,48 @@ window.closeGalleryPopup = function () {
         popup.classList.remove('show');
         document.body.style.overflow = '';
     }
+}
+
+function initGlobalImagePreview() {
+    document.body.addEventListener('click', (e) => {
+        const target = e.target;
+        if (target.tagName !== 'IMG') return;
+
+        // 1. Check direct exclusions (Classes on img)
+        if (target.classList.contains('logo') ||
+            target.classList.contains('icon') ||
+            target.classList.contains('active')) { // 'active' is used by the popup image itself
+            return;
+        }
+
+        // 2. Check parent exclusions
+        const parent = target.closest('div, a, button'); // Check immediate relevant parents
+
+        // Exclude hyperlinks to other pages
+        const link = target.closest('a');
+        if (link && link.href && !link.href.includes('#') && !link.href.includes('javascript')) {
+            return;
+        }
+
+        // Exclude specific containers
+        if (target.closest('.logo-carousel') ||
+            target.closest('.testimonial-avatar') ||
+            target.closest('.feature-icon') ||
+            target.closest('.service-icon') ||
+            target.closest('.step-icon') ||
+            target.closest('.cert-icon-wrapper') ||
+            target.closest('.video-item') || // Videos handle their own click
+            target.closest('.popup-gallery-content')) { // Don't click image inside popup
+            return;
+        }
+
+        // If we are here, it's likely a content image.
+        // Prevent default action (if any)
+        e.preventDefault();
+        e.stopPropagation();
+
+        openGalleryPreview(target.src, target.alt, '');
+    });
 }
 
 function initScrollTop() {
