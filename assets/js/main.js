@@ -638,9 +638,11 @@ window.openGalleryPreview = function (src, title, desc) {
     if (!popup) return;
 
     // Inject content directly for preview
-    const showcase = popup.querySelector('.gallery-showcase');
-    if (showcase) {
-        showcase.innerHTML = `<img src="${src}" class="active" alt="${title}">`;
+    // Inject content directly for preview
+    const showcaseImg = popup.querySelector('.gallery-showcase img');
+    if (showcaseImg) {
+        showcaseImg.src = src;
+        showcaseImg.alt = title || 'Gallery Preview';
     }
 
     // Show popup
