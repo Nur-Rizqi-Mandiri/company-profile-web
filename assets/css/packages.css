@@ -6,6 +6,24 @@
     flex-wrap: wrap;
 }
 
+@media (max-width: 768px) {
+    .tabs-container {
+        justify-content: center;
+        flex-wrap: wrap;
+        overflow-x: visible;
+        padding-bottom: 0;
+    }
+
+    .tabs-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .tab-btn {
+        flex: 0 0 auto;
+        /* Prevent shrinking */
+    }
+}
+
 .tab-btn {
     background: transparent;
     border: 2px solid var(--primary-color);

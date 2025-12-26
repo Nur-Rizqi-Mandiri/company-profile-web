@@ -64,6 +64,19 @@ async function loadSection(id, file) {
             window.initContactForm();
         }
 
+        // Initialize Videos (Explicit Logic)
+        if (id === 'videos-container' && typeof window.renderVideos === 'function') {
+            window.renderVideos(document.getElementById(id));
+        }
+
+        // Initialize Certifications (Explicit Logic)
+        if (id === 'certifications-container' && typeof window.renderCertifications === 'function') {
+            window.renderCertifications(document.getElementById(id));
+        }
+
+
+
+
     } catch (error) {
         console.error(error);
         document.getElementById(id).innerHTML = `<p>Error loading section: ${file}. Note: You must run this via a local server (e.g. Live Server).</p>`;
@@ -434,16 +447,17 @@ function applyConfig(container = document) {
         });
 
 
-        // 12. Render Videos
+    }
+
+    // Expose render functions for lazy loading
+    window.renderVideos = function (container) {
         const videoContainer = container.querySelector('#video-grid-container');
         if (videoContainer && CONFIG.videos) {
             videoContainer.innerHTML = '';
             CONFIG.videos.forEach((video) => {
                 const div = document.createElement('div');
                 div.className = 'video-item wow animate__animated animate__fadeInUp';
-                // Ensure openVideoModal is available
                 div.setAttribute('onclick', `openVideoModal('${video.id}')`);
-
                 const thumbUrl = video.thumbnail || `https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`;
                 div.innerHTML = `
                 <img src="${thumbUrl}" alt="${video.title}" loading="lazy">
@@ -452,8 +466,9 @@ function applyConfig(container = document) {
                 videoContainer.appendChild(div);
             });
         }
+    }
 
-        // 13. Render Certifications
+    window.renderCertifications = function (container) {
         const certContainer = container.querySelector('#cert-grid-container');
         if (certContainer && CONFIG.certifications) {
             certContainer.innerHTML = '';
@@ -461,31 +476,33 @@ function applyConfig(container = document) {
                 const div = document.createElement('div');
                 div.className = 'cert-item wow animate__animated animate__fadeInUp';
                 if (index > 0) div.setAttribute('data-wow-delay', `${index * 0.1}s`);
-
-                // Check if icon is an image URL (simple check) or emoji
                 const isImage = item.icon.includes('/') || item.icon.includes('.');
                 const iconContent = isImage
                     ? `<img src="${item.icon}" alt="${item.title}" style="width: 100%; height: 100%; object-fit: contain;">`
                     : `<div class="cert-icon">${item.icon}</div>`;
-
                 div.innerHTML = `
                 <div class="cert-badge">${item.badge}</div>
-                <div class="cert-icon-wrapper">
-                    ${iconContent}
-                </div>
+                <div class="cert-icon-wrapper">${iconContent}</div>
                 <div class="cert-content">
                     <h4>${item.title}</h4>
                     <div class="cert-number">${item.number}</div>
                     <p class="cert-issuer">${item.issuer}</p>
-                    <div class="cert-status">
-                        <span class="status-dot"></span> Terverifikasi
-                    </div>
+                    <div class="cert-status"><span class="status-dot"></span> Terverifikasi</div>
                 </div>
             `;
                 certContainer.appendChild(div);
             });
         }
     }
+
+    // Call them inside applyConfig if it's the right container, or just leave them exposed.
+    // Ideally, we remove the logic from here and call the function.
+
+    // 12. Render Videos
+    window.renderVideos(container);
+
+    // 13. Render Certifications
+    window.renderCertifications(container);
 }
 
 // Initialize scripts after content is loaded
