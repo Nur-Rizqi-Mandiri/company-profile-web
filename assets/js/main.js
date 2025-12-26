@@ -277,6 +277,11 @@ function applyConfig(container = document) {
             const div = document.createElement('div');
             div.className = `chaos-item ${imgData.class} wow animate__animated animate__fadeIn`;
             div.setAttribute('data-wow-delay', `${(index * 0.1) + 0.1}s`);
+
+            // Add click for preview
+            div.style.cursor = 'pointer';
+            div.onclick = () => openGalleryPreview(imgData.url, 'Momen Berkesan', '');
+
             div.innerHTML = `
                 <img src="${imgData.url}" loading="lazy" alt="${imgData.url}">
                 <div class="chaos-overlay"></div>
