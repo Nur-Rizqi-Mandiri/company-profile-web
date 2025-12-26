@@ -5,9 +5,8 @@
 
 function initTheme() {
     const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+    if (savedTheme === 'dark') {
         document.body.classList.add('dark-theme');
     } else {
         document.body.classList.remove('dark-theme');
@@ -35,6 +34,6 @@ window.initThemeToggle = function () {
     }
 };
 
-// Also attempt to initialize on DOMContentLoaded for safety, 
+// Also attempt to initialize on DOMContentLoaded for safety,
 // though for this project it's mainly handled in initScripts()
 document.addEventListener('DOMContentLoaded', window.initThemeToggle);
