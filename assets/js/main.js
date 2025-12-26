@@ -424,49 +424,42 @@ function applyConfig(container = document) {
             testimonialsContainer.appendChild(renderTestimonial(item));
         });
 
-        // Duplicate for infinite scroll
-        CONFIG.testimonials.forEach((item) => {
-            const div = renderTestimonial(item);
-            div.setAttribute('aria-hidden', 'true');
-            testimonialsContainer.appendChild(div);
-        });
-    }
 
-    // 12. Render Videos
-    const videoContainer = container.querySelector('#video-grid-container');
-    if (videoContainer && CONFIG.videos) {
-        videoContainer.innerHTML = '';
-        CONFIG.videos.forEach((video) => {
-            const div = document.createElement('div');
-            div.className = 'video-item wow animate__animated animate__fadeInUp';
-            // Ensure openVideoModal is available
-            div.setAttribute('onclick', `openVideoModal('${video.id}')`);
+        // 12. Render Videos
+        const videoContainer = container.querySelector('#video-grid-container');
+        if (videoContainer && CONFIG.videos) {
+            videoContainer.innerHTML = '';
+            CONFIG.videos.forEach((video) => {
+                const div = document.createElement('div');
+                div.className = 'video-item wow animate__animated animate__fadeInUp';
+                // Ensure openVideoModal is available
+                div.setAttribute('onclick', `openVideoModal('${video.id}')`);
 
-            const thumbUrl = video.thumbnail || `https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`;
-            div.innerHTML = `
+                const thumbUrl = video.thumbnail || `https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`;
+                div.innerHTML = `
                 <img src="${thumbUrl}" alt="${video.title}" loading="lazy">
                 <div class="play-button"><span>▶</span></div>
             `;
-            videoContainer.appendChild(div);
-        });
-    }
+                videoContainer.appendChild(div);
+            });
+        }
 
-    // 13. Render Certifications
-    const certContainer = container.querySelector('#cert-grid-container');
-    if (certContainer && CONFIG.certifications) {
-        certContainer.innerHTML = '';
-        CONFIG.certifications.forEach((item, index) => {
-            const div = document.createElement('div');
-            div.className = 'cert-item wow animate__animated animate__fadeInUp';
-            if (index > 0) div.setAttribute('data-wow-delay', `${index * 0.1}s`);
+        // 13. Render Certifications
+        const certContainer = container.querySelector('#cert-grid-container');
+        if (certContainer && CONFIG.certifications) {
+            certContainer.innerHTML = '';
+            CONFIG.certifications.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'cert-item wow animate__animated animate__fadeInUp';
+                if (index > 0) div.setAttribute('data-wow-delay', `${index * 0.1}s`);
 
-            // Check if icon is an image URL (simple check) or emoji
-            const isImage = item.icon.includes('/') || item.icon.includes('.');
-            const iconContent = isImage
-                ? `<img src="${item.icon}" alt="${item.title}" style="width: 100%; height: 100%; object-fit: contain;">`
-                : `<div class="cert-icon">${item.icon}</div>`;
+                // Check if icon is an image URL (simple check) or emoji
+                const isImage = item.icon.includes('/') || item.icon.includes('.');
+                const iconContent = isImage
+                    ? `<img src="${item.icon}" alt="${item.title}" style="width: 100%; height: 100%; object-fit: contain;">`
+                    : `<div class="cert-icon">${item.icon}</div>`;
 
-            div.innerHTML = `
+                div.innerHTML = `
                 <div class="cert-badge">${item.badge}</div>
                 <div class="cert-icon-wrapper">
                     ${iconContent}
@@ -480,322 +473,331 @@ function applyConfig(container = document) {
                     </div>
                 </div>
             `;
-            certContainer.appendChild(div);
+                certContainer.appendChild(div);
+            });
+        }
+    }
+
+    // Initialize scripts after content is loaded
+    function initScripts() {
+        // Dynamic Year
+        const yearElem = document.getElementById("copyright-year");
+        if (yearElem) {
+            yearElem.textContent = new Date().getFullYear() + '';
+        }
+
+        // Mobile Menu
+        if (typeof window.initMobileMenu === 'function') {
+            window.initMobileMenu();
+        }
+
+        // Theme Toggle
+        if (typeof window.initThemeToggle === 'function') {
+            window.initThemeToggle();
+        }
+
+        // Slider Logic
+        if (document.getElementsByClassName("slide").length > 0 && typeof window.showSlides === 'function') {
+            window.slideIndex = 1;
+            window.showSlides(window.slideIndex);
+        }
+
+        // Popup Logic Trigger
+        if (typeof window.initPopupTrigger === 'function') {
+            window.initPopupTrigger(ACTIVE_POPUP);
+        }
+
+        // Scroll to Top Logic
+        initScrollTop();
+
+        // Cookie Consent Logic
+        if (typeof window.initCookieConsent === 'function') {
+            window.initCookieConsent();
+        }
+
+        // Contact Form Notification
+        initContactForm();
+
+        // Testimonials Infinite Scroll
+        initTestimonialsSmoothScroll();
+
+        // Global Image Preview
+        initGlobalImagePreview();
+    }
+
+    function initContactForm() {
+        const form = document.querySelector('#contact-container form');
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // Simulate sending
+                const btn = form.querySelector('button[type="submit"]');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = 'Mengirim...';
+                btn.disabled = true;
+
+                setTimeout(() => {
+                    alert('Pesan Anda berhasil terkirim! Tim kami akan segera menghubungi Anda.');
+                    form.reset();
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                }, 1500);
+            });
+        }
+    }
+
+    function initTestimonialsSmoothScroll() {
+        const track = document.getElementById('testimonial-grid-container');
+        if (!track) return;
+
+        // Clone items for infinite loop illusion
+        const items = Array.from(track.children);
+        if (items.length === 0) return;
+
+        // Clone enough items to fill twice the screen width
+        items.forEach(item => {
+            const clone = item.cloneNode(true);
+            clone.setAttribute('aria-hidden', 'true');
+            track.appendChild(clone);
         });
-    }
-}
-
-// Initialize scripts after content is loaded
-function initScripts() {
-    // Dynamic Year
-    const yearElem = document.getElementById("copyright-year");
-    if (yearElem) {
-        yearElem.textContent = new Date().getFullYear() + '';
-    }
-
-    // Mobile Menu
-    if (typeof window.initMobileMenu === 'function') {
-        window.initMobileMenu();
-    }
-
-    // Theme Toggle
-    if (typeof window.initThemeToggle === 'function') {
-        window.initThemeToggle();
-    }
-
-    // Slider Logic
-    if (document.getElementsByClassName("slide").length > 0 && typeof window.showSlides === 'function') {
-        window.slideIndex = 1;
-        window.showSlides(window.slideIndex);
-    }
-
-    // Popup Logic Trigger
-    if (typeof window.initPopupTrigger === 'function') {
-        window.initPopupTrigger(ACTIVE_POPUP);
-    }
-
-    // Scroll to Top Logic
-    initScrollTop();
-
-    // Cookie Consent Logic
-    if (typeof window.initCookieConsent === 'function') {
-        window.initCookieConsent();
-    }
-
-    // Contact Form Notification
-    initContactForm();
-
-    // Testimonials Infinite Scroll
-    initTestimonialsSmoothScroll();
-
-    // Global Image Preview
-    initGlobalImagePreview();
-}
-
-function initContactForm() {
-    const form = document.querySelector('#contact-container form');
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            // Simulate sending
-            const btn = form.querySelector('button[type="submit"]');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = 'Mengirim...';
-            btn.disabled = true;
-
-            setTimeout(() => {
-                alert('Pesan Anda berhasil terkirim! Tim kami akan segera menghubungi Anda.');
-                form.reset();
-                btn.innerHTML = originalText;
-                btn.disabled = false;
-            }, 1500);
+        // Do it again just to be safe for large screens
+        items.forEach(item => {
+            const clone = item.cloneNode(true);
+            clone.setAttribute('aria-hidden', 'true');
+            track.appendChild(clone);
         });
-    }
-}
 
-function initTestimonialsSmoothScroll() {
-    const track = document.getElementById('testimonial-grid-container');
-    if (!track) return;
+        let x = 0;
+        let speed = 0.5; // Pixels per frame
+        let animationId;
+        let isPaused = false;
+        let startX = 0;
+        let isDragging = false;
+        let scrollLeftAtStart = 0;
 
-    // Clone items for infinite loop illusion
-    const items = Array.from(track.children);
-    if (items.length === 0) return;
-
-    // Clone enough items to fill twice the screen width
-    items.forEach(item => {
-        const clone = item.cloneNode(true);
-        clone.setAttribute('aria-hidden', 'true');
-        track.appendChild(clone);
-    });
-    // Do it again just to be safe for large screens
-    items.forEach(item => {
-        const clone = item.cloneNode(true);
-        clone.setAttribute('aria-hidden', 'true');
-        track.appendChild(clone);
-    });
-
-    let x = 0;
-    let speed = 0.5; // Pixels per frame
-    let animationId;
-    let isPaused = false;
-    let startX = 0;
-    let isDragging = false;
-    let scrollLeftAtStart = 0;
-
-    const animate = () => {
-        if (!isPaused) {
-            x -= speed;
-            // Reset if moved past the width of original content
-            // Approximate width check: simpler to just check scrollWidth/3
-            if (Math.abs(x) >= track.scrollWidth / 3) {
-                x = 0;
-            }
-            track.style.transform = `translateX(${x}px)`;
-        }
-        animationId = requestAnimationFrame(animate);
-    };
-
-    // Start animation
-    animate();
-
-    // Touch/Hover Interaction
-    track.addEventListener('mouseenter', () => isPaused = true);
-    track.addEventListener('mouseleave', () => isPaused = false);
-
-    let startY = 0;
-
-    track.addEventListener('touchstart', (e) => {
-        isPaused = true;
-        isDragging = true;
-        startX = e.touches[0].pageX - x;
-        startY = e.touches[0].pageY; // Track Y to detect vertical scroll
-    }, { passive: true });
-
-    track.addEventListener('touchmove', (e) => {
-        if (!isDragging) return;
-
-        const currentX = e.touches[0].pageX;
-        const currentY = e.touches[0].pageY;
-
-        const diffX = Math.abs(currentX - (startX + x)); // approximate delta
-        const diffY = Math.abs(currentY - startY);
-
-        // If vertical movement is greater than horizontal, allow native scroll
-        if (diffY > diffX && diffY > 10) {
-            isDragging = false; // Stop custom dragging
-            return;
-        }
-
-        e.preventDefault(); // Lock scroll for horizontal swiping
-        x = currentX - startX;
-        track.style.transform = `translateX(${x}px)`;
-    }, { passive: false });
-
-    track.addEventListener('touchend', () => {
-        isDragging = false;
-        isPaused = false;
-    });
-}
-
-// Global function for Gallery Preview
-window.openGalleryPreview = function (src, title, desc) {
-    const popup = document.getElementById('gallery-popup');
-    if (!popup) return;
-
-    // Inject content directly for preview
-    // Inject content directly for preview
-    const showcaseImg = popup.querySelector('.gallery-showcase img');
-    if (showcaseImg) {
-        showcaseImg.src = src;
-        showcaseImg.alt = title || 'Gallery Preview';
-    }
-
-    // Show popup
-    popup.classList.add('show');
-    document.body.style.overflow = 'hidden';
-
-    // Click outside to close
-    popup.onclick = function (e) {
-        if (e.target === popup) {
-            closeGalleryPopup();
-        }
-    }
-}
-
-window.closeGalleryPopup = function () {
-    const popup = document.getElementById('gallery-popup');
-    if (popup) {
-        popup.classList.remove('show');
-        document.body.style.overflow = '';
-    }
-}
-
-function initGlobalImagePreview() {
-    document.body.addEventListener('click', (e) => {
-        const target = e.target;
-        if (target.tagName !== 'IMG') return;
-
-        // 1. Check direct exclusions (Classes on img)
-        if (target.classList.contains('logo') ||
-            target.classList.contains('icon') ||
-            target.classList.contains('active')) { // 'active' is used by the popup image itself
-            return;
-        }
-
-        // 2. Check parent exclusions
-        const parent = target.closest('div, a, button'); // Check immediate relevant parents
-
-        // Exclude hyperlinks to other pages
-        const link = target.closest('a');
-        if (link && link.href && !link.href.includes('#') && !link.href.includes('javascript')) {
-            return;
-        }
-
-        // Exclude specific containers
-        if (target.closest('.logo-carousel') ||
-            target.closest('.testimonial-avatar') ||
-            target.closest('.feature-icon') ||
-            target.closest('.service-icon') ||
-            target.closest('.step-icon') ||
-            target.closest('.cert-icon-wrapper') ||
-            target.closest('.video-item') || // Videos handle their own click
-            target.closest('.popup-gallery-content')) { // Don't click image inside popup
-            return;
-        }
-
-        // If we are here, it's likely a content image.
-        // Prevent default action (if any)
-        e.preventDefault();
-        e.stopPropagation();
-
-        openGalleryPreview(target.src, target.alt, '');
-    });
-}
-
-function initScrollTop() {
-    const scrollTopBtn = document.getElementById('scrollTopBtn');
-
-    if (!scrollTopBtn) return;
-
-    // Show/Hide button on scroll
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 500) {
-            scrollTopBtn.classList.add('show');
-        } else {
-            scrollTopBtn.classList.remove('show');
-        }
-    });
-
-    // Scroll to top on click
-    scrollTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-}
-
-// Load all sections sequentially then init scripts
-async function loadAll() {
-    // Ensure translations object exists
-    if (typeof translations === 'undefined') {
-        console.warn('Translations not loaded yet, retrying in 100ms...');
-        setTimeout(loadAll, 100);
-        return;
-    }
-
-    document.documentElement.lang = currentLang;
-
-    // Critical sections to load immediately
-    const criticalSections = ['header-container', 'hero-container', 'popup-promo-container', 'floating-wa-container', 'cookie-consent-container', 'popup-gallery-container'];
-
-    for (const sectionId of criticalSections) {
-        const section = sections.find(s => s.id === sectionId);
-        if (section) {
-            await loadSection(section.id, section.file);
-        }
-    }
-
-    // Initialize scripts for critical content
-    initScripts();
-
-    // Lazy load the rest of the sections
-    const lazySections = sections.filter(s => !criticalSections.includes(s.id));
-
-    const observerOptions = {
-        root: null,
-        rootMargin: '200px', // Load slightly before they enter viewport
-        threshold: 0.01
-    };
-
-    const sectionObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const sectionId = entry.target.id;
-                const section = lazySections.find(s => s.id === sectionId);
-                if (section) {
-                    loadSection(section.id, section.file);
-                    observer.unobserve(entry.target);
+        const animate = () => {
+            if (!isPaused) {
+                x -= speed;
+                // Reset if moved past the width of original content
+                // Approximate width check: simpler to just check scrollWidth/3
+                if (Math.abs(x) >= track.scrollWidth / 3) {
+                    x = 0;
                 }
+                track.style.transform = `translateX(${x}px)`;
+            }
+            animationId = requestAnimationFrame(animate);
+        };
+
+        // Start animation
+        animate();
+
+        // Touch/Hover Interaction
+        track.addEventListener('mouseenter', () => isPaused = true);
+        track.addEventListener('mouseleave', () => isPaused = false);
+
+        let startY = 0;
+
+        track.addEventListener('touchstart', (e) => {
+            isPaused = true;
+            isDragging = true;
+            startX = e.touches[0].pageX - x;
+            startY = e.touches[0].pageY; // Track Y to detect vertical scroll
+        }, { passive: true });
+
+        track.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+
+            const currentX = e.touches[0].pageX;
+            const currentY = e.touches[0].pageY;
+
+            const diffX = Math.abs(currentX - (startX + x)); // approximate delta
+            const diffY = Math.abs(currentY - startY);
+
+            // If vertical movement is greater than horizontal, allow native scroll
+            if (diffY > diffX && diffY > 10) {
+                isDragging = false; // Stop custom dragging
+                return;
+            }
+
+            e.preventDefault(); // Lock scroll for horizontal swiping
+            x = currentX - startX;
+            track.style.transform = `translateX(${x}px)`;
+        }, { passive: false });
+
+        track.addEventListener('touchend', () => {
+            isDragging = false;
+            // Introduce a small delay before resuming to prevent "jump"
+            setTimeout(() => {
+                isPaused = false;
+            }, 500);
+        });
+
+        // CRITICAL: Handle touchcancel (e.g. when scrolling page vertically)
+        track.addEventListener('touchcancel', () => {
+            isDragging = false;
+            isPaused = false;
+        });
+    }
+
+    // Global function for Gallery Preview
+    window.openGalleryPreview = function (src, title, desc) {
+        const popup = document.getElementById('gallery-popup');
+        if (!popup) return;
+
+        // Inject content directly for preview
+        // Inject content directly for preview
+        const showcaseImg = popup.querySelector('.gallery-showcase img');
+        if (showcaseImg) {
+            showcaseImg.src = src;
+            showcaseImg.alt = title || 'Gallery Preview';
+        }
+
+        // Show popup
+        popup.classList.add('show');
+        document.body.style.overflow = 'hidden';
+
+        // Click outside to close
+        popup.onclick = function (e) {
+            if (e.target === popup) {
+                closeGalleryPopup();
+            }
+        }
+    }
+
+    window.closeGalleryPopup = function () {
+        const popup = document.getElementById('gallery-popup');
+        if (popup) {
+            popup.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+    }
+
+    function initGlobalImagePreview() {
+        document.body.addEventListener('click', (e) => {
+            const target = e.target;
+            if (target.tagName !== 'IMG') return;
+
+            // 1. Check direct exclusions (Classes on img)
+            if (target.classList.contains('logo') ||
+                target.classList.contains('icon') ||
+                target.classList.contains('active')) { // 'active' is used by the popup image itself
+                return;
+            }
+
+            // 2. Check parent exclusions
+            const parent = target.closest('div, a, button'); // Check immediate relevant parents
+
+            // Exclude hyperlinks to other pages
+            const link = target.closest('a');
+            if (link && link.href && !link.href.includes('#') && !link.href.includes('javascript')) {
+                return;
+            }
+
+            // Exclude specific containers
+            if (target.closest('.logo-carousel') ||
+                target.closest('.testimonial-avatar') ||
+                target.closest('.feature-icon') ||
+                target.closest('.service-icon') ||
+                target.closest('.step-icon') ||
+                target.closest('.cert-icon-wrapper') ||
+                target.closest('.video-item') || // Videos handle their own click
+                target.closest('.popup-gallery-content')) { // Don't click image inside popup
+                return;
+            }
+
+            // If we are here, it's likely a content image.
+            // Prevent default action (if any)
+            e.preventDefault();
+            e.stopPropagation();
+
+            openGalleryPreview(target.src, target.alt, '');
+        });
+    }
+
+    function initScrollTop() {
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+        if (!scrollTopBtn) return;
+
+        // Show/Hide button on scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
             }
         });
-    }, observerOptions);
 
-    lazySections.forEach(section => {
-        const el = document.getElementById(section.id);
-        if (el) {
-            sectionObserver.observe(el);
+        // Scroll to top on click
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // Load all sections sequentially then init scripts
+    async function loadAll() {
+        // Ensure translations object exists
+        if (typeof translations === 'undefined') {
+            console.warn('Translations not loaded yet, retrying in 100ms...');
+            setTimeout(loadAll, 100);
+            return;
         }
-    });
 
-    if (typeof window.initVerticalNav === 'function') {
-        window.initVerticalNav();
+        document.documentElement.lang = currentLang;
+
+        // Critical sections to load immediately
+        const criticalSections = ['header-container', 'hero-container', 'popup-promo-container', 'floating-wa-container', 'cookie-consent-container', 'popup-gallery-container'];
+
+        for (const sectionId of criticalSections) {
+            const section = sections.find(s => s.id === sectionId);
+            if (section) {
+                await loadSection(section.id, section.file);
+            }
+        }
+
+        // Initialize scripts for critical content
+        initScripts();
+
+        // Lazy load the rest of the sections
+        const lazySections = sections.filter(s => !criticalSections.includes(s.id));
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '200px', // Load slightly before they enter viewport
+            threshold: 0.01
+        };
+
+        const sectionObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const sectionId = entry.target.id;
+                    const section = lazySections.find(s => s.id === sectionId);
+                    if (section) {
+                        loadSection(section.id, section.file);
+                        observer.unobserve(entry.target);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        lazySections.forEach(section => {
+            const el = document.getElementById(section.id);
+            if (el) {
+                sectionObserver.observe(el);
+            }
+        });
+
+        if (typeof window.initVerticalNav === 'function') {
+            window.initVerticalNav();
+        }
+
+        // Init WOW.js for animations
+        if (typeof WOW !== 'undefined') {
+            new WOW().init();
+        }
     }
 
-    // Init WOW.js for animations
-    if (typeof WOW !== 'undefined') {
-        new WOW().init();
-    }
-}
-
-document.addEventListener('DOMContentLoaded', loadAll);
+    document.addEventListener('DOMContentLoaded', loadAll);
