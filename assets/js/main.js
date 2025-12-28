@@ -514,9 +514,10 @@ function applyConfig(container = document) {
                 div.className = 'cert-item wow animate__animated animate__fadeInUp';
                 if (index > 0) div.setAttribute('data-wow-delay', `${index * 0.1}s`);
                 const isImage = item.icon.includes('/') || item.icon.includes('.');
+                const isFA = item.icon.includes('fa-');
                 const iconContent = isImage
-                    ? `<img src="${item.icon}" alt="${item.title}" style="width: 100%; height: 100%; object-fit: contain;">`
-                    : `<div class="cert-icon"><i class="${item.icon}"></i></div>`;
+                    ? `<img src="${item.icon}" alt="${item.title}" style="max-width: 80%; max-height: 80%; object-fit: contain;">`
+                    : (isFA ? `<i class="${item.icon}"></i>` : item.icon);
                 div.innerHTML = `
                 <div class="cert-badge">${item.badge}</div>
                 <div class="cert-icon-wrapper">${iconContent}</div>

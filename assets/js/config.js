@@ -22,9 +22,9 @@ const CONFIG = {
         saturday: "Sab: 10:00 - 16:00"
     },
     certifications: [
-        { id: "halal", title: "Halal MUI", number: "No. 123456789", issuer: "MUI Indonesia", icon: "https://upload.wikimedia.org/wikipedia/commons/e/ee/Logo_Halal_Indonesia.png", badge: "Kualitas" },
-        { id: "hygiene", title: "Laik Hygiene", number: "Dinkes DKI Jakarta", issuer: "Kemenkes RI", icon: "fas fa-shield-virus", badge: "Keamanan" },
-        { id: "apji", title: "Anggota APJI", number: "Asosiasi Jasa Boga", issuer: "APJI Pusat", icon: "fas fa-handshake", badge: "Profesional" }
+        { id: "halal", title: "Halal MUI", number: "No. 123456789", issuer: "MUI Indonesia", icon: "🕌", badge: "Kualitas" },
+        { id: "hygiene", title: "Laik Hygiene", number: "Dinkes DKI Jakarta", issuer: "Kemenkes RI", icon: "🛡️", badge: "Keamanan" },
+        { id: "apji", title: "Anggota APJI", number: "Asosiasi Jasa Boga", issuer: "APJI Pusat", icon: "🤝", badge: "Profesional" }
     ],
     trusted_by: [
         { name: "Indofood", url: "https://upload.wikimedia.org/wikipedia/commons/2/2d/Indofood_logo-id.svg" },
