@@ -14,10 +14,15 @@
 .menu-item {
     background: var(--card-bg);
     color: var(--text-main);
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s;
+    padding: 0;
+    /* Removed padding to allow image to be full-width */
+    border-radius: 12px;
+    /* Slightly smoother */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    /* Premium shadow */
+    transition: all 0.3s ease;
+    overflow: hidden;
+    /* Clamp the image to card border-radius */
 }
 
 .menu-item:hover {
@@ -26,13 +31,22 @@
 
 .menu-item img {
     width: 100%;
-    height: 200px;
+    height: 220px;
+    /* Slightly taller for better display */
     object-fit: cover;
-    border-radius: 4px;
-    margin-bottom: 1rem;
+    border-radius: 0;
+    /* Handled by parent overflow */
+    margin-bottom: 0;
+    /* Flush with content below */
+}
+
+.menu-card-overlay {
+    padding: 1.5rem;
+    text-align: left;
 }
 
 .menu-item h3 {
     color: var(--primary-color);
     margin-bottom: 0.5rem;
+    font-size: 1.25rem;
 }

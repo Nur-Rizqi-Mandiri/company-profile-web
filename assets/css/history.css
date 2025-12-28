@@ -1,0 +1,136 @@
+#history {
+    background-color: transparent;
+    overflow: hidden;
+    position: relative;
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 4rem auto 0;
+    padding: 0 1rem;
+}
+
+/* Vertical Line */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20px;
+    height: 100%;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--primary-color) 0%, var(--primary-light) 100%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 50px;
+    width: 100%;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Node Dot */
+.timeline-dot {
+    position: absolute;
+    left: 21px;
+    /* Center of the 2px line at left:20px */
+    top: 5px;
+    width: 18px;
+    height: 18px;
+    background: white;
+    border: 4px solid var(--primary-color);
+    border-radius: 50%;
+    z-index: 2;
+    transform: translateX(-50%);
+    /* Perfectly center the dot on the line */
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+    background: var(--primary-color);
+    transform: scale(1.3);
+}
+
+.timeline-content {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-content {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(44, 95, 45, 0.1);
+}
+
+.timeline-year {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    display: block;
+    font-family: var(--font-serif);
+}
+
+.timeline-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-main);
+}
+
+.timeline-content p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Desktop Styles */
+@media (min-width: 768px) {
+    .timeline-container::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .timeline-item {
+        width: 50%;
+        padding-left: 0;
+        margin-bottom: 4rem;
+    }
+
+    /* Odd items to the left */
+    .timeline-item:nth-child(odd) {
+        left: 0;
+        padding-right: 50px;
+        text-align: right;
+    }
+
+    /* Even items to the right */
+    .timeline-item:nth-child(even) {
+        left: 50%;
+        padding-left: 50px;
+        text-align: left;
+    }
+
+    .timeline-dot {
+        left: 100%;
+        /* At the right edge of the 50% width item */
+        transform: translate(-50%, 0);
+        top: 25px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-dot {
+        left: 0;
+        /* At the left edge of the 50% width item */
+    }
+
+    /* Reset for odd items just to be safe */
+    .timeline-item:nth-child(odd) .timeline-dot {
+        right: auto;
+    }
+}

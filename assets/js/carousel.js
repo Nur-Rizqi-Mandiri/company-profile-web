@@ -103,3 +103,40 @@ window.changeGallerySlide = function (n) {
         desc.innerText = contentData[galleryIndex].d;
     }
 };
+
+// Testimonial Swiper Initialization
+window.initTestimonialCarousel = function () {
+    if (typeof Swiper === 'undefined') {
+        console.error('Swiper not loaded');
+        return;
+    }
+
+    new Swiper(".mySwiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto", // Auto width for center zoom effect
+        initialSlide: 0, // Start at first item
+        coverflowEffect: {
+            rotate: 0,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: false, // Cleaner look
+        },
+        loop: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        // Optional navigation arrows
+        // navigation: {
+        //   nextEl: ".swiper-button-next",
+        //   prevEl: ".swiper-button-prev",
+        // },
+    });
+}

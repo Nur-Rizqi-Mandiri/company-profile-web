@@ -5,6 +5,14 @@
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
+#testimonials .section-padding {
+    padding-bottom: 0;
+}
+
+#testimonials .section-title {
+    margin-bottom: 1rem;
+}
+
 .testimonial-track {
     display: flex;
     gap: 2rem;
