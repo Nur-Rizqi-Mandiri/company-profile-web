@@ -2,7 +2,7 @@
     background: linear-gradient(135deg, #FFF9EB 0%, #FFF1F0 100%);
     /* Cheerful warm gradient */
     min-height: calc(100vh - 60px);
-    padding: 0;
+    padding: 2rem 0;
     margin-top: 60px;
     position: relative;
     overflow: hidden;

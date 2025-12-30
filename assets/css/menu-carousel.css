@@ -164,26 +164,7 @@
         color: #ddd;
     }
 
-    .card-back-mc {
-        background: linear-gradient(135deg, var(--mc-primary), var(--primary-light));
-        transform: rotateY(180deg);
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 20px;
-        color: white;
-    }
-
-    .card-back-mc p {
-        font-size: 0.9rem;
-        line-height: 1.4;
-    }
-
     /* POSITION STATES */
-    .card-mc.is-flipped {
-        transform: rotateY(180deg) !important;
-    }
-
     .card-mc.active {
         z-index: 10;
         transform: translateX(0) scale(1);

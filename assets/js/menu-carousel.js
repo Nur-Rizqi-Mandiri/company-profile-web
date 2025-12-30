@@ -37,10 +37,6 @@
                         <div class="card-subtitle-mc">${data.desc}</div>
                     </div>
                 </div>
-                <div class="card-face-mc card-back-mc">
-                    <p>${data.desc}</p>
-                    <div style="margin-top: 15px; font-weight: bold; font-family: var(--font-serif);">NRM Premium</div>
-                </div>
             `;
             cardList.appendChild(li);
         });
@@ -118,11 +114,15 @@
         window.addEventListener('mousemove', e => handleMove(e.clientX, cardList));
         window.addEventListener('mouseup', () => handleEnd(cardList));
 
-        // Flip on click
+        // Open preview on click
         cardList.addEventListener('click', e => {
             const card = e.target.closest('.card-mc');
             if (card && Math.abs(currentX - startX) < 10 && parseInt(card.dataset.index) === activeIndex) {
-                card.classList.toggle('is-flipped');
+                const idx = parseInt(card.dataset.index);
+                const item = menuItems[idx];
+                if (item && typeof window.openGalleryPreview === 'function') {
+                    window.openGalleryPreview(item.image, item.title, item.desc);
+                }
             }
         });
 
