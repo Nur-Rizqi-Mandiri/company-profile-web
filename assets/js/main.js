@@ -77,8 +77,10 @@ async function loadSection(id, file) {
             window.renderCertifications(document.getElementById(id));
         }
 
-
-
+        // Initialize Menu Carousel
+        if (id === 'menu-container' && typeof window.initMenuCarousel === 'function') {
+            window.initMenuCarousel(document.getElementById(id));
+        }
 
     } catch (error) {
         console.error(error);

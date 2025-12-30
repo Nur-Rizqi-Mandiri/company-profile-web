@@ -4,8 +4,16 @@
             <h2 data-i18n="menu.title">Hidangan Khas</h2>
             <p data-i18n="menu.subtitle">Sekilas tentang menu favorit kami</p>
         </div>
-        <div id="menu-grid-container" class="menu-grid">
+        <div id="menu-grid-container" class="menu-grid menu-grid-desktop">
             <!-- Menu items injected by main.js -->
+        </div>
+
+        <div class="menu-carousel-wrapper">
+            <div class="carousel-scene">
+                <button class="nav-btn-mc prev-btn-mc" aria-label="Previous">&#10094;</button>
+                <ul class="card-list-mc" id="cardListMenu"></ul>
+                <button class="nav-btn-mc next-btn-mc" aria-label="Next">&#10095;</button>
+            </div>
         </div>
         <div style="text-align: center; margin-top: 3rem;" class="wow animate__animated animate__fadeInUp"
             data-wow-delay="0.5s">
