@@ -84,8 +84,6 @@ img {
 .snap-section {
     position: relative;
     z-index: 1;
-    min-height: 100px;
-    /* Avoid 0-height lazy loading issues */
 }
 
 
