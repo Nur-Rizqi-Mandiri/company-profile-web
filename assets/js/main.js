@@ -82,6 +82,15 @@ async function loadSection(id, file) {
             window.initMenuCarousel(document.getElementById(id));
         }
 
+        // Initialize Package Carousels (With small delay for DOM stability)
+        if (id === 'packages-container' && typeof window.initPackageCarousel === 'function') {
+            setTimeout(() => {
+                window.initPackageCarousel('Wedding');
+                window.initPackageCarousel('Corporate');
+                window.initPackageCarousel('Social');
+            }, 50);
+        }
+
     } catch (error) {
         console.error(error);
         document.getElementById(id).innerHTML = `<p>Error loading section: ${file}. Note: You must run this via a local server (e.g. Live Server).</p>`;
