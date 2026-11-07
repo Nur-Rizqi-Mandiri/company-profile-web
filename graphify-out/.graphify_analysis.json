@@ -1,0 +1,706 @@
+{
+  "communities": {
+    "0": [
+      "agent_skills_planning_with_files_scripts_session_catchup",
+      "agent_skills_planning_with_files_scripts_session_catchup_claude_sanitize",
+      "agent_skills_planning_with_files_scripts_session_catchup_claude_session_cwd",
+      "agent_skills_planning_with_files_scripts_session_catchup_codex_meta_cwd",
+      "agent_skills_planning_with_files_scripts_session_catchup_codex_planning_update",
+      "agent_skills_planning_with_files_scripts_session_catchup_collect_claude_tool_results",
+      "agent_skills_planning_with_files_scripts_session_catchup_configure_utf8_stdio",
+      "agent_skills_planning_with_files_scripts_session_catchup_emit_metadata_report",
+      "agent_skills_planning_with_files_scripts_session_catchup_extract_messages_after",
+      "agent_skills_planning_with_files_scripts_session_catchup_filter_sessions_by_cwd",
+      "agent_skills_planning_with_files_scripts_session_catchup_find_current_codex_session",
+      "agent_skills_planning_with_files_scripts_session_catchup_find_last_planning_update",
+      "agent_skills_planning_with_files_scripts_session_catchup_format_opencode_part",
+      "agent_skills_planning_with_files_scripts_session_catchup_frame_untrusted_context",
+      "agent_skills_planning_with_files_scripts_session_catchup_get_claude_project_dir",
+      "agent_skills_planning_with_files_scripts_session_catchup_get_codex_sessions",
+      "agent_skills_planning_with_files_scripts_session_catchup_get_opencode_db_path",
+      "agent_skills_planning_with_files_scripts_session_catchup_get_session_candidates",
+      "agent_skills_planning_with_files_scripts_session_catchup_get_sessions_sorted",
+      "agent_skills_planning_with_files_scripts_session_catchup_is_codex_project_session",
+      "agent_skills_planning_with_files_scripts_session_catchup_is_substantial_session",
+      "agent_skills_planning_with_files_scripts_session_catchup_json_loads",
+      "agent_skills_planning_with_files_scripts_session_catchup_main",
+      "agent_skills_planning_with_files_scripts_session_catchup_newest_session_cwd_matches",
+      "agent_skills_planning_with_files_scripts_session_catchup_normalize_for_compare",
+      "agent_skills_planning_with_files_scripts_session_catchup_normalize_path",
+      "agent_skills_planning_with_files_scripts_session_catchup_opencode_catchup",
+      "agent_skills_planning_with_files_scripts_session_catchup_opencode_state_annotation",
+      "agent_skills_planning_with_files_scripts_session_catchup_parse_cli_args",
+      "agent_skills_planning_with_files_scripts_session_catchup_parse_codex_tool_args",
+      "agent_skills_planning_with_files_scripts_session_catchup_parse_session_messages",
+      "agent_skills_planning_with_files_scripts_session_catchup_planning_file_from_path",
+      "agent_skills_planning_with_files_scripts_session_catchup_planning_file_from_paths",
+      "agent_skills_planning_with_files_scripts_session_catchup_rationale_102",
+      "agent_skills_planning_with_files_scripts_session_catchup_rationale_122",
+      "agent_skills_planning_with_files_scripts_session_catchup_rationale_148",
+      "agent_skills_planning_with_files_scripts_session_catchup_rationale_187",
+      "agent_skills_planning_with_files_scripts_session_catchup_rationale_194",
+      "agent_skills_planning_with_files_scripts_session_catchup_rationale_2",
+      "agent_skills_planning_with_files_scripts_session_catchup_rationale_212",
+      "agent_skills_planning_with_files_scripts_session_catchup_rationale_220",
+      "agent_skills_planning_with_files_scripts_session_catchup_rationale_24",
+      "agent_skills_planning_with_files_scripts_session_catchup_rationale_242",
+      "agent_skills_planning_with_files_scripts_session_catchup_rationale_251",
+      "agent_skills_planning_with_files_scripts_session_catchup_rationale_256",
+      "agent_skills_planning_with_files_scripts_session_catchup_rationale_262",
+      "agent_skills_planning_with_files_scripts_session_catchup_rationale_327",
+      "agent_skills_planning_with_files_scripts_session_catchup_rationale_411",
+      "agent_skills_planning_with_files_scripts_session_catchup_rationale_431",
+      "agent_skills_planning_with_files_scripts_session_catchup_rationale_441",
+      "agent_skills_planning_with_files_scripts_session_catchup_rationale_450",
+      "agent_skills_planning_with_files_scripts_session_catchup_rationale_470",
+      "agent_skills_planning_with_files_scripts_session_catchup_rationale_500",
+      "agent_skills_planning_with_files_scripts_session_catchup_rationale_509",
+      "agent_skills_planning_with_files_scripts_session_catchup_rationale_529",
+      "agent_skills_planning_with_files_scripts_session_catchup_rationale_56",
+      "agent_skills_planning_with_files_scripts_session_catchup_rationale_692",
+      "agent_skills_planning_with_files_scripts_session_catchup_rationale_704",
+      "agent_skills_planning_with_files_scripts_session_catchup_rationale_726",
+      "agent_skills_planning_with_files_scripts_session_catchup_rationale_734",
+      "agent_skills_planning_with_files_scripts_session_catchup_rationale_76",
+      "agent_skills_planning_with_files_scripts_session_catchup_rationale_807",
+      "agent_skills_planning_with_files_scripts_session_catchup_rationale_835",
+      "agent_skills_planning_with_files_scripts_session_catchup_read_codex_meta",
+      "agent_skills_planning_with_files_scripts_session_catchup_result_annotation",
+      "agent_skills_planning_with_files_scripts_session_catchup_result_excerpt",
+      "agent_skills_planning_with_files_scripts_session_catchup_safe_opaque_label",
+      "agent_skills_planning_with_files_scripts_session_catchup_safe_project_label",
+      "agent_skills_planning_with_files_scripts_session_catchup_safe_session_label",
+      "agent_skills_planning_with_files_scripts_session_catchup_safe_stat_mtime",
+      "agent_skills_planning_with_files_scripts_session_catchup_same_project_path",
+      "agent_skills_planning_with_files_scripts_session_catchup_summarize_codex_tool",
+      "agent_skills_planning_with_files_scripts_session_catchup_text_content",
+      "any",
+      "hashlib",
+      "json",
+      "orjson",
+      "path",
+      "pathlib",
+      "re",
+      "typing"
+    ],
+    "1": [
+      "agent_skills_planning_with_files_scripts_set_active_plan_archived_count",
+      "agent_skills_planning_with_files_scripts_set_active_plan_can_open",
+      "agent_skills_planning_with_files_scripts_set_active_plan_canonicalize",
+      "agent_skills_planning_with_files_scripts_set_active_plan_canonicalize_into",
+      "agent_skills_planning_with_files_scripts_set_active_plan_current_active",
+      "agent_skills_planning_with_files_scripts_set_active_plan_device_of",
+      "agent_skills_planning_with_files_scripts_set_active_plan_fail",
+      "agent_skills_planning_with_files_scripts_set_active_plan_file_metadata",
+      "agent_skills_planning_with_files_scripts_set_active_plan_file_stat",
+      "agent_skills_planning_with_files_scripts_set_active_plan_has_exact_entry",
+      "agent_skills_planning_with_files_scripts_set_active_plan_is_real_dir",
+      "agent_skills_planning_with_files_scripts_set_active_plan_is_real_plan_dir",
+      "agent_skills_planning_with_files_scripts_set_active_plan_is_windowsapps_path",
+      "agent_skills_planning_with_files_scripts_set_active_plan_is_within_root",
+      "agent_skills_planning_with_files_scripts_set_active_plan_json_add_candidate",
+      "agent_skills_planning_with_files_scripts_set_active_plan_json_candidate",
+      "agent_skills_planning_with_files_scripts_set_active_plan_json_phases",
+      "agent_skills_planning_with_files_scripts_set_active_plan_json_quote",
+      "agent_skills_planning_with_files_scripts_set_active_plan_json_selection",
+      "agent_skills_planning_with_files_scripts_set_active_plan_json_string",
+      "agent_skills_planning_with_files_scripts_set_active_plan_list_archived",
+      "agent_skills_planning_with_files_scripts_set_active_plan_list_plans",
+      "agent_skills_planning_with_files_scripts_set_active_plan_list_plans_json",
+      "agent_skills_planning_with_files_scripts_set_active_plan_move_plan",
+      "agent_skills_planning_with_files_scripts_set_active_plan_names_source",
+      "agent_skills_planning_with_files_scripts_set_active_plan_norm_slashes",
+      "agent_skills_planning_with_files_scripts_set_active_plan_phase_status",
+      "agent_skills_planning_with_files_scripts_set_active_plan_pointer_is_unsafe",
+      "agent_skills_planning_with_files_scripts_set_active_plan_pointer_names_source",
+      "agent_skills_planning_with_files_scripts_set_active_plan_sh__entry",
+      "agent_skills_planning_with_files_scripts_set_active_plan_sh_agent_skills_planning_with_files_scripts_set_active_plan",
+      "agent_skills_planning_with_files_scripts_set_active_plan_slug_is_valid",
+      "agent_skills_planning_with_files_scripts_set_active_plan_trusted_python",
+      "agent_skills_planning_with_files_scripts_set_active_plan_verify_root"
+    ],
+    "2": [
+      "agent_skills_planning_with_files_scripts_inject_plan_bail",
+      "agent_skills_planning_with_files_scripts_inject_plan_hook_identity",
+      "agent_skills_planning_with_files_scripts_inject_plan_hook_is_main",
+      "agent_skills_planning_with_files_scripts_inject_plan_main",
+      "agent_skills_planning_with_files_scripts_inject_plan_normalize_wall_clock",
+      "agent_skills_planning_with_files_scripts_inject_plan_parse_args",
+      "agent_skills_planning_with_files_scripts_inject_plan_path_is_absolute_ish",
+      "agent_skills_planning_with_files_scripts_inject_plan_py_agent_skills_planning_with_files_scripts_inject_plan",
+      "agent_skills_planning_with_files_scripts_inject_plan_py_agent_skills_planning_with_files_scripts_inject_plan_canonicalize",
+      "agent_skills_planning_with_files_scripts_inject_plan_py_agent_skills_planning_with_files_scripts_inject_plan_norm_slashes",
+      "agent_skills_planning_with_files_scripts_inject_plan_rationale_114",
+      "agent_skills_planning_with_files_scripts_inject_plan_rationale_175",
+      "agent_skills_planning_with_files_scripts_inject_plan_rationale_2",
+      "agent_skills_planning_with_files_scripts_inject_plan_rationale_265",
+      "agent_skills_planning_with_files_scripts_inject_plan_rationale_278",
+      "agent_skills_planning_with_files_scripts_inject_plan_rationale_760",
+      "agent_skills_planning_with_files_scripts_inject_plan_rationale_778",
+      "agent_skills_planning_with_files_scripts_inject_plan_resolve_plan_dir_within",
+      "agent_skills_planning_with_files_scripts_inject_plan_tail_lines",
+      "agent_skills_planning_with_files_scripts_inject_plan_within_root",
+      "exception",
+      "shutil",
+      "subprocess",
+      "sys",
+      "tempfile"
+    ],
+    "3": [
+      "agent_skills_planning_with_files_scripts_set_active_plan_add_phasestatus",
+      "agent_skills_planning_with_files_scripts_set_active_plan_convertto_asciijson",
+      "agent_skills_planning_with_files_scripts_set_active_plan_get_archivedcount",
+      "agent_skills_planning_with_files_scripts_set_active_plan_get_currentactiveplan",
+      "agent_skills_planning_with_files_scripts_set_active_plan_get_finalpath",
+      "agent_skills_planning_with_files_scripts_set_active_plan_get_listingcandidate",
+      "agent_skills_planning_with_files_scripts_set_active_plan_get_listingfilemetadata",
+      "agent_skills_planning_with_files_scripts_set_active_plan_get_listingselection",
+      "agent_skills_planning_with_files_scripts_set_active_plan_get_phasestatus",
+      "agent_skills_planning_with_files_scripts_set_active_plan_invoke_planmove",
+      "agent_skills_planning_with_files_scripts_set_active_plan_ps1_agent_skills_planning_with_files_scripts_set_active_plan",
+      "agent_skills_planning_with_files_scripts_set_active_plan_resolve_ownedpointerbackup",
+      "agent_skills_planning_with_files_scripts_set_active_plan_show_archivedlist",
+      "agent_skills_planning_with_files_scripts_set_active_plan_show_planlist",
+      "agent_skills_planning_with_files_scripts_set_active_plan_show_planlistjson",
+      "agent_skills_planning_with_files_scripts_set_active_plan_test_directfileinvocation",
+      "agent_skills_planning_with_files_scripts_set_active_plan_test_exactentry",
+      "agent_skills_planning_with_files_scripts_set_active_plan_test_namessource",
+      "agent_skills_planning_with_files_scripts_set_active_plan_test_pointernamessource",
+      "agent_skills_planning_with_files_scripts_set_active_plan_test_realdirectory",
+      "agent_skills_planning_with_files_scripts_set_active_plan_test_realplandirectory",
+      "agent_skills_planning_with_files_scripts_set_active_plan_test_safeactivefile",
+      "agent_skills_planning_with_files_scripts_set_active_plan_test_safeownedbackupfile",
+      "agent_skills_planning_with_files_scripts_set_active_plan_test_validslug",
+      "agent_skills_planning_with_files_scripts_set_active_plan_test_withinroot"
+    ],
+    "4": [
+      "agent_skills_planning_with_files_scripts_inject_plan_bounded_view",
+      "agent_skills_planning_with_files_scripts_inject_plan_cleanup_snapshot",
+      "agent_skills_planning_with_files_scripts_inject_plan_cleanup_snapshot_file",
+      "agent_skills_planning_with_files_scripts_inject_plan_emit_plan_head",
+      "agent_skills_planning_with_files_scripts_inject_plan_frame_file",
+      "agent_skills_planning_with_files_scripts_inject_plan_is_windowsapps_path",
+      "agent_skills_planning_with_files_scripts_inject_plan_is_within_root",
+      "agent_skills_planning_with_files_scripts_inject_plan_mode_has",
+      "agent_skills_planning_with_files_scripts_inject_plan_mode_relax_allowed",
+      "agent_skills_planning_with_files_scripts_inject_plan_prepare_ledger_snapshot",
+      "agent_skills_planning_with_files_scripts_inject_plan_prepare_progress_snapshot",
+      "agent_skills_planning_with_files_scripts_inject_plan_pretool_cache_action",
+      "agent_skills_planning_with_files_scripts_inject_plan_select_explicit_python",
+      "agent_skills_planning_with_files_scripts_inject_plan_select_python",
+      "agent_skills_planning_with_files_scripts_inject_plan_select_python_candidates",
+      "agent_skills_planning_with_files_scripts_inject_plan_sh__entry",
+      "agent_skills_planning_with_files_scripts_inject_plan_sh_agent_skills_planning_with_files_scripts_inject_plan",
+      "agent_skills_planning_with_files_scripts_inject_plan_sh_agent_skills_planning_with_files_scripts_inject_plan_canonicalize",
+      "agent_skills_planning_with_files_scripts_inject_plan_sh_agent_skills_planning_with_files_scripts_inject_plan_norm_slashes",
+      "agent_skills_planning_with_files_scripts_inject_plan_sh_agent_skills_planning_with_files_scripts_inject_plan_safe_snapshot",
+      "agent_skills_planning_with_files_scripts_inject_plan_sh_agent_skills_planning_with_files_scripts_inject_plan_secure_progress_marker",
+      "agent_skills_planning_with_files_scripts_inject_plan_sh_agent_skills_planning_with_files_scripts_inject_plan_slug_is_valid",
+      "agent_skills_planning_with_files_scripts_inject_plan_sh_agent_skills_planning_with_files_scripts_inject_plan_smart_plan_extract"
+    ],
+    "5": [
+      "agent_skills_planning_with_files_scripts_inject_plan_injector",
+      "agent_skills_planning_with_files_scripts_inject_plan_injector_echo",
+      "agent_skills_planning_with_files_scripts_inject_plan_injector_frame",
+      "agent_skills_planning_with_files_scripts_inject_plan_injector_init",
+      "agent_skills_planning_with_files_scripts_inject_plan_injector_ledger_summary",
+      "agent_skills_planning_with_files_scripts_inject_plan_injector_prepare_ledger_snapshot",
+      "agent_skills_planning_with_files_scripts_inject_plan_injector_prepare_progress_snapshot",
+      "agent_skills_planning_with_files_scripts_inject_plan_injector_remove_tree",
+      "agent_skills_planning_with_files_scripts_inject_plan_injector_run",
+      "agent_skills_planning_with_files_scripts_inject_plan_injector_run_c87b69",
+      "agent_skills_planning_with_files_scripts_inject_plan_injector_run_c87b69_file_has_token",
+      "agent_skills_planning_with_files_scripts_inject_plan_injector_run_c87b69_mode_has",
+      "agent_skills_planning_with_files_scripts_inject_plan_injector_run_c87b69_mode_relax_allowed",
+      "agent_skills_planning_with_files_scripts_inject_plan_is_dir",
+      "agent_skills_planning_with_files_scripts_inject_plan_is_file",
+      "agent_skills_planning_with_files_scripts_inject_plan_is_link",
+      "agent_skills_planning_with_files_scripts_inject_plan_plan_is_ambiguous",
+      "agent_skills_planning_with_files_scripts_inject_plan_py_agent_skills_planning_with_files_scripts_inject_plan_slug_is_valid",
+      "agent_skills_planning_with_files_scripts_inject_plan_rationale_133",
+      "agent_skills_planning_with_files_scripts_inject_plan_rationale_1378",
+      "agent_skills_planning_with_files_scripts_inject_plan_rationale_1471",
+      "agent_skills_planning_with_files_scripts_inject_plan_read_bytes"
+    ],
+    "6": [
+      "agent_skills_planning_with_files_scripts_inject_plan_descriptor_final_path",
+      "agent_skills_planning_with_files_scripts_inject_plan_identity",
+      "agent_skills_planning_with_files_scripts_inject_plan_inside",
+      "agent_skills_planning_with_files_scripts_inject_plan_normalized_windows_final",
+      "agent_skills_planning_with_files_scripts_inject_plan_pretool_cache",
+      "agent_skills_planning_with_files_scripts_inject_plan_pretool_cache_directory_ok",
+      "agent_skills_planning_with_files_scripts_inject_plan_pretool_cache_file_ok",
+      "agent_skills_planning_with_files_scripts_inject_plan_py_agent_skills_planning_with_files_scripts_inject_plan_safe_snapshot",
+      "agent_skills_planning_with_files_scripts_inject_plan_py_agent_skills_planning_with_files_scripts_inject_plan_secure_progress_marker",
+      "agent_skills_planning_with_files_scripts_inject_plan_rationale_350",
+      "agent_skills_planning_with_files_scripts_inject_plan_rationale_434",
+      "agent_skills_planning_with_files_scripts_inject_plan_rationale_525",
+      "agent_skills_planning_with_files_scripts_inject_plan_rationale_809",
+      "agent_skills_planning_with_files_scripts_inject_plan_safe_snapshot_acceptable",
+      "agent_skills_planning_with_files_scripts_inject_plan_session_attached",
+      "agent_skills_planning_with_files_scripts_inject_plan_session_attached_inside",
+      "agent_skills_planning_with_files_scripts_inject_plan_session_attached_normalized",
+      "agent_skills_planning_with_files_scripts_inject_plan_session_attached_windows_expected",
+      "agent_skills_planning_with_files_scripts_inject_plan_session_attached_windows_final",
+      "secrets",
+      "stat"
+    ],
+    "7": [
+      "agent_skills_planning_with_files_scripts_inject_plan_cache_dir",
+      "agent_skills_planning_with_files_scripts_inject_plan_claudedispatcher",
+      "agent_skills_planning_with_files_scripts_inject_plan_claudedispatcher_active_plan_dir",
+      "agent_skills_planning_with_files_scripts_inject_plan_claudedispatcher_clear_turn_marker",
+      "agent_skills_planning_with_files_scripts_inject_plan_claudedispatcher_context_output",
+      "agent_skills_planning_with_files_scripts_inject_plan_claudedispatcher_dispatch",
+      "agent_skills_planning_with_files_scripts_inject_plan_claudedispatcher_emit_context",
+      "agent_skills_planning_with_files_scripts_inject_plan_claudedispatcher_init",
+      "agent_skills_planning_with_files_scripts_inject_plan_claudedispatcher_post_tool_nudge",
+      "agent_skills_planning_with_files_scripts_inject_plan_claudedispatcher_session_start",
+      "agent_skills_planning_with_files_scripts_inject_plan_claudedispatcher_turn_marker_path",
+      "agent_skills_planning_with_files_scripts_inject_plan_hook_json",
+      "agent_skills_planning_with_files_scripts_inject_plan_inject",
+      "agent_skills_planning_with_files_scripts_inject_plan_json_string",
+      "agent_skills_planning_with_files_scripts_inject_plan_rationale_1578",
+      "agent_skills_planning_with_files_scripts_inject_plan_rationale_1606",
+      "agent_skills_planning_with_files_scripts_inject_plan_system_message_json",
+      "object"
+    ],
+    "8": [
+      "agent_skills_planning_with_files_evals_planning_with_files_eval",
+      "agent_skills_planning_with_files_evals_planning_with_files_eval_artifacts_glob",
+      "agent_skills_planning_with_files_evals_planning_with_files_eval_assertions_file_glob",
+      "agent_skills_planning_with_files_evals_planning_with_files_eval_assertions_kind",
+      "agent_skills_planning_with_files_evals_planning_with_files_eval_assertions_value",
+      "agent_skills_planning_with_files_evals_planning_with_files_eval_cases",
+      "agent_skills_planning_with_files_evals_planning_with_files_eval_cases_assertions",
+      "agent_skills_planning_with_files_evals_planning_with_files_eval_cases_judge",
+      "agent_skills_planning_with_files_evals_planning_with_files_eval_cases_name",
+      "agent_skills_planning_with_files_evals_planning_with_files_eval_cases_sessions",
+      "agent_skills_planning_with_files_evals_planning_with_files_eval_cases_task",
+      "agent_skills_planning_with_files_evals_planning_with_files_eval_cases_workspace",
+      "agent_skills_planning_with_files_evals_planning_with_files_eval_judge_artifacts",
+      "agent_skills_planning_with_files_evals_planning_with_files_eval_judge_rubric"
+    ],
+    "9": [
+      "agent_skills_planning_with_files_scripts_init_session_apply_v3_mode",
+      "agent_skills_planning_with_files_scripts_init_session_create_files_in",
+      "agent_skills_planning_with_files_scripts_init_session_gen_nonce",
+      "agent_skills_planning_with_files_scripts_init_session_inherit_root_mode",
+      "agent_skills_planning_with_files_scripts_init_session_print_v3_mode_status",
+      "agent_skills_planning_with_files_scripts_init_session_sh__entry",
+      "agent_skills_planning_with_files_scripts_init_session_sh_agent_skills_planning_with_files_scripts_init_session",
+      "agent_skills_planning_with_files_scripts_init_session_short_uuid",
+      "agent_skills_planning_with_files_scripts_init_session_slugify",
+      "agent_skills_planning_with_files_scripts_init_session_usage",
+      "agent_skills_planning_with_files_scripts_init_session_write_analytics_progress",
+      "agent_skills_planning_with_files_scripts_init_session_write_default_findings",
+      "agent_skills_planning_with_files_scripts_init_session_write_default_progress",
+      "agent_skills_planning_with_files_scripts_init_session_write_default_task_plan"
+    ],
+    "10": [
+      "agent_skills_planning_with_files_scripts_attest_plan_assert_handleparent",
+      "agent_skills_planning_with_files_scripts_attest_plan_get_attestationpath",
+      "agent_skills_planning_with_files_scripts_attest_plan_open_safereadstream",
+      "agent_skills_planning_with_files_scripts_attest_plan_open_trusteddirectory",
+      "agent_skills_planning_with_files_scripts_attest_plan_ps1_agent_skills_planning_with_files_scripts_attest_plan",
+      "agent_skills_planning_with_files_scripts_attest_plan_read_safetext",
+      "agent_skills_planning_with_files_scripts_attest_plan_remove_safefile",
+      "agent_skills_planning_with_files_scripts_attest_plan_resolve_containedplanfile",
+      "agent_skills_planning_with_files_scripts_attest_plan_resolve_planfile",
+      "agent_skills_planning_with_files_scripts_attest_plan_test_finalpathwithinsecurityroot",
+      "agent_skills_planning_with_files_scripts_attest_plan_test_slugplandirectory",
+      "agent_skills_planning_with_files_scripts_attest_plan_write_safeascii"
+    ],
+    "11": [
+      "agent_skills_planning_with_files_scripts_resolve_plan_dir_canonicalize",
+      "agent_skills_planning_with_files_scripts_resolve_plan_dir_is_windowsapps_path",
+      "agent_skills_planning_with_files_scripts_resolve_plan_dir_is_within_root",
+      "agent_skills_planning_with_files_scripts_resolve_plan_dir_mtime_of",
+      "agent_skills_planning_with_files_scripts_resolve_plan_dir_norm_slashes",
+      "agent_skills_planning_with_files_scripts_resolve_plan_dir_resolve_from_active_file",
+      "agent_skills_planning_with_files_scripts_resolve_plan_dir_resolve_from_env",
+      "agent_skills_planning_with_files_scripts_resolve_plan_dir_resolve_latest_dir",
+      "agent_skills_planning_with_files_scripts_resolve_plan_dir_sh__entry",
+      "agent_skills_planning_with_files_scripts_resolve_plan_dir_sh_agent_skills_planning_with_files_scripts_resolve_plan_dir",
+      "agent_skills_planning_with_files_scripts_resolve_plan_dir_slug_is_valid",
+      "agent_skills_planning_with_files_scripts_resolve_plan_dir_trusted_python"
+    ],
+    "12": [
+      "agent_skills_planning_with_files_scripts_inject_plan_mtime_seconds",
+      "agent_skills_planning_with_files_scripts_inject_plan_pin_is_absolute",
+      "agent_skills_planning_with_files_scripts_inject_plan_rationale_1493",
+      "agent_skills_planning_with_files_scripts_inject_plan_rationale_164",
+      "agent_skills_planning_with_files_scripts_inject_plan_rationale_184",
+      "agent_skills_planning_with_files_scripts_inject_plan_rationale_234",
+      "agent_skills_planning_with_files_scripts_inject_plan_resolve_plan_dir",
+      "agent_skills_planning_with_files_scripts_inject_plan_resolve_plan_dir_found",
+      "agent_skills_planning_with_files_scripts_inject_plan_shell_pwd",
+      "agent_skills_planning_with_files_scripts_inject_plan_strip_ws",
+      "os"
+    ],
+    "13": [
+      "assets_js_main",
+      "assets_js_main_applyconfig",
+      "assets_js_main_applytranslations",
+      "assets_js_main_initcontactform",
+      "assets_js_main_initglobalimagepreview",
+      "assets_js_main_initscripts",
+      "assets_js_main_initscrolltop",
+      "assets_js_main_inittestimonialssmoothscroll",
+      "assets_js_main_loadall",
+      "assets_js_main_loadsection",
+      "assets_js_main_sections"
+    ],
+    "14": [
+      "agent_skills_planning_with_files_scripts_ledger_append_append_line",
+      "agent_skills_planning_with_files_scripts_ledger_append_iso_utc",
+      "agent_skills_planning_with_files_scripts_ledger_append_json_escape",
+      "agent_skills_planning_with_files_scripts_ledger_append_max_tick_in_dir",
+      "agent_skills_planning_with_files_scripts_ledger_append_resolve_plan_dir",
+      "agent_skills_planning_with_files_scripts_ledger_append_sanitize_agent",
+      "agent_skills_planning_with_files_scripts_ledger_append_sh__entry",
+      "agent_skills_planning_with_files_scripts_ledger_append_sh_agent_skills_planning_with_files_scripts_ledger_append",
+      "agent_skills_planning_with_files_scripts_ledger_append_usage",
+      "agent_skills_planning_with_files_scripts_ledger_append_utf8_trim_incomplete"
+    ],
+    "15": [
+      "agent_skills_planning_with_files_scripts_inject_plan_head_lines",
+      "agent_skills_planning_with_files_scripts_inject_plan_injector_bounded",
+      "agent_skills_planning_with_files_scripts_inject_plan_injector_plan_view",
+      "agent_skills_planning_with_files_scripts_inject_plan_line_count",
+      "agent_skills_planning_with_files_scripts_inject_plan_py_agent_skills_planning_with_files_scripts_inject_plan_smart_plan_extract",
+      "agent_skills_planning_with_files_scripts_inject_plan_rationale_244",
+      "agent_skills_planning_with_files_scripts_inject_plan_rationale_254",
+      "agent_skills_planning_with_files_scripts_inject_plan_rationale_654",
+      "agent_skills_planning_with_files_scripts_inject_plan_smart_plan_extract_close_phase"
+    ],
+    "16": [
+      "agent_skills_planning_with_files_scripts_phase_status_acquire_lock",
+      "agent_skills_planning_with_files_scripts_phase_status_claim_lock_owner",
+      "agent_skills_planning_with_files_scripts_phase_status_do_write",
+      "agent_skills_planning_with_files_scripts_phase_status_release_lock",
+      "agent_skills_planning_with_files_scripts_phase_status_resolve_plan_file",
+      "agent_skills_planning_with_files_scripts_phase_status_rewrite",
+      "agent_skills_planning_with_files_scripts_phase_status_sh__entry",
+      "agent_skills_planning_with_files_scripts_phase_status_sh_agent_skills_planning_with_files_scripts_phase_status",
+      "agent_skills_planning_with_files_scripts_phase_status_usage"
+    ],
+    "17": [
+      "agent_skills_planning_with_files_scripts_attest_plan_attestation_path_for",
+      "agent_skills_planning_with_files_scripts_attest_plan_compute_hash",
+      "agent_skills_planning_with_files_scripts_attest_plan_resolve_from_slug_cwd",
+      "agent_skills_planning_with_files_scripts_attest_plan_resolve_plan_file",
+      "agent_skills_planning_with_files_scripts_attest_plan_sh__entry",
+      "agent_skills_planning_with_files_scripts_attest_plan_sh_agent_skills_planning_with_files_scripts_attest_plan",
+      "agent_skills_planning_with_files_scripts_attest_plan_slug_is_valid",
+      "agent_skills_planning_with_files_scripts_attest_plan_usage_error"
+    ],
+    "18": [
+      "agent_skills_planning_with_files_scripts_init_session_format_attestationfailurereason",
+      "agent_skills_planning_with_files_scripts_init_session_get_inheritedmode",
+      "agent_skills_planning_with_files_scripts_init_session_get_nonce",
+      "agent_skills_planning_with_files_scripts_init_session_get_planslug",
+      "agent_skills_planning_with_files_scripts_init_session_get_shortid",
+      "agent_skills_planning_with_files_scripts_init_session_ps1_agent_skills_planning_with_files_scripts_init_session",
+      "agent_skills_planning_with_files_scripts_init_session_show_initsessionusage"
+    ],
+    "19": [
+      "assets_js_menu_carousel",
+      "assets_js_menu_carousel_addlisteners",
+      "assets_js_menu_carousel_handleend",
+      "assets_js_menu_carousel_handlemove",
+      "assets_js_menu_carousel_handlestart",
+      "assets_js_menu_carousel_rendercards",
+      "assets_js_menu_carousel_updatecarousel"
+    ],
+    "20": [
+      "agent_skills_planning_with_files_scripts_check_complete_advisory_report",
+      "agent_skills_planning_with_files_scripts_check_complete_first_in_progress_phase",
+      "agent_skills_planning_with_files_scripts_check_complete_json_escape",
+      "agent_skills_planning_with_files_scripts_check_complete_ledger_line_count",
+      "agent_skills_planning_with_files_scripts_check_complete_sh__entry",
+      "agent_skills_planning_with_files_scripts_check_complete_sh_agent_skills_planning_with_files_scripts_check_complete"
+    ],
+    "21": [
+      "agent_skills_planning_with_files_scripts_plan_doctor",
+      "agent_skills_planning_with_files_scripts_plan_doctor_fail",
+      "agent_skills_planning_with_files_scripts_plan_doctor_info",
+      "agent_skills_planning_with_files_scripts_plan_doctor_ok",
+      "agent_skills_planning_with_files_scripts_plan_doctor_sh__entry",
+      "agent_skills_planning_with_files_scripts_plan_doctor_warn"
+    ],
+    "22": [
+      "agent_skills_planning_with_files_scripts_resolve_plan_dir_get_finaldirectorypath",
+      "agent_skills_planning_with_files_scripts_resolve_plan_dir_ps1_agent_skills_planning_with_files_scripts_resolve_plan_dir",
+      "agent_skills_planning_with_files_scripts_resolve_plan_dir_test_fullyqualifiedlocalpath",
+      "agent_skills_planning_with_files_scripts_resolve_plan_dir_test_linkeddirectory",
+      "agent_skills_planning_with_files_scripts_resolve_plan_dir_test_validslug",
+      "agent_skills_planning_with_files_scripts_resolve_plan_dir_test_withinroot"
+    ],
+    "23": [
+      "agent_skills_planning_with_files_scripts_check_complete_convertto_jsonescaped",
+      "agent_skills_planning_with_files_scripts_check_complete_get_firstinprogressphase",
+      "agent_skills_planning_with_files_scripts_check_complete_get_ledgerlinecount",
+      "agent_skills_planning_with_files_scripts_check_complete_ps1_agent_skills_planning_with_files_scripts_check_complete",
+      "agent_skills_planning_with_files_scripts_check_complete_write_advisoryreport"
+    ],
+    "24": [
+      "agent_skills_planning_with_files_scripts_ledger_append_convertto_jsonstring",
+      "agent_skills_planning_with_files_scripts_ledger_append_get_maxtick",
+      "agent_skills_planning_with_files_scripts_ledger_append_ps1_agent_skills_planning_with_files_scripts_ledger_append",
+      "agent_skills_planning_with_files_scripts_ledger_append_resolve_plandir"
+    ],
+    "25": [
+      "agent_skills_planning_with_files_scripts_phase_status_enter_pwfdirectorylock",
+      "agent_skills_planning_with_files_scripts_phase_status_exit_pwfdirectorylock",
+      "agent_skills_planning_with_files_scripts_phase_status_ps1_agent_skills_planning_with_files_scripts_phase_status",
+      "agent_skills_planning_with_files_scripts_phase_status_resolve_planfile"
+    ],
+    "26": [
+      "agent_skills_planning_with_files_scripts_skill_hook",
+      "agent_skills_planning_with_files_scripts_skill_hook_select_python",
+      "agent_skills_planning_with_files_scripts_skill_hook_select_python_into_var",
+      "agent_skills_planning_with_files_scripts_skill_hook_sh__entry"
+    ],
+    "27": [
+      "agent_skills_planning_with_files_scripts_ledger_summary_emit_unavailable",
+      "agent_skills_planning_with_files_scripts_ledger_summary_sh__entry",
+      "agent_skills_planning_with_files_scripts_ledger_summary_sh_agent_skills_planning_with_files_scripts_ledger_summary"
+    ],
+    "28": [
+      "assets_js_navigation",
+      "assets_js_navigation_initmobilemenu",
+      "assets_js_navigation_initverticalnav"
+    ],
+    "29": [
+      "assets_js_theme",
+      "assets_js_theme_inittheme",
+      "assets_js_theme_toggletheme"
+    ],
+    "30": [
+      "agent_skills_planning_with_files_scripts_gate_stop",
+      "agent_skills_planning_with_files_scripts_gate_stop_sh__entry"
+    ],
+    "31": [
+      "agent_skills_planning_with_files_scripts_ledger_summary_ps1_agent_skills_planning_with_files_scripts_ledger_summary",
+      "agent_skills_planning_with_files_scripts_ledger_summary_resolve_plandir"
+    ],
+    "32": [
+      "assets_js_carousel",
+      "assets_js_carousel_startheroautoslide"
+    ],
+    "33": [
+      "assets_js_config",
+      "assets_js_config_config"
+    ],
+    "34": [
+      "assets_js_popup",
+      "assets_js_popup_initpopuptrigger"
+    ],
+    "35": [
+      "assets_js_translations",
+      "assets_js_translations_translations"
+    ],
+    "36": [
+      "assets_js_videos",
+      "assets_js_videos_video_content"
+    ],
+    "37": [
+      "assets_js_cookie_consent"
+    ],
+    "38": [
+      "assets_js_tabs"
+    ],
+    "39": [
+      "assets_js_video_modal"
+    ]
+  },
+  "cohesion": {
+    "0": 0.05462962962962963,
+    "1": 0.19073083778966132,
+    "2": 0.09666666666666666,
+    "3": 0.24,
+    "4": 0.1976284584980237,
+    "5": 0.19047619047619047,
+    "6": 0.11428571428571428,
+    "7": 0.20915032679738563,
+    "8": 0.14285714285714285,
+    "9": 0.2857142857142857,
+    "10": 0.3484848484848485,
+    "11": 0.42424242424242425,
+    "12": 0.2,
+    "13": 0.2909090909090909,
+    "14": 0.37777777777777777,
+    "15": 0.2222222222222222,
+    "16": 0.3888888888888889,
+    "17": 0.5,
+    "18": 0.2857142857142857,
+    "19": 0.5238095238095238,
+    "20": 0.6,
+    "21": 0.6,
+    "22": 0.4,
+    "23": 0.4,
+    "24": 0.5,
+    "25": 0.5,
+    "26": 0.8333333333333334,
+    "27": 1.0,
+    "28": 0.6666666666666666,
+    "29": 0.6666666666666666,
+    "30": 1.0,
+    "31": 1.0,
+    "32": 1.0,
+    "33": 1.0,
+    "34": 1.0,
+    "35": 1.0,
+    "36": 1.0,
+    "37": 1.0,
+    "38": 1.0,
+    "39": 1.0
+  },
+  "gods": [
+    {
+      "id": "agent_skills_planning_with_files_scripts_inject_plan_resolve_plan_dir",
+      "label": "resolve_plan_dir()",
+      "degree": 16
+    },
+    {
+      "id": "agent_skills_planning_with_files_scripts_inject_plan_sh__entry",
+      "label": "inject-plan.sh script",
+      "degree": 16
+    },
+    {
+      "id": "agent_skills_planning_with_files_scripts_inject_plan_injector",
+      "label": "Injector",
+      "degree": 14
+    },
+    {
+      "id": "agent_skills_planning_with_files_scripts_inject_plan_is_file",
+      "label": "is_file()",
+      "degree": 13
+    },
+    {
+      "id": "agent_skills_planning_with_files_scripts_set_active_plan_is_within_root",
+      "label": "is_within_root()",
+      "degree": 13
+    },
+    {
+      "id": "agent_skills_planning_with_files_scripts_inject_plan_claudedispatcher",
+      "label": "ClaudeDispatcher",
+      "degree": 12
+    },
+    {
+      "id": "agent_skills_planning_with_files_scripts_session_catchup_opencode_catchup",
+      "label": "opencode_catchup()",
+      "degree": 12
+    },
+    {
+      "id": "agent_skills_planning_with_files_scripts_inject_plan_session_attached",
+      "label": "session_attached()",
+      "degree": 12
+    },
+    {
+      "id": "agent_skills_planning_with_files_scripts_session_catchup_main",
+      "label": "main()",
+      "degree": 11
+    },
+    {
+      "id": "agent_skills_planning_with_files_scripts_inject_plan_py_agent_skills_planning_with_files_scripts_inject_plan_safe_snapshot",
+      "label": "safe_snapshot()",
+      "degree": 11
+    }
+  ],
+  "surprises": [
+    {
+      "source": "inject()",
+      "target": "Injector",
+      "source_files": [
+        ".agent/skills/planning-with-files/scripts/inject-plan.py",
+        ".agent/skills/planning-with-files/scripts/inject-plan.py"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "note": "Bridges community 5 → community 7"
+    },
+    {
+      "source": "main()",
+      "target": "ClaudeDispatcher",
+      "source_files": [
+        ".agent/skills/planning-with-files/scripts/inject-plan.py",
+        ".agent/skills/planning-with-files/scripts/inject-plan.py"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "note": "Bridges community 7 → community 2"
+    },
+    {
+      "source": "find_current_codex_session()",
+      "target": "os",
+      "source_files": [
+        ".agent/skills/planning-with-files/scripts/session-catchup.py",
+        ""
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "note": "Bridges community 0 → community 12"
+    },
+    {
+      "source": "resolve_plan_dir()",
+      "target": "is_dir()",
+      "source_files": [
+        ".agent/skills/planning-with-files/scripts/inject-plan.py",
+        ".agent/skills/planning-with-files/scripts/inject-plan.py"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "note": "Bridges community 12 → community 5"
+    },
+    {
+      "source": "main()",
+      "target": "pretool_cache()",
+      "source_files": [
+        ".agent/skills/planning-with-files/scripts/inject-plan.py",
+        ".agent/skills/planning-with-files/scripts/inject-plan.py"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "note": "Bridges community 2 → community 6"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `session_attached()` connect `Community 6` to `Community 0`, `Community 2`, `Community 12`, `Community 5`?",
+      "why": "High betweenness centrality (0.013) - this node is a cross-community bridge."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 0` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.05462962962962963 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `resolve_plan_dir()` connect `Community 12` to `Community 2`, `Community 5`, `Community 7`?",
+      "why": "High betweenness centrality (0.010) - this node is a cross-community bridge."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 2` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.09666666666666666 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `Injector` connect `Community 5` to `Community 2`, `Community 15`, `Community 7`?",
+      "why": "High betweenness centrality (0.008) - this node is a cross-community bridge."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 6` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.11428571428571428 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 8` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected."
+    }
+  ]
+}
